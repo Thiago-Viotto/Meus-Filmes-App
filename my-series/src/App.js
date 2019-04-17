@@ -8,6 +8,7 @@ import {
 
 import Home from '../src/Home'
 import NewSeries from '../src/NewSeries'
+import Series from '../src/Series'
 
 const About = () => <p>Sobre</p>
 
@@ -40,6 +41,7 @@ class App extends Component {
             </div>
           </nav>
           <Route exact path='/' component={Home} />
+          <Route path='/series/:genre' component={Series} />
           <Route exact path='/about' component={About} />
           <Route exact path='/new' component={NewSeries} />
         </div>

@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import api from './Api'
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
+
 
 class Home extends Component {
     constructor(props) {
@@ -30,7 +36,7 @@ class Home extends Component {
     // Retorna o link do gênero
     renderGenrerLink(genre) {
         return (
-            <span>&nbsp;<a href=''>{genre}</a></span>
+            <span key={genre}>&nbsp;<Link to={`/series/${genre}`}>{genre}</Link></span>
         )
     }
 
