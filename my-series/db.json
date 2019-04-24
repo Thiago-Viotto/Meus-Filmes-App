@@ -1,64 +1,25 @@
 {
   "series": [
     {
-      "id": 1,
-      "name": "How I met your mother",
-      "status": "watched",
-      "genre": "Comédia",
-      "comments": "Muito bom"
-    },
-    {
-      "id": 2,
-      "name": "Friends",
-      "status": "watching",
-      "genre": "Comédia",
-      "current": {
-        "episode": "01",
-        "season": "09"
-      },
-      "comments": "Bom para descontrair"
-    },
-    {
       "id": 3,
       "name": "Breaking Bad",
+      "comment": "undefined",
       "status": "watched",
-      "genre": "Drama",
-      "comments": "Say My Name - melhor cena"
+      "genre": "Drama"
     },
     {
       "id": 4,
-      "name": "Better Call Saul",
+      "name": "Better Call Saul 23",
+      "comment": "undefined",
+      "status": "toWatch",
+      "genre": "Drama"
+    },
+    {
+      "name": "Breaking Bad",
+      "comment": "",
       "status": "toWatch",
       "genre": "Drama",
-      "comments": "Galera fala bem"
-    },
-    {
-      "name": "sdsdsd",
-      "comment": "dssdsd",
-      "status": "watched",
-      "genre": "Comédia",
-      "id": 8
-    },
-    {
-      "name": "asassasaa",
-      "comment": "asassasa",
-      "status": "watched",
-      "genre": "Comédia",
-      "id": 9
-    },
-    {
-      "name": "sddssd",
-      "comment": "dsdsd",
-      "status": "watched",
-      "genre": "Comédia",
-      "id": 10
-    },
-    {
-      "name": "uuuuu",
-      "comment": "uuu",
-      "status": "watched",
-      "genre": "Comédia",
-      "id": 11
+      "id": 5
     }
   ],
   "genres": [
