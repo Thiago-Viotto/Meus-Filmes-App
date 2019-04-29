@@ -1,0 +1,2 @@
+- Planejamento minhas séries
+- Várias séries já cadastradas. O usuário irá selecionar a que quer assistir e adicionar em sua lista.

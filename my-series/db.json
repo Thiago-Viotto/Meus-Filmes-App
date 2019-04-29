@@ -2,24 +2,22 @@
   "series": [
     {
       "id": 3,
-      "name": "Breaking Bad",
-      "comment": "undefined",
-      "status": "watched",
-      "genre": "Drama"
+      "comment": "Olá",
+      "status": "toWatch"
     },
     {
-      "id": 4,
-      "name": "Better Call Saul 23",
-      "comment": "undefined",
-      "status": "toWatch",
-      "genre": "Drama"
-    },
-    {
+      "id": 5,
       "name": "Breaking Bad",
       "comment": "",
       "status": "toWatch",
+      "genre": "Comédia"
+    },
+    {
+      "name": "Game of thrones",
+      "comment": "",
+      "status": "toWatch",
       "genre": "Drama",
-      "id": 5
+      "id": 6
     }
   ],
   "genres": [

@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+          <nav id="menuColor" className="navbar navbar-default navbar-fixed-top" role="navigation">
             <div className="container">
               <div className="navbar-header page-scroll">
                 <a className="navbar-brand page-scroll" href="#page-top">
@@ -29,13 +29,13 @@ class App extends Component {
               <div className="collapse navbar-collapse navbar-ex1-collapse">
                 <ul className="nav navbar-nav">
                   <li>
-                    <Link to='/'>Home</Link>
+                    <Link to='/'><h4 className="titlesMenu">Home</h4></Link>
                   </li>
                   <li>
-                    <Link to='/new'>Nova Série</Link>
+                    <Link to='/new'><h4 className="titlesMenu">Nova Série</h4></Link>
                   </li>
                   <li>
-                    <Link to='/about'>Sobre</Link>
+                    <Link to='/about'><h4 className="titlesMenu">Sobre</h4></Link>
                   </li>
                 </ul>
               </div>

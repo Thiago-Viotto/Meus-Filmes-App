@@ -20,6 +20,7 @@ class EditSeries extends Component {
         }
 
         this.saveSeries = this.saveSeries.bind(this)
+
     }
 
     // O Componente está montado
@@ -68,21 +69,22 @@ class EditSeries extends Component {
                 {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1>Editar série</h1>
+                <h1>Favoritos</h1>
                 <form>
-                    Nome: <input type="text" ref="name" defaultValue={this.state.series.name} className="form-control" /> <br />
+                    Nome: <input type="text" ref="name" defaultValue={this.state.series.name} className="form-control" readOnly /> <br />
                     Status:
-                        <select ref="status">
+                        <select ref="status" >
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select> <br />
+                    </select> <br /> <br />
                     Genêro:
-                    <select ref="genre">
+                    <select ref="genre" disabled="disabled">
                         {
                             this.state.genres
                                 .map(key => <option key={key} value={key}>{key}</option>)
                         }
                     </select> <br /> <br />
-                    Comentários: <textarea ref="comment" className="form-control" /> <br />
+                    Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
+                    <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
                     <button type="button" onClick={this.saveSeries}>Salvar</button>
                 </form>
             </section>

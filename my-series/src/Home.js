@@ -7,6 +7,8 @@ import {
     Link
 } from 'react-router-dom'
 
+import "./css/Home.css"
+
 
 class Home extends Component {
     constructor(props) {
@@ -43,15 +45,15 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <section id="intro" className="intro-section">
+                <section id="cape" className="intro-section">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
                                 <h1><img src="images/logo.png" /></h1>
-                                <p>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</p>
+                                <h4 className="titlesMenu">Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</h4>
                             </div>
                         </div>
-                    </div>
+                </div>
                 </section>
 
                 <section>
@@ -60,6 +62,7 @@ class Home extends Component {
                     }
                     {!this.state.isLoading &&
                         <div>
+                            <br/>
                             Ver séries do gênero:
                 {this.state.genres.map(this.renderGenrerLink)}
                         </div>

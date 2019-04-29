@@ -1,0 +1,14 @@
+#cape{
+    background-image: url("../img/capa.jpg")
+}
+
+#menuColor{
+    background-color: darkslategray
+}
+
+.titlesMenu{
+    color: aliceblue;
+    text-shadow: 2px 1px black;
+    font-weight: bold;
+    font-size: 17px
+}
