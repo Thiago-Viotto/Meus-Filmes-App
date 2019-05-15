@@ -1,23 +1,20 @@
 {
   "series": [
     {
-      "id": 3,
-      "comment": "Olá",
-      "status": "toWatch"
-    },
-    {
-      "id": 5,
       "name": "Breaking Bad",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia"
+      "genre": "Drama",
+      "img": "https://www.tribunapr.com.br/wp-content/uploads/sites/1/2018/11/breaking-bad-825x550.jpg?a86372",
+      "id": 1
     },
     {
-      "name": "Game of thrones",
+      "id": 2,
+      "name": "The Walking Dead",
       "comment": "",
       "status": "toWatch",
       "genre": "Drama",
-      "id": 6
+      "img": "https://i.pinimg.com/originals/8b/02/c2/8b02c258994dd81c02a1411d60496a4a.jpg"
     }
   ],
   "genres": [

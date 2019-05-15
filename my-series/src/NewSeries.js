@@ -14,6 +14,7 @@ class NewSeries extends Component {
 
         this.state = {
             genres: [],
+            series: [],
             isLoading: false,
             redirect: false
         }
@@ -41,8 +42,10 @@ class NewSeries extends Component {
             name: this.refs.name.value,
             comment: this.refs.comment.value,
             status: this.refs.status.value,
-            genre: this.refs.genre.value
+            genre: this.refs.genre.value,
+            img: this.refs.urlImage.value
         }
+
         api.saveSeries(newSeries)
             .then((res) => {
                 this.setState({
@@ -50,6 +53,7 @@ class NewSeries extends Component {
                 })
             })
     }
+
 
     render() {
         return (
@@ -63,16 +67,17 @@ class NewSeries extends Component {
                     Status:
                         <select ref="status">
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select> <br />
-                    Genêro:
+                    </select> 
+                    &nbsp; Genêro:
                     <select ref="genre">
                         {
                             this.state.genres
                                 .map(key => <option key={key} value={key}>{key}</option>)
                         }
                     </select> <br /> <br />
-                    Comentários: <textarea ref="comment" className="form-control" /> <br />
-                    <button type="button" onClick={this.saveSeries}>Salvar</button>
+                    Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)"/> <br />
+                    URL da imagem: <input type="text" ref="urlImage" className="form-control" /> <br />
+                    <button type="button" onClick={this.saveSeries}>Salvar</button> <br /> <br />
                 </form>
             </section>
         )

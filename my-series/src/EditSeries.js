@@ -36,6 +36,7 @@ class EditSeries extends Component {
                 this.refs.genre.value = this.state.series.genre
                 this.refs.comment.value = this.state.series.comment
                 this.refs.status.value = this.state.series.status
+                this.refs.urlImage.value = this.state.series.urlImage
             })
 
         api.loadGenres()
@@ -53,7 +54,8 @@ class EditSeries extends Component {
             name: this.refs.name.value,
             comment: this.refs.comment.value,
             status: this.refs.status.value,
-            genre: this.refs.genre.value
+            genre: this.refs.genre.value,
+            img: this.refs.urlImage.value
         }
         api.updateSeries(newSeries)
             .then((res) => {
@@ -75,9 +77,9 @@ class EditSeries extends Component {
                     Status:
                         <select ref="status" >
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select> <br /> <br />
-                    Genêro:
-                    <select ref="genre" disabled="disabled">
+                    </select>
+                    &nbsp; Genêro:
+                    <select ref="genre">
                         {
                             this.state.genres
                                 .map(key => <option key={key} value={key}>{key}</option>)
@@ -85,6 +87,7 @@ class EditSeries extends Component {
                     </select> <br /> <br />
                     Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
                     <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
+                    URL da imagem: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img}/> <br />
                     <button type="button" onClick={this.saveSeries}>Salvar</button>
                 </form>
             </section>
