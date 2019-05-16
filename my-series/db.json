@@ -1,12 +1,12 @@
 {
   "series": [
     {
+      "id": 1,
       "name": "Breaking Bad",
       "comment": "",
-      "status": "toWatch",
+      "status": "watched",
       "genre": "Drama",
-      "img": "https://www.tribunapr.com.br/wp-content/uploads/sites/1/2018/11/breaking-bad-825x550.jpg?a86372",
-      "id": 1
+      "img": "https://feriasdecinema.com/wp-content/uploads/2017/04/breaking-bad-capa.jpg"
     },
     {
       "id": 2,

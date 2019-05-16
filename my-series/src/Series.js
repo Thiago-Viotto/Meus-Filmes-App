@@ -64,7 +64,7 @@ class Series extends Component {
                                     {series.genre} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <Link className="btn btn-success" to={'/series-edit'+series.id} >Editar </Link>
+                                <Link className="btn btn-success" to={'/series-edit'+series.id} >Editar </Link> &nbsp;
                                 <a className="btn btn-success" onClick={() => this.deleteSeries(series.id)}>Excluir</a>
                             </div>
                         </div>

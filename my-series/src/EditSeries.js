@@ -36,7 +36,6 @@ class EditSeries extends Component {
                 this.refs.genre.value = this.state.series.genre
                 this.refs.comment.value = this.state.series.comment
                 this.refs.status.value = this.state.series.status
-                this.refs.urlImage.value = this.state.series.urlImage
             })
 
         api.loadGenres()
@@ -79,7 +78,7 @@ class EditSeries extends Component {
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
                     </select>
                     &nbsp; Genêro:
-                    <select ref="genre">
+                    <select ref="genre" disabled="disable">
                         {
                             this.state.genres
                                 .map(key => <option key={key} value={key}>{key}</option>)
