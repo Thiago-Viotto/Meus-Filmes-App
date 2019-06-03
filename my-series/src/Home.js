@@ -40,10 +40,10 @@ class Home extends Component {
         // <h2 key={genre}>&nbsp;&nbsp;<Link to={`/series/${genre}`}>{genre}</Link></h2>
         //  <Link to={`/series/${genre}`}><span key={genre}>&nbsp;&nbsp;{genre}</span></Link>
         switch (genre) {
-            case "Comédia": return <Link to={`/series/${genre}`}><img border="0" alt={genre} src="https://pt.yousuenos.com/wp-content/uploads/sites/2/2016/11/comedia.jpg" width="400" height="300" />&nbsp;</Link>;
-            case "Drama": return <Link to={`/series/${genre}`}><img border="0" alt={genre} src="https://abrilexame.files.wordpress.com/2016/09/size_960_16_9_cena-do-filme-preda-me.jpg" width="400" height="300" />&nbsp;</Link>;
-            case "Ação": return <Link to={`/series/${genre}`}><img border="0" alt={genre} src="https://i.ytimg.com/vi/bAO7To97WCc/maxresdefault.jpg" width="400" height="300" />&nbsp;</Link>;
-            default: return <Link to={`/series/${genre}`}><img border="0" alt={genre} src="https://www.minhaserie.com.br/uploads/editor_pictures/000/049/562/content_pic.jpg" width="400" height="300" />&nbsp;</Link>;
+            case "Comédia": return <Link key={genre} to={`/series/${genre}`}><img border="0" alt={genre} src="https://pt.yousuenos.com/wp-content/uploads/sites/2/2016/11/comedia.jpg" width="400" height="300" />&nbsp;</Link>;
+            case "Drama": return <Link key={genre} to={`/series/${genre}`}><img border="0" alt={genre} src="https://abrilexame.files.wordpress.com/2016/09/size_960_16_9_cena-do-filme-preda-me.jpg" width="400" height="300" />&nbsp;</Link>;
+            case "Ação": return <Link key={genre} to={`/series/${genre}`}><img border="0" alt={genre} src="https://i.ytimg.com/vi/bAO7To97WCc/maxresdefault.jpg" width="400" height="300" />&nbsp;</Link>;
+            default: return <Link key={genre} to={`/series/${genre}`}><img border="0" alt={genre} src="https://www.minhaserie.com.br/uploads/editor_pictures/000/049/562/content_pic.jpg" width="400" height="300" />&nbsp;</Link>;
         }
     }
 
