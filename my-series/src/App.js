@@ -10,6 +10,7 @@ import Home from '../src/Home'
 import NewSeries from '../src/NewSeries'
 import EditSeries from '../src/EditSeries'
 import Series from '../src/Series'
+import Favorite from '../src/Favorite'
 
 const About = () => <p>Sobre</p>
 
@@ -35,6 +36,9 @@ class App extends Component {
                     <Link to='/new'><h4 className="titlesMenu">Nova Série</h4></Link>
                   </li>
                   <li>
+                    <Link to='/favorite'><h4 className="titlesMenu">Meus favoritos</h4></Link>
+                  </li>
+                  <li>
                     <Link to='/about'><h4 className="titlesMenu">Sobre</h4></Link>
                   </li>
                 </ul>
@@ -44,6 +48,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route path='/series-edit:id' component={EditSeries}/>
           <Route path='/series/:genre' component={Series} />
+          <Route path='/favorite' component={Favorite} />
           <Route exact path='/about' component={About} />
           <Route exact path='/new' component={NewSeries} />
         </div>

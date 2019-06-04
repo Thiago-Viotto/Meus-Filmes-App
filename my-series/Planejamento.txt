@@ -1,2 +1,6 @@
-- Planejamento minhas séries
-- Várias séries já cadastradas. O usuário irá selecionar a que quer assistir e adicionar em sua lista.
+- Planejamento minhas sï¿½ries
+- Vï¿½rias sï¿½ries jï¿½ cadastradas. O usuï¿½rio irï¿½ selecionar a que quer assistir e adicionar em sua lista.
+- BotÃ£o de adicionar nas sÃ©ries cadastradas. O usuÃ¡rio clica e Ã© redirecionado para uma nova pÃ¡gina que conterÃ¡ a sÃ©rie
+- O usuario clica na imagem da sÃ©rie e Ã© redirecionado para assistir com o player de vÃ­deo
+
+react-player = https://www.npmjs.com/package/react-player

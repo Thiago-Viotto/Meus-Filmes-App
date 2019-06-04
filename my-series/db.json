@@ -15,6 +15,15 @@
       "status": "toWatch",
       "genre": "Drama",
       "img": "https://i.pinimg.com/originals/8b/02/c2/8b02c258994dd81c02a1411d60496a4a.jpg"
+    },
+    {
+      "name": "teste",
+      "comment": "sdsdds",
+      "status": "watched",
+      "genre": "Comédia",
+      "img": "",
+      "isFavorite": true,
+      "id": 3
     }
   ],
   "genres": [

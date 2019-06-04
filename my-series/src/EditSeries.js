@@ -54,7 +54,8 @@ class EditSeries extends Component {
             comment: this.refs.comment.value,
             status: this.refs.status.value,
             genre: this.refs.genre.value,
-            img: this.refs.urlImage.value
+            img: this.refs.urlImage.value,
+            isFavorite: this.refs.name.value
         }
         api.updateSeries(newSeries)
             .then((res) => {
@@ -70,7 +71,7 @@ class EditSeries extends Component {
                 {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1>Favoritos</h1>
+                <h1>Editar série</h1>
                 <form>
                     Nome: <input type="text" ref="name" defaultValue={this.state.series.name} className="form-control" readOnly /> <br />
                     Status:
