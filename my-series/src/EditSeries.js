@@ -54,8 +54,7 @@ class EditSeries extends Component {
             comment: this.refs.comment.value,
             status: this.refs.status.value,
             genre: this.refs.genre.value,
-            img: this.refs.urlImage.value,
-            isFavorite: this.refs.name.value
+            img: this.refs.urlImage.value
         }
         api.updateSeries(newSeries)
             .then((res) => {

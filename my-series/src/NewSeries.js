@@ -44,7 +44,6 @@ class NewSeries extends Component {
             status: this.refs.status.value,
             genre: this.refs.genre.value,
             img: this.refs.urlImage.value,
-            isFavorite: false
         }
 
         api.saveSeries(newSeries)

@@ -1,6 +1,7 @@
 - Planejamento minhas s�ries
 - V�rias s�ries j� cadastradas. O usu�rio ir� selecionar a que quer assistir e adicionar em sua lista.
-- Botão de adicionar nas séries cadastradas. O usuário clica e é redirecionado para uma nova página que conterá a série
+- Botão de adicionar nas séries cadastradas. O usuário clica e é redirecionado para uma nova página que conterá a série - ok
+- Botão de remover dos favoritos. O usuário está dentro de favoritos e clica em removerFavoritos e a série retorna para o gênero anterior
 - O usuario clica na imagem da série e é redirecionado para assistir com o player de vídeo
 
 react-player = https://www.npmjs.com/package/react-player

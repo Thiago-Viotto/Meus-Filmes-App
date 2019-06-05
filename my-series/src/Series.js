@@ -39,32 +39,13 @@ class Series extends Component {
         // define que os dados estão sendo carregados
         this.setState({ isLoading: true })
 
-        api.loadSeriesbyId(this.props.match.params.id)
-            .then((res) => {
-                { this.setState({ series: res.data }) }
-                this.refs.name.value = this.state.series.name
-                this.refs.genre.value = this.state.series.genre
-                this.refs.comment.value = this.state.series.comment
-                this.refs.status.value = this.state.series.status
-                this.refs.isFavorite.value = this.state.series.isFavorite
-            })
-
-        api.loadGenres()
-            .then((res) => {
-                this.setState({
-                    isLoading: false,
-                    genres: res.data
-                })
-            })
-
         api.loadGenresbyGenrew(this.props.match.params.genre)
             .then((res) => {
                 this.setState({
                     isLoading: false,
-                    series: res.data,
+                    series: res.data
                 })
             })
-
 
     }
 
@@ -75,21 +56,18 @@ class Series extends Component {
             })
     }
 
-    addFavorite() {
+    addFavorite(favoriteSerie) {
         const myFavoriteSerie = {
-            id: this.props.match.params.id,
-            name: this.refs.name.value,
-            comment: this.refs.comment.value,
-            status: this.refs.status.value,
-            genre: this.refs.genre.value,
-            img: this.refs.urlImage.value,
-            isFavorite: true
+            id: favoriteSerie.id,
+            name: favoriteSerie.name,
+            comment: favoriteSerie.comment,
+            status: favoriteSerie.status,
+            genre: 'favorite',
+            img: favoriteSerie.img,
         }
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
-                this.setState({
-                    redirect: '/series/' + this.refs.genre.value
-                })
+                this.loadData()
             })
     }
 
@@ -110,7 +88,7 @@ class Series extends Component {
                                     {series.genre} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <a className="btn btn-primary" onClick={this.addFavorite} >Favoritos </a>
+                                <a className="btn btn-primary" onClick={() => this.addFavorite(series)} >Favoritos </a>
                                 <Link className="btn btn-success" to={'/series-edit' + series.id} >Editar </Link>
                                 <a className="btn btn-danger" onClick={() => this.deleteSeries(series.id)}>Excluir</a>
                             </div>
