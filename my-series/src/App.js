@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom'
 
 import Home from '../src/Home'
@@ -15,7 +16,6 @@ import Favorite from '../src/Favorite'
 const About = () => <p>Sobre</p>
 
 class App extends Component {
-
   render() {
     return (
       <Router>
@@ -36,7 +36,7 @@ class App extends Component {
                     <Link to='/new'><h4 className="titlesMenu">Nova Série</h4></Link>
                   </li>
                   <li>
-                    <Link to='series/favorite'><h4 className="titlesMenu">Meus favoritos</h4></Link>
+                    <Link to='/series/favorite'><h4 className="titlesMenu">Meus favoritos</h4></Link>
                   </li>
                   <li>
                     <Link to='/about'><h4 className="titlesMenu">Sobre</h4></Link>
@@ -46,8 +46,9 @@ class App extends Component {
             </div>
           </nav>
           <Route exact path='/' component={Home} />
-          <Route path='/series-edit:id' component={EditSeries}/>
-          <Route path='/series/:genre' component={Series} />
+          <Route path='/series-edit:id' component={EditSeries} />
+          <Route path='/series/:genre' component={withRouter(Series)} />
+          <Route path='/series/favorite' component={Favorite} />
           <Route exact path='/about' component={About} />
           <Route exact path='/new' component={NewSeries} />
         </div>

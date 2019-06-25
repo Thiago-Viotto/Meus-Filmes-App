@@ -10,6 +10,7 @@ export const loadGenresbyGenrew = (genre) => api.get('series?genre='+genre)
 export const deleteSeries = (id) => api.delete('series/'+id)
 export const loadSeriesbyId = (id) => api.get('series/'+id)
 export const updateSeries = (series) => api.put('series/'+series.id,series)
+export const loadSeriesbyFavorite = () => api.get('series?genre=favorite')
 
 // Interface com todas as apis
 const apis = {
@@ -18,7 +19,8 @@ const apis = {
     loadGenresbyGenrew: loadGenresbyGenrew,
     deleteSeries: deleteSeries,
     loadSeriesbyId: loadSeriesbyId,
-    updateSeries:updateSeries
+    updateSeries:updateSeries,
+    loadSeriesbyFavorite: loadSeriesbyFavorite
 }
 
 export default apis

@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom'
 
 import api from './Api'
-import Favorite from '../src/Favorite'
 
 const statuses = {
     "watched": "Assistido",
@@ -72,11 +71,11 @@ class Series extends Component {
     }
 
     renderSeries(series) {
+        /* this.setState({
+            redirect: '/series/' + this.refs.genre.value
+        }) */
         return (
             <div key={series.id} className="item col-xs-4 col-lg-4">
-                {this.state.redirect &&
-                    <Redirect to={this.state.redirect} ></Redirect>
-                }
                 <div className="thumbnail">
                     <img className="group list-group-image" src={series.img} alt="thumbnail of series" />
                     <div className="caption">
@@ -88,7 +87,7 @@ class Series extends Component {
                                     {series.genre} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <a className="btn btn-primary" onClick={() => this.addFavorite(series)} >Favoritos </a>
+                                <Link className="btn btn-primary" to={'/series/favorite'} onClick={() => this.addFavorite(series)} >Favoritos </Link>
                                 <Link className="btn btn-success" to={'/series-edit' + series.id} >Editar </Link>
                                 <a className="btn btn-danger" onClick={() => this.deleteSeries(series.id)}>Excluir</a>
                             </div>
@@ -100,20 +99,25 @@ class Series extends Component {
     }
 
     render() {
-        return (
-            <section id="intro" className="intro-section"><h1>Series {this.props.match.params.genre}</h1>
-                {this.isLoading &&
-                    <p>Carregando, aguarde...</p>
-                }
-                {!this.isLoading && this.state.series.length === 0 &&
-                    <div className='alert alert-info'>Nenhuma série cadastrada.</div>
-                }
-                <div id="series" className="row list-group">
-                    {!this.state.isLoading && this.state.series.map(this.renderSeries)}
+        if (this.props.match.params.genre !== 'favorite') {
+            return (
+                <section id="intro" className="intro-section">
+                    <h1>Series {this.props.match.params.genre}</h1>
+                    {this.isLoading &&
+                        <p>Carregando, aguarde...</p>
+                    }
+                    {!this.isLoading && this.state.series.length === 0 &&
+                        <div className='alert alert-info'>Nenhuma série cadastrada.</div>
+                    }
+                    <div id="series" className="row list-group">
+                        {!this.state.isLoading && this.state.series.map(this.renderSeries)}
 
-                </div>
-            </section>
-        )
+                    </div>
+                </section>
+            )
+        } else {
+            return null
+        }
     }
 
 

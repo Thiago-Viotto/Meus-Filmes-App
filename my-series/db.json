@@ -1,8 +1,40 @@
 {
   "series": [
     {
-      "id": 1,
-      "name": "ola",
+      "id": 9,
+      "name": "fdfddf",
+      "comment": "",
+      "status": "watched",
+      "genre": "favorite",
+      "img": ""
+    },
+    {
+      "id": 10,
+      "name": "dsdsddsdsd",
+      "comment": "",
+      "status": "watched",
+      "genre": "favorite",
+      "img": ""
+    },
+    {
+      "id": 11,
+      "name": "aaaaa",
+      "comment": "",
+      "status": "watched",
+      "genre": "favorite",
+      "img": ""
+    },
+    {
+      "id": 12,
+      "name": "dsdsdsddsds",
+      "comment": "",
+      "status": "watched",
+      "genre": "favorite",
+      "img": ""
+    },
+    {
+      "id": 13,
+      "name": "dssdaaaaasas",
       "comment": "",
       "status": "watched",
       "genre": "favorite",
