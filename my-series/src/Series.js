@@ -5,7 +5,7 @@ import {
     Link
 } from 'react-router-dom'
 
-import api from './Api'
+import api from './api'
 
 const statuses = {
     "watched": "Assistido",
