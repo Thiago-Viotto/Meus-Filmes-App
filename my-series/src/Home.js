@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import api from './Api'
+import api from './api'
 
 import {
     BrowserRouter as Router,

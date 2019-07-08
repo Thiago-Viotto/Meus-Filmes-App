@@ -5,7 +5,8 @@
       "name": "dssddsds",
       "comment": "",
       "status": "watched",
-      "genre": "Comédia",
+      "genreOld": "Comédia",
+      "genre": "favorite",
       "img": ""
     },
     {
@@ -23,6 +24,34 @@
       "status": "watched",
       "genre": "Drama",
       "img": ""
+    },
+    {
+      "id": 4,
+      "name": "Minha vida em Marte",
+      "comment": "",
+      "status": "watched",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": ""
+    },
+    {
+      "id": 5,
+      "name": "teste",
+      "comment": "",
+      "status": "watched",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": ""
+    },
+    {
+      "id": 6,
+      "name": "agora ou nunca",
+      "comment": "",
+      "status": "watched",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": "",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
     }
   ],
   "genres": [

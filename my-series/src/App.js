@@ -12,6 +12,7 @@ import NewSeries from '../src/NewSeries'
 import EditSeries from '../src/EditSeries'
 import Series from '../src/Series'
 import Favorite from '../src/Favorite'
+import VideoSeries from '../src/VideoSeries'
 
 const About = () => <p>Sobre</p>
 
@@ -46,6 +47,7 @@ class App extends Component {
             </div>
           </nav>
           <Route exact path='/' component={Home} />
+          <Route path='/series-video:id' component={VideoSeries} />
           <Route path='/series-edit:id' component={EditSeries} />
           <Route path='/series/:genre' component={withRouter(Series)} />
           <Route path='/series/favorite' component={Favorite} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import api from './Api'
+import api from './api'
 import { Redirect } from 'react-router-dom'
 
 const status = {
@@ -54,7 +54,8 @@ class EditSeries extends Component {
             comment: this.refs.comment.value,
             status: this.refs.status.value,
             genre: this.refs.genre.value,
-            img: this.refs.urlImage.value
+            img: this.refs.urlImage.value,
+            video: this.refs.urlVideo.value
         }
         api.updateSeries(newSeries)
             .then((res) => {
@@ -86,7 +87,8 @@ class EditSeries extends Component {
                     </select> <br /> <br />
                     Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
                     <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
-                    URL da imagem: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img}/> <br />
+                    URL do pôster: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img}/> <br />
+                    URL do video: <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video}/> <br />
                     <button type="button" onClick={this.saveSeries}>Salvar</button>
                 </form>
             </section>
