@@ -61,6 +61,7 @@ class Series extends Component {
             name: favoriteSerie.name,
             comment: favoriteSerie.comment,
             status: favoriteSerie.status,
+            genreOld: favoriteSerie.genre,
             genre: 'favorite',
             img: favoriteSerie.img,
         }
