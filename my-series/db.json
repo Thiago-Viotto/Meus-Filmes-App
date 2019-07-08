@@ -1,43 +1,27 @@
 {
   "series": [
     {
-      "id": 9,
-      "name": "fdfddf",
+      "id": 1,
+      "name": "dssddsds",
       "comment": "",
       "status": "watched",
-      "genre": "favorite",
+      "genre": "Comédia",
       "img": ""
     },
     {
-      "id": 10,
-      "name": "dsdsddsdsd",
+      "id": 2,
+      "name": "fddffdfd",
       "comment": "",
       "status": "watched",
-      "genre": "favorite",
+      "genre": "Ação",
       "img": ""
     },
     {
-      "id": 11,
-      "name": "aaaaa",
+      "id": 3,
+      "name": "sdsdsddsds",
       "comment": "",
       "status": "watched",
-      "genre": "favorite",
-      "img": ""
-    },
-    {
-      "id": 12,
-      "name": "dsdsdsddsds",
-      "comment": "",
-      "status": "watched",
-      "genre": "favorite",
-      "img": ""
-    },
-    {
-      "id": 13,
-      "name": "dssdaaaaasas",
-      "comment": "",
-      "status": "watched",
-      "genre": "favorite",
+      "genre": "Drama",
       "img": ""
     }
   ],
