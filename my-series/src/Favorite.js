@@ -33,9 +33,9 @@ class Series extends Component {
 
     loadData() {
         // define que os dados estão sendo carregados
-        this.setState({ isLoading: true})
+        this.setState({ isLoading: true })
 
-        api.loadSeriesbyFavorite(this.props.match.params.isFavorite)
+        api.loadSeriesbyFavorite()
             .then((res) => {
                 this.setState({
                     isLoading: false,
@@ -77,7 +77,7 @@ class Series extends Component {
 
     render() {
         return (
-            <section id="intro" className="intro-section"><h1>Series {this.props.match.params.genre}</h1>
+            <section id="intro" className="intro-section"><h1>Meus favoritos</h1>
                 {this.isLoading &&
                     <p>Carregando, aguarde...</p>
                 }
