@@ -52,6 +52,7 @@ class Series extends Component {
             status: serieRemove.status,
             genre: serieRemove.genreOld,
             img: serieRemove.img,
+            video: serieRemove.video
         }
         api.updateSeries(myNewSerie)
             .then((res) => {
@@ -74,7 +75,7 @@ class Series extends Component {
                                     {series.genre} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <Link className="btn btn-success" to={'/series-edit' + series.id} >Assistir série </Link>
+                                <Link className="btn btn-success" to={'/series-video' + series.id} >Assistir série </Link>
                                 <a className="btn btn-danger" onClick={() => this.removeFavorites(series)}>Remover dos favoritos</a>
                             </div>
                         </div>

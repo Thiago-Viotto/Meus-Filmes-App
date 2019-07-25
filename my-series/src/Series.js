@@ -64,6 +64,7 @@ class Series extends Component {
             genreOld: favoriteSerie.genre,
             genre: 'favorite',
             img: favoriteSerie.img,
+            video: favoriteSerie.video
         }
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
