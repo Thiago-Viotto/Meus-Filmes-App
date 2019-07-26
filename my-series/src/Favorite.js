@@ -72,7 +72,7 @@ class Series extends Component {
                         <div className="row">
                             <div className="col-xs-12 col-md-6">
                                 <p className="lead">
-                                    {series.genre} / {statuses[series.status]}</p>
+                                    {series.genreOld} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
                                 <Link className="btn btn-success" to={'/series-video' + series.id} >Assistir série </Link>
