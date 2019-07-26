@@ -5,34 +5,38 @@
       "name": "dssddsds",
       "comment": "",
       "status": "watched",
-      "genreOld": "Comédia",
       "genre": "favorite",
-      "img": ""
+      "img": "",
+      "video": "<br/>"
     },
     {
       "id": 2,
       "name": "fddffdfd",
       "comment": "",
       "status": "watched",
-      "genre": "Ação",
-      "img": ""
+      "genreOld": "Ação",
+      "genre": "favorite",
+      "img": "",
+      "video": "<br/><br/><br/>"
     },
     {
       "id": 3,
       "name": "sdsdsddsds",
       "comment": "",
       "status": "watched",
-      "genre": "Drama",
-      "img": ""
+      "genreOld": "Drama",
+      "genre": "favorite",
+      "img": "",
+      "video": "https://www.facebook.com/HavaianasBrasil/videos/545632969304287/?t=2"
     },
     {
       "id": 4,
       "name": "Minha vida em Marte",
       "comment": "",
       "status": "watched",
-      "genreOld": "Comédia",
-      "genre": "favorite",
-      "img": ""
+      "genre": "",
+      "img": "",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
       "id": 5,
@@ -41,7 +45,8 @@
       "status": "watched",
       "genreOld": "Comédia",
       "genre": "favorite",
-      "img": ""
+      "img": "",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
       "id": 6,

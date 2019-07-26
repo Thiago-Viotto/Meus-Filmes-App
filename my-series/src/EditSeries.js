@@ -77,14 +77,9 @@ class EditSeries extends Component {
                     Status:
                         <select ref="status" >
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select>
-                    &nbsp; Genêro:
-                    <select ref="genre" disabled="disable">
-                        {
-                            this.state.genres
-                                .map(key => <option key={key} value={key}>{key}</option>)
-                        }
-                    </select> <br /> <br />
+                    </select> 
+                    <br/> <br/>
+                    Gênero: <input type="text" ref="genre" defaultValue={this.state.series.genre} className="form-control" readOnly /> <br />
                     Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
                     <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
                     URL do pôster: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img}/> <br />
