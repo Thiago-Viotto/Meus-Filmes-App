@@ -39,7 +39,6 @@ class VideoSeries extends Component {
     }
 
     render() {
-        console.log(this.state.series.video)
         if (!this.state.series.video) {
             return (
                 <section id="intro" className="intro-section">

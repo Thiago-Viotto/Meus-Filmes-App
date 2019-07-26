@@ -33,7 +33,11 @@ class EditSeries extends Component {
             .then((res) => {
                 { this.setState({ series: res.data }) }
                 this.refs.name.value = this.state.series.name
-                this.refs.genre.value = this.state.series.genre
+                if(this.state.series.genre == 'favorite'){
+                    this.refs.genre.value = this.state.series.genreOld
+                } else {
+                    this.refs.genre.value = this.state.series.genre
+                }
                 this.refs.comment.value = this.state.series.comment
                 this.refs.status.value = this.state.series.status
             })

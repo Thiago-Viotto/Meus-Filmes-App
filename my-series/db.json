@@ -2,22 +2,23 @@
   "series": [
     {
       "id": 1,
-      "name": "dssddsds",
+      "name": "Este 2",
       "comment": "",
       "status": "watched",
+      "genreOld": "Comédia",
       "genre": "favorite",
       "img": "",
-      "video": "<br/>"
+      "video": ""
     },
     {
       "id": 2,
-      "name": "fddffdfd",
+      "name": "Este",
       "comment": "",
       "status": "watched",
       "genreOld": "Ação",
       "genre": "favorite",
       "img": "",
-      "video": "<br/><br/><br/>"
+      "video": ""
     },
     {
       "id": 3,
