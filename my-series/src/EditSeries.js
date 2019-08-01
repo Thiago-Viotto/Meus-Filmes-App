@@ -33,7 +33,7 @@ class EditSeries extends Component {
             .then((res) => {
                 { this.setState({ series: res.data }) }
                 this.refs.name.value = this.state.series.name
-                if(this.state.series.genre == 'favorite'){
+                if (this.state.series.genre == 'favorite') {
                     this.refs.genre.value = this.state.series.genreOld
                 } else {
                     this.refs.genre.value = this.state.series.genre
@@ -51,6 +51,19 @@ class EditSeries extends Component {
             })
     }
 
+    validURL(str) {
+        let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+        return (!regex.test(str)) ? false : true;
+    }
+
+    validName(name) {
+        if ((name === '') || (name === ' ')) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     saveSeries() {
         const newSeries = {
             id: this.props.match.params.id,
@@ -61,12 +74,22 @@ class EditSeries extends Component {
             img: this.refs.urlImage.value,
             video: this.refs.urlVideo.value
         }
-        api.updateSeries(newSeries)
-            .then((res) => {
-                this.setState({
-                    redirect: '/series/' + this.refs.genre.value
+
+        let isValidName = this.validName(newSeries.name)
+        let isValidVideo = this.validURL(newSeries.video)
+        isValidVideo = this.validURL(newSeries.img)
+
+        if ((isValidVideo == true) && (isValidName === true)) {
+            api.updateSeries(newSeries)
+                .then((res) => {
+                    this.setState({
+                        redirect: '/series/' + this.refs.genre.value
+                    })
                 })
-            })
+        } else if (isValidVideo === false) {
+            alert("Por favor, entre com uma URL válida");
+        } else if (isValidName === false)
+            alert("Por favor, entre com um nome válido");
     }
 
     render() {
@@ -81,13 +104,13 @@ class EditSeries extends Component {
                     Status:
                         <select ref="status" >
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select> 
-                    <br/> <br/>
+                    </select>
+                    <br /> <br />
                     Gênero: <input type="text" ref="genre" defaultValue={this.state.series.genre} className="form-control" readOnly /> <br />
                     Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
-                    <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
-                    URL do pôster: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img}/> <br />
-                    URL do video: <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video}/> <br />
+                    <img src={this.state.series.img} width="400" height="300"></img> <br /> <br />
+                    URL do pôster: <input type="url" ref="urlImage" className="form-control" defaultValue={this.state.series.img} /> <br />
+                    URL do video: <input type="url" ref="urlVideo" className="form-control" defaultValue={this.state.series.video} /> <br />
                     <button type="button" onClick={this.saveSeries}>Salvar</button>
                 </form>
             </section>
