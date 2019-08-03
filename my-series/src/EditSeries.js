@@ -86,8 +86,8 @@ class EditSeries extends Component {
                     Gênero: <input type="text" ref="genre" defaultValue={this.state.series.genre} className="form-control" readOnly /> <br />
                     Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
                     <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
-                    URL do pôster: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img}/> <br />
-                    URL do video: <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video}/> <br />
+                    URL do pôster: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
+                    URL do video: <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video} placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo"/> <br />
                     <button type="button" onClick={this.saveSeries}>Salvar</button>
                 </form>
             </section>

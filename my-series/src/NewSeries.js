@@ -77,8 +77,8 @@ class NewSeries extends Component {
                         }
                     </select> <br /> <br />
                     Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)"/> <br />
-                    URL do pôster: <input type="text" ref="urlImage" className="form-control" /> <br />
-                    URL do vídeo: <input type="text" ref="urlVideo" className="form-control" /> <br />
+                    URL do pôster: <input type="text" ref="urlImage" className="form-control" placeholder="Adicione o link da URL da imagem" /> <br />
+                    URL do vídeo: <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
                     <button type="button" onClick={this.saveSeries}>Salvar</button> <br /> <br />
                 </form>
             </section>
