@@ -12,3 +12,33 @@
     font-weight: bold;
     font-size: 17px
 }
+
+.intro-new-edit{
+    margin-top: 130px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #f2f2f2
+}
+
+.h1AddEdit{
+    text-align: center
+}
+
+.btnSaveSeries{
+    margin:auto;
+    display:block;
+    background-color: #2f4f4f; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.statusGenres{
+    width: 100%;
+    display: inline-block;
+    text-align: center
+}
