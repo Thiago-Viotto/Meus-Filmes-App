@@ -37,6 +37,19 @@ class NewSeries extends Component {
             })
     }
 
+    validURL(str) {
+        let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+        return (!regex.test(str)) ? false : true;
+    }
+
+    validName(name){
+        if((name === '') || (name === ' ')){
+            return false
+        } else {
+            return true
+        }
+    }
+
     saveSeries() {
         const newSeries = {
             name: this.refs.name.value,
@@ -47,12 +60,21 @@ class NewSeries extends Component {
             video: this.refs.urlVideo.value
         }
 
-        api.saveSeries(newSeries)
-            .then((res) => {
-                this.setState({
-                    redirect: '/series/' + this.refs.genre.value
+        let isValidName = this.validName(newSeries.name)
+        let isValidVideo = this.validURL(newSeries.video)
+        isValidVideo = this.validURL(newSeries.img)
+
+        if ((isValidVideo === true) && (isValidName === true)) {
+            api.saveSeries(newSeries)
+                .then((res) => {
+                    this.setState({
+                        redirect: '/series/' + this.refs.genre.value
+                    })
                 })
-            })
+        } else if(isValidVideo === false){
+            alert("Por favor, entre com uma URL válida");
+        } else if(isValidName === false)
+            alert("Por favor, entre com um nome válido");
     }
 
 
@@ -69,11 +91,11 @@ class NewSeries extends Component {
                     </div>
                     <div className="statusGenres">
                     Status:
-                        <select ref="status">
+                        <select ref="status" required>
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select> 
+                    </select>
                     &nbsp; Genêro:
-                    <select ref="genre">
+                    <select ref="genre" required>
                         {
                             this.state.genres
                                 .map(key => <option key={key} value={key}>{key}</option>)

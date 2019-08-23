@@ -38,8 +38,12 @@ class VideoSeries extends Component {
             })
     }
 
+    validVideo(url) {
+        return (ReactPlayer.canPlay(url)) ? true : false
+    }
+
     render() {
-        if (!this.state.series.video) {
+        if (!this.validVideo(this.state.series.video)) {
             return (
                 <section id="intro" className="intro-section">
                     <h1>Não foi possível carregar :(</h1>
