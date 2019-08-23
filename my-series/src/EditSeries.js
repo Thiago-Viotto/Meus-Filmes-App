@@ -71,24 +71,30 @@ class EditSeries extends Component {
 
     render() {
         return (
-            <section className='intro-section'>
+            <section className='intro-new-edit'>
                 {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1>Editar série</h1>
+                <h1 className="h1AddEdit">Editar série</h1>
                 <form>
-                    Nome: <input type="text" ref="name" defaultValue={this.state.series.name} className="form-control" readOnly /> <br />
+                    <div className="intro-group">
+                        Nome <input type="text" ref="name" defaultValue={this.state.series.name} className="form-control" readOnly /> <br />
+                    </div>
+                    <div className="statusGenres">
                     Status:
                         <select ref="status" >
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
                     </select> 
                     <br/> <br/>
-                    Gênero: <input type="text" ref="genre" defaultValue={this.state.series.genre} className="form-control" readOnly /> <br />
-                    Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
-                    <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
-                    URL do pôster: <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
-                    URL do video: <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video} placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo"/> <br />
-                    <button type="button" onClick={this.saveSeries}>Salvar</button>
+                    </div>
+                    Gênero <input type="text" ref="genre" defaultValue={this.state.series.genre} className="form-control" readOnly /> <br />
+                    Comentários <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
+                    <div className="statusGenres">
+                        <img src={this.state.series.img} width="400" height="300"></img> <br /> <br /> 
+                    </div>
+                    URL do pôster <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
+                    URL do video <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video} placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo"/> <br />
+                    <button type="button" onClick={this.saveSeries} className="btnSaveSeries">Salvar</button>
                 </form>
             </section>
         )

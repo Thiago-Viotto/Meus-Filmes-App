@@ -58,13 +58,16 @@ class NewSeries extends Component {
 
     render() {
         return (
-            <section className='intro-section'>
+            <section className='intro-new-edit'>
                 {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1>Nova série</h1>
+                <h1 className="h1AddEdit">Nova série</h1>
                 <form>
-                    Nome: <input type="text" ref="name" className="form-control" /> <br />
+                    <div className="intro-group">
+                    Nome <input type="text" ref="name" className="form-control" /> <br />
+                    </div>
+                    <div className="statusGenres">
                     Status:
                         <select ref="status">
                         {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
@@ -76,10 +79,11 @@ class NewSeries extends Component {
                                 .map(key => <option key={key} value={key}>{key}</option>)
                         }
                     </select> <br /> <br />
-                    Comentários: <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)"/> <br />
-                    URL do pôster: <input type="text" ref="urlImage" className="form-control" placeholder="Adicione o link da URL da imagem" /> <br />
-                    URL do vídeo: <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
-                    <button type="button" onClick={this.saveSeries}>Salvar</button> <br /> <br />
+                    </div>
+                    Comentários <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)"/> <br />
+                    URL do pôster <input type="text" ref="urlImage" className="form-control" placeholder="Adicione o link da URL da imagem" /> <br />
+                    URL do vídeo <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
+                    <button type="button" onClick={this.saveSeries} className="btnSaveSeries">Salvar</button> <br /> <br />
                 </form>
             </section>
         )
