@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import { Base64 } from 'js-base64';
 
 import {
     Link
@@ -27,6 +28,10 @@ class Series extends Component {
         this.renderSeries = this.renderSeries.bind(this)
         this.loadData = this.loadData.bind(this)
         this.addFavorite = this.addFavorite.bind(this)
+        
+        const test = Base64.encode('images/logo.png')
+        console.log(test)
+        console.log(Base64.decode(test))
     }
 
     // O Componente está montado
