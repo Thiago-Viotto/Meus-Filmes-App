@@ -3,8 +3,14 @@
 ## Install Node
 - https://nodejs.org/en/download/
 
+## Install yarn
+- https://yarnpkg.com/pt-BR/docs/install#windows-stable
+
 ## Start json-server
-- json-server --watch db.json --port 3001
+- yarn json
+
+## Start nodemon
+- yarn dev
 
 ## Start application
-- npm start
+- yarn start
