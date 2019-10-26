@@ -1,35 +1,6 @@
 {
   "series": [
     {
-      "id": 1,
-      "name": "Este 2",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "",
-      "video": ""
-    },
-    {
-      "id": 2,
-      "name": "Este",
-      "comment": "",
-      "status": "watched",
-      "genreOld": "Ação",
-      "genre": "favorite",
-      "img": "",
-      "video": ""
-    },
-    {
-      "id": 3,
-      "name": "sdsdsddsds",
-      "comment": "",
-      "status": "watched",
-      "genreOld": "Drama",
-      "genre": "favorite",
-      "img": "",
-      "video": "https://www.facebook.com/HavaianasBrasil/videos/545632969304287/?t=2"
-    },
-    {
       "id": 4,
       "name": "Minha vida em Marte",
       "comment": "",
@@ -39,88 +10,42 @@
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
-      "id": 5,
-      "name": "teste",
+      "name": "23wfffaf",
+      "comment": "",
+      "status": "watched",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/13902086_1013499835438078_1685677207_o.jpg",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
+      "id": 21
+    },
+    {
+      "name": "teste 3",
+      "comment": "",
+      "status": "watched",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
+      "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI",
+      "id": 25
+    },
+    {
+      "id": 26,
+      "name": "teste 4",
       "comment": "",
       "status": "watched",
       "genreOld": "Comédia",
       "genre": "favorite",
-      "img": "",
-      "video": "https://youtu.be/DiLbV-X_-Q0"
+      "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
+      "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
     },
     {
-      "id": 6,
-      "name": "agora ou nunca",
-      "comment": "",
-      "status": "watched",
-      "genreOld": "Comédia",
-      "genre": "favorite",
-      "img": "",
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
-    },
-    {
-      "id": 7,
-      "name": "Link errado",
+      "id": 27,
+      "name": "The Walking Dead - T10 EP03",
       "comment": "",
       "status": "toWatch",
-      "genreOld": "Drama",
+      "genreOld": "Ação",
       "genre": "favorite",
-      "img": "",
-      "video": "ssdsddssdds"
-    },
-    {
-      "id": 8,
-      "name": "",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "https://www.youtube.com/",
-      "video": "https://www.google.com"
-    },
-    {
-      "name": "",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "https://www.youtube.com/",
-      "video": "https://www.youtube.com/",
-      "id": 9
-    },
-    {
-      "name": "",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "https://www.youtube.com/",
-      "video": "https://www.youtube.com/",
-      "id": 10
-    },
-    {
-      "name": "",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "https://www.youtube.com/",
-      "video": "https://www.youtube.com/",
-      "id": 11
-    },
-    {
-      "name": "",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "https://www.youtube.com/",
-      "video": "https://www.youtube.com/",
-      "id": 12
-    },
-    {
-      "name": "   ",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "https://www.youtube.com/",
-      "video": "https://www.youtube.com/",
-      "id": 13
+      "img": "http://localhost:3000/images/TWD_905_GP_0618_0158_RT.0.jpg",
+      "video": "https://www.youtube.com/watch?v=ZDRQQi5qKYo"
     }
   ],
   "genres": [
