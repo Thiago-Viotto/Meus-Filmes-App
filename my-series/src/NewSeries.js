@@ -19,7 +19,8 @@ class NewSeries extends Component {
             series: [],
             isLoading: false,
             redirect: false,
-            selectedFile: null
+            selectedFile: null,
+            persons: []
         }
 
         this.saveSeries = this.saveSeries.bind(this)
@@ -63,18 +64,21 @@ class NewSeries extends Component {
                 console.log(res.statusText)
             })
 
+        let valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
+
+        console.log(valueURLImg)
+
         const newSeries = {
             name: this.refs.name.value,
             comment: this.refs.comment.value,
             status: this.refs.status.value,
             genre: this.refs.genre.value,
-            img: this.refs.urlImage.value,
+            img: valueURLImg,
             video: this.refs.urlVideo.value
         }
 
         let isValidName = this.validName(newSeries.name)
         let isValidVideo = this.validURL(newSeries.video)
-        isValidVideo = this.validURL(newSeries.img)
 
         if ((isValidVideo === true) && (isValidName === true)) {
             api.saveSeries(newSeries)
@@ -88,7 +92,6 @@ class NewSeries extends Component {
         } else if (isValidName === false)
             alert("Por favor, entre com um nome válido");
     }
-
 
     onChangeHandler = event => {
         this.setState({
@@ -122,7 +125,6 @@ class NewSeries extends Component {
                         </select> <br /> <br />
                     </div>
                     Comentários <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
-                    URL do pôster <input type="text" ref="urlImage" className="form-control" placeholder="Adicione o link da URL da imagem" /> <br />
                     Faça upload do pôster <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
                     URL do vídeo <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
                     <button type="button" onClick={this.saveSeries} className="btnSaveSeries">Salvar</button> <br /> <br />

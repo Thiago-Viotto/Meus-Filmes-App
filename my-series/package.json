@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "json": "json-server --watch db.json --port 3001",
+    "dev": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
