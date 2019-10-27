@@ -71,7 +71,7 @@ class NewSeries extends Component {
         const newSeries = {
             name: this.refs.name.value,
             comment: this.refs.comment.value,
-            status: this.refs.status.value,
+            status: 'toWatch',
             genre: this.refs.genre.value,
             img: valueURLImg,
             video: this.refs.urlVideo.value
@@ -112,10 +112,6 @@ class NewSeries extends Component {
                         Nome <input type="text" ref="name" className="form-control" /> <br />
                     </div>
                     <div className="statusGenres">
-                        Status:
-                        <select ref="status" required>
-                            {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                        </select>
                         &nbsp; Genêro:
                     <select ref="genre" required>
                             {

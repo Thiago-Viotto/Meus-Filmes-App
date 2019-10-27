@@ -36,10 +36,28 @@ class VideoSeries extends Component {
                     genres: res.data
                 })
             })
+
     }
 
     validVideo(url) {
         return (ReactPlayer.canPlay(url)) ? true : false
+    }
+
+    // altera o status para assistido quando o usuário clicar em Assistir
+    changeStatus(serie) {
+        const myNewSerie = {
+            id: serie.id,
+            name: serie.name,
+            comment: serie.comment,
+            status: 'watched',
+            genre: serie.genre,
+            genreOld: serie.genreOld,
+            img: serie.img,
+            video: serie.video
+        }
+        api.updateSeries(myNewSerie)
+            .then((res) => {
+            })
     }
 
     render() {
@@ -59,18 +77,26 @@ class VideoSeries extends Component {
             )
         } else {
             return (
-                <div className='player-wrapper'>
-                    <ReactPlayer
-                        className='react-player'
-                        url={this.state.series.video}
-                        width='100%'
-                        height='100%'
-                        controls={true}
-                    />
+                <div>
+                    <div className='player-wrapper'>
+                        <ReactPlayer
+                            className='react-player'
+                            url={this.state.series.video}
+                            width='95%'
+                            height='95%'
+                            controls={true}
+                        />
+
+                    </div>
+
+                    <div className='watched'>
+                        <span>Já assistiu?</span>
+                        <Link className="btn btn-success" to={'/series/favorite'}>
+                            <span onClick={() => this.changeStatus(this.state.series)}>Sim</span></Link>
+                    </div>
                 </div>
             )
         }
-
     }
 }
 

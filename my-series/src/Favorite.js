@@ -60,6 +60,24 @@ class Series extends Component {
             })
     }
 
+    // altera o status para assistindo quando o usuário clicar em Assistir
+    changeStatus(serie){
+        const myNewSerie = {
+            id: serie.id,
+            name: serie.name,
+            comment: serie.comment,
+            status: 'watching',
+            genre: serie.genre,
+            genreOld: serie.genreOld,
+            img: serie.img,
+            video: serie.video
+        }
+        api.updateSeries(myNewSerie)
+            .then((res) => {
+            })
+
+    }
+
 
     renderSeries(series) {
         return (
@@ -75,7 +93,8 @@ class Series extends Component {
                                     {series.genreOld} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <Link className="btn btn-success" to={'/series-video' + series.id} >Assistir série </Link>
+                                <Link className="btn btn-success" to={'/series-video' + series.id}>
+                                    <span onClick={() => this.changeStatus(series)}>Assistir série</span> </Link>
                                 <a className="btn btn-danger" onClick={() => this.removeFavorites(series)}>Remover dos favoritos</a>
                             </div>
                         </div>

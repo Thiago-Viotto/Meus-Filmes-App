@@ -39,7 +39,6 @@ class EditSeries extends Component {
                     this.refs.genre.value = this.state.series.genre
                 }
                 this.refs.comment.value = this.state.series.comment
-                this.refs.status.value = this.state.series.status
             })
 
         api.loadGenres()
@@ -69,7 +68,7 @@ class EditSeries extends Component {
             id: this.props.match.params.id,
             name: this.refs.name.value,
             comment: this.refs.comment.value,
-            status: this.refs.status.value,
+            status: this.state.series.status,
             genre: this.refs.genre.value,
             img: this.refs.urlImage.value,
             video: this.refs.urlVideo.value
@@ -102,13 +101,6 @@ class EditSeries extends Component {
                 <form>
                     <div className="intro-group">
                         Nome <input type="text" ref="name" defaultValue={this.state.series.name} className="form-control" readOnly /> <br />
-                    </div>
-                    <div className="statusGenres">
-                    Status:
-                        <select ref="status" >
-                        {Object.keys(status).map(key => <option key={key} value={key}>{status[key]}</option>)}
-                    </select> 
-                    <br/> <br/>
                     </div>
                     Gênero <input type="text" ref="genre" defaultValue={this.state.series.genre} className="form-control" readOnly /> <br />
                     Comentários <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />

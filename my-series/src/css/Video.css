@@ -1,10 +1,24 @@
 .player-wrapper {
-    position: relative;
-    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
-  }
+  position: relative;
+  padding-top: 60%; /* Player ratio: 100 / (1280 / 720) */
+}
 
-  .react-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+.react-player {
+  position: absolute; 
+  top: 0;
+  left: 3%;
+  margin-left: -9px;
+  margin-top: 30px;
+}
+
+.watched span  {
+  margin:auto; 
+  display:block; 
+  text-align: center;
+}
+
+.btn {
+  margin:auto; 
+  display: table; 
+  text-align: center;
+}
