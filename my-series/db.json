@@ -46,6 +46,26 @@
       "genreOld": "Ação",
       "img": "http://localhost:3000/images/TWD_905_GP_0618_0158_RT.0.jpg",
       "video": "https://www.youtube.com/watch?v=ZDRQQi5qKYo"
+    },
+    {
+      "id": 28,
+      "name": "O Máskara",
+      "comment": "",
+      "status": "toWatch",
+      "genreOld": "Ação",
+      "genre": "favorite",
+      "img": "http://localhost:3000/images/o-maskara-1024x576.jpg",
+      "video": "https://www.youtube.com/watch?v=fZpm99bgezM"
+    },
+    {
+      "id": 29,
+      "name": "O preço do amanhã",
+      "comment": "",
+      "status": "toWatch",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": "http://localhost:3000/images/19874732.jpg-c_215_290_x-f_jpg-q_x-xxyxx.jpg",
+      "video": "https://www.youtube.com/watch?v=euQrskSt1eY"
     }
   ],
   "genres": [

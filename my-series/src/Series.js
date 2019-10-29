@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from 'react-router-dom'
 import { Base64 } from 'js-base64';
 
@@ -29,10 +31,10 @@ class Series extends Component {
         this.renderSeries = this.renderSeries.bind(this)
         this.loadData = this.loadData.bind(this)
         this.addFavorite = this.addFavorite.bind(this)
-        
-      //  const test = Base64.encode('images/logo.png')
-      //  console.log(test)
-      //  console.log(Base64.decode(test))
+
+        //  const test = Base64.encode('images/logo.png')
+        //  console.log(test)
+        //  console.log(Base64.decode(test))
     }
 
     // O Componente está montado
@@ -73,14 +75,18 @@ class Series extends Component {
         }
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
-                this.loadData()
+                this.notify(myFavoriteSerie)
+                setTimeout(function () {
+                    window.location.reload(false);
+                }, 2500);
             })
     }
 
+    notify(myFavoriteSerie) {
+        toast('O filme ' + '"' + myFavoriteSerie.name + '"' + ' foi adicionado em Meus favoritos', { autoClose: 2500 });
+    }
+
     renderSeries(series) {
-        /* this.setState({
-            redirect: '/series/' + this.refs.genre.value
-        }) */
         return (
             <div key={series.id} className="item col-xs-4 col-lg-4">
                 <div className="thumbnail">
@@ -94,7 +100,8 @@ class Series extends Component {
                                     {series.genre} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <Link className="btn btn-primary" to={'/series/favorite'} onClick={() => this.addFavorite(series)} >Favoritos </Link>
+                                <ToastContainer />
+                                <Link className="btn btn-primary" onClick={() => this.addFavorite(series)} >Favoritos </Link>
                                 <Link className="btn btn-success" to={'/series-edit' + series.id} >Editar </Link>
                                 <a className="btn btn-danger" onClick={() => this.deleteSeries(series.id)}>Excluir</a>
                             </div>
