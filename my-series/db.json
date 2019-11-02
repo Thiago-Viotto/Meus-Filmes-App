@@ -14,8 +14,7 @@
       "name": "23wfffaf",
       "comment": "",
       "status": "watched",
-      "genreOld": "Comédia",
-      "genre": "favorite",
+      "genre": "Comédia",
       "img": "http://localhost:3000/images/13902086_1013499835438078_1685677207_o.jpg",
       "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
     },
@@ -32,8 +31,7 @@
       "name": "teste 4",
       "comment": "",
       "status": "watching",
-      "genre": "favorite",
-      "genreOld": "Comédia",
+      "genre": "Comédia",
       "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
       "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
     },
@@ -52,20 +50,27 @@
       "name": "O Máskara",
       "comment": "",
       "status": "toWatch",
-      "genreOld": "Ação",
-      "genre": "favorite",
+      "genre": "Ação",
       "img": "http://localhost:3000/images/o-maskara-1024x576.jpg",
       "video": "https://www.youtube.com/watch?v=fZpm99bgezM"
     },
     {
-      "id": 29,
-      "name": "O preço do amanhã",
+      "id": 30,
+      "name": "terra",
       "comment": "",
       "status": "toWatch",
-      "genreOld": "Comédia",
-      "genre": "favorite",
-      "img": "http://localhost:3000/images/19874732.jpg-c_215_290_x-f_jpg-q_x-xxyxx.jpg",
-      "video": "https://www.youtube.com/watch?v=euQrskSt1eY"
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/terra-selvagem-destaque.jpg",
+      "video": "https://www.youtube.com/watch?v=7iYICSBJbso"
+    },
+    {
+      "id": 31,
+      "name": "A Justiceira",
+      "comment": "dsdsdsds",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/pippermint-trailer-legendado-jennifer-garner-.png",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     }
   ],
   "genres": [

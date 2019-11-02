@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import api from './api'
 import { Redirect } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Base64 } from 'js-base64'
 import axios from 'axios'
 
@@ -11,6 +13,8 @@ const status = {
 }
 
 class NewSeries extends Component {
+    _isMounted = false;
+
     constructor(props) {
         super(props)
 
@@ -24,20 +28,24 @@ class NewSeries extends Component {
         }
 
         this.saveSeries = this.saveSeries.bind(this)
+        this.notify = this.notify.bind(this)
     }
 
     // O Componente está montado
     componentDidMount() {
+        this._isMounted = true
 
         // define que os dados estão sendo carregados
         this.setState({ isLoading: true })
 
         api.loadGenres()
             .then((res) => {
-                this.setState({
-                    isLoading: false,
-                    genres: res.data
-                })
+                if (this._isMounted) {
+                    this.setState({
+                        isLoading: false,
+                        genres: res.data
+                    })
+                }
             })
     }
 
@@ -61,12 +69,9 @@ class NewSeries extends Component {
         axios.post("http://localhost:8000/upload", data, { // receive two parameter endpoint url ,form data 
         })
             .then(res => { // then print response status
-                console.log(res.statusText)
             })
 
         let valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
-
-        console.log(valueURLImg)
 
         const newSeries = {
             name: this.refs.name.value,
@@ -81,16 +86,33 @@ class NewSeries extends Component {
         let isValidVideo = this.validURL(newSeries.video)
 
         if ((isValidVideo === true) && (isValidName === true)) {
+
             api.saveSeries(newSeries)
                 .then((res) => {
-                    this.setState({
-                        redirect: '/series/' + this.refs.genre.value
-                    })
+                    if (this._isMounted) {
+                        this.notify(newSeries)
+                        setTimeout(() => {
+                            this.setState({
+                                redirect: '/series/' + newSeries.genre,
+                            }
+                            )  
+                        }, 2000);
+                    }
                 })
         } else if (isValidVideo === false) {
             alert("Por favor, entre com uma URL válida");
         } else if (isValidName === false)
             alert("Por favor, entre com um nome válido");
+
+
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    notify(newSeries) {
+        toast.success('O filme ' + '"' + newSeries.name + '"' + ' foi adicionado com sucesso', { autoClose: 1500 });
     }
 
     onChangeHandler = event => {
@@ -123,6 +145,7 @@ class NewSeries extends Component {
                     Comentários <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
                     Faça upload do pôster <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
                     URL do vídeo <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
+                    <ToastContainer />
                     <button type="button" onClick={this.saveSeries} className="btnSaveSeries">Salvar</button> <br /> <br />
                 </form>
             </section>

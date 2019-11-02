@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ToastContainer, toast } from "react-toastify";
 
 import {
     Link
@@ -45,7 +46,7 @@ class Series extends Component {
     }
 
     removeFavorites(serieRemove){
-        const myNewSerie = {
+        const myFavoriteSerie = {
             id: serieRemove.id,
             name: serieRemove.name,
             comment: serieRemove.comment,
@@ -54,9 +55,12 @@ class Series extends Component {
             img: serieRemove.img,
             video: serieRemove.video
         }
-        api.updateSeries(myNewSerie)
+        api.updateSeries(myFavoriteSerie)
             .then((res) => {
-                this.loadData()
+                toast.error('O filme ' + '"' + myFavoriteSerie.name + '"' + ' foi removido dos favoritos', { autoClose: 1500 });
+                setTimeout(() => {
+                    this.loadData()
+                }, 2000); 
             })
     }
 
@@ -93,6 +97,7 @@ class Series extends Component {
                                     {series.genreOld} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
+                            <ToastContainer />
                                 <Link className="btn btn-success" to={'/series-video' + series.id}>
                                     <span onClick={() => this.changeStatus(series)}>Assistir série</span> </Link>
                                 <a className="btn btn-danger" onClick={() => this.removeFavorites(series)}>Remover dos favoritos</a>

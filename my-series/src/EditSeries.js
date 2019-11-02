@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import api from './api'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from 'react-router-dom'
 
 const status = {
@@ -9,6 +11,8 @@ const status = {
 }
 
 class EditSeries extends Component {
+    _isMounted = false;
+
     constructor(props) {
         super(props)
 
@@ -20,11 +24,13 @@ class EditSeries extends Component {
         }
 
         this.saveSeries = this.saveSeries.bind(this)
+        this.notify = this.notify.bind(this)
 
     }
 
     // O Componente está montado
     componentDidMount() {
+        this._isMounted = true
 
         // define que os dados estão sendo carregados
         this.setState({ isLoading: true })
@@ -64,7 +70,7 @@ class EditSeries extends Component {
     }
 
     saveSeries() {
-        const newSeries = {
+        const editSeries = {
             id: this.props.match.params.id,
             name: this.refs.name.value,
             comment: this.refs.comment.value,
@@ -74,21 +80,32 @@ class EditSeries extends Component {
             video: this.refs.urlVideo.value
         }
 
-        let isValidName = this.validName(newSeries.name)
-        let isValidVideo = this.validURL(newSeries.video)
-        isValidVideo = this.validURL(newSeries.img)
+        let isValidName = this.validName(editSeries.name)
+        let isValidVideo = this.validURL(editSeries.video)
+        isValidVideo = this.validURL(editSeries.img)
 
         if ((isValidVideo == true) && (isValidName === true)) {
-            api.updateSeries(newSeries)
+            api.updateSeries(editSeries)
                 .then((res) => {
-                    this.setState({
-                        redirect: '/series/' + this.refs.genre.value
-                    })
+                    if (this._isMounted) {
+                        this.notify(editSeries)
+                        setTimeout(() => {
+                            this.props.history.push('/series/' + editSeries.genre);
+                        }, 2000);
+                    }
                 })
         } else if (isValidVideo === false) {
             alert("Por favor, entre com uma URL válida");
         } else if (isValidName === false)
             alert("Por favor, entre com um nome válido");
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    notify(editSeries) {
+        toast.success('O filme ' + '"' + editSeries.name + '"' + ' foi editado com sucesso', { autoClose: 1500 });
     }
 
     render() {
@@ -109,6 +126,7 @@ class EditSeries extends Component {
                     </div>
                     URL do pôster <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
                     URL do video <input type="text" ref="urlVideo" className="form-control" defaultValue={this.state.series.video} placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo"/> <br />
+                    <ToastContainer />
                     <button type="button" onClick={this.saveSeries} className="btnSaveSeries">Salvar</button>
                 </form>
             </section>
