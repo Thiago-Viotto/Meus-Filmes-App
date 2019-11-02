@@ -31,6 +31,7 @@ class Series extends Component {
         this.renderSeries = this.renderSeries.bind(this)
         this.loadData = this.loadData.bind(this)
         this.addFavorite = this.addFavorite.bind(this)
+        this.notify = this.notify.bind(this)
 
         //  const test = Base64.encode('images/logo.png')
         //  console.log(test)
@@ -53,12 +54,16 @@ class Series extends Component {
                     series: res.data
                 })
             })
+
     }
 
-    deleteSeries(id) {
+    deleteSeries(id, serie) {
         api.deleteSeries(id)
             .then((res) => {
-                this.loadData()
+                toast.error('O filme ' + '"' + serie.name + '"' + ' foi removido com sucesso', { autoClose: 1500 });
+                setTimeout(() => {
+                    this.loadData()
+                }, 1500);  
             })
     }
 
@@ -76,14 +81,14 @@ class Series extends Component {
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
                 this.notify(myFavoriteSerie)
-                setTimeout(function () {
-                    window.location.reload(false);
-                }, 2500);
+                setTimeout(() => {
+                    this.loadData()
+                }, 2000);
             })
     }
 
     notify(myFavoriteSerie) {
-        toast('O filme ' + '"' + myFavoriteSerie.name + '"' + ' foi adicionado em Meus favoritos', { autoClose: 2500 });
+        toast('O filme ' + '"' + myFavoriteSerie.name + '"' + ' foi adicionado em Meus favoritos', { autoClose: 1500 });
     }
 
     renderSeries(series) {
@@ -103,7 +108,7 @@ class Series extends Component {
                                 <ToastContainer />
                                 <Link className="btn btn-primary" onClick={() => this.addFavorite(series)} >Favoritos </Link>
                                 <Link className="btn btn-success" to={'/series-edit' + series.id} >Editar </Link>
-                                <a className="btn btn-danger" onClick={() => this.deleteSeries(series.id)}>Excluir</a>
+                                <a className="btn btn-danger" onClick={() => this.deleteSeries(series.id, series)}>Excluir</a>
                             </div>
                         </div>
                     </div>
