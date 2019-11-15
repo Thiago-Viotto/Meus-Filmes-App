@@ -3,8 +3,8 @@ import api from './api'
 import { Redirect } from 'react-router-dom'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Base64 } from 'js-base64'
 import axios from 'axios'
+import { InputGroup, FormControl } from 'react-bootstrap'
 
 const status = {
     "watched": "Assistido",
@@ -14,6 +14,7 @@ const status = {
 
 class NewSeries extends Component {
     _isMounted = false;
+    isInvalidName = false;
 
     constructor(props) {
         super(props)
@@ -24,8 +25,18 @@ class NewSeries extends Component {
             isLoading: false,
             redirect: false,
             selectedFile: null,
-            persons: []
+            persons: [],
+            name: '',
+            errors: {
+                name: false
+            },
+            touched: {
+                name: false
+            }
+
         }
+
+        const isEnabled = this.state.name.length > 0
 
         this.saveSeries = this.saveSeries.bind(this)
         this.notify = this.notify.bind(this)
@@ -49,6 +60,12 @@ class NewSeries extends Component {
             })
     }
 
+    validateName(name) {
+        return {
+            name: name.length === 0
+        }
+    }
+
     validURL(str) {
         let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
         return (!regex.test(str)) ? false : true;
@@ -62,7 +79,11 @@ class NewSeries extends Component {
         }
     }
 
-    saveSeries() {
+    saveSeries = event => {
+        if(!this.canBeSubmitted()){
+            event.preventDefault()
+            return
+        }
         const data = new FormData()
         data.append('file', this.state.selectedFile)
 
@@ -85,6 +106,11 @@ class NewSeries extends Component {
         let isValidName = this.validName(newSeries.name)
         let isValidVideo = this.validURL(newSeries.video)
 
+        // Check invalid name
+        if (isValidName === false) {
+            this.isInvalidName = true
+        }
+
         if ((isValidVideo === true) && (isValidName === true)) {
 
             api.saveSeries(newSeries)
@@ -95,16 +121,13 @@ class NewSeries extends Component {
                             this.setState({
                                 redirect: '/series/' + newSeries.genre,
                             }
-                            )  
+                            )
                         }, 2000);
                     }
                 })
         } else if (isValidVideo === false) {
             alert("Por favor, entre com uma URL válida");
-        } else if (isValidName === false)
-            alert("Por favor, entre com um nome válido");
-
-
+        }
     }
 
     componentWillUnmount() {
@@ -122,7 +145,33 @@ class NewSeries extends Component {
         })
     }
 
+    canBeSubmitted(){
+        const errors = this.validateName(this.state.name)
+        const isDisabled = !Object.keys(errors).some(x => errors[x])
+        return !isDisabled
+    }
+
+    handleNameChange = event => {
+        this.setState({name: event.target.value})
+    }
+
+    handleBur = field => event => {
+        this.setState({
+            touched: { ...this.state.touched, [field]: true}
+        })
+    }
+
     render() {
+        const errors = this.validateName(this.state.name)
+        const isDisabled = Object.keys(errors).some(x => errors[x])
+
+        const shouldMarkError = field => {
+            const hasError = errors[field]
+            const shouldShow = this.state.touched[field]
+
+            return hasError ? shouldShow : false
+        }
+
         return (
             <section className='intro-new-edit'>
                 {this.state.redirect &&
@@ -131,22 +180,31 @@ class NewSeries extends Component {
                 <h1 className="h1AddEdit">Nova série</h1>
                 <form>
                     <div className="intro-group">
-                        Nome <input type="text" ref="name" className="form-control" /> <br />
+                        Nome *
+                        <FormControl
+                            placeholder="Entre com o nome do filme... *"
+                            ref='name'
+                            className={shouldMarkError('name') ? 'error' : ''}
+                            onChange={this.handleNameChange}
+                            value={this.state.name}
+                            onBlur={this.handleBur('name')}
+                        /> <br />
                     </div>
-                    <div className="statusGenres">
-                        &nbsp; Genêro:
-                    <select ref="genre" required>
+
+                    <div className="intro-group">
+                        Genêro *
+                    <select className='form-control' ref="genre" required>
                             {
                                 this.state.genres
                                     .map(key => <option key={key} value={key}>{key}</option>)
                             }
-                        </select> <br /> <br />
+                        </select> <br /> 
                     </div>
-                    Comentários <textarea ref="comment" className="form-control" placeholder="Ex: não esquecer da pipoca! ;)" /> <br />
-                    Faça upload do pôster <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
-                    URL do vídeo <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
+                    Descrição <textarea ref="comment" className="form-control" placeholder="Adicione uma descrição ;)" /> <br />
+                    Faça upload do pôster * <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
+                    URL do vídeo * <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
                     <ToastContainer />
-                    <button type="button" onClick={this.saveSeries} className="btnSaveSeries">Salvar</button> <br /> <br />
+                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary">Adicionar</button> <br /> <br />
                 </form>
             </section>
         )
