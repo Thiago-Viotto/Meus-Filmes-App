@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios'
-import { InputGroup, FormControl } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
 
 const status = {
     "watched": "Assistido",
@@ -14,7 +14,6 @@ const status = {
 
 class NewSeries extends Component {
     _isMounted = false;
-    isInvalidName = false;
 
     constructor(props) {
         super(props)
@@ -27,19 +26,26 @@ class NewSeries extends Component {
             selectedFile: null,
             persons: [],
             name: '',
+            urlVideo: '',
             errors: {
-                name: false
+                name: false,
+                urlVideo: false
             },
             touched: {
-                name: false
+                name: false,
+                urlVideo: false
             }
-
         }
-
-        const isEnabled = this.state.name.length > 0
 
         this.saveSeries = this.saveSeries.bind(this)
         this.notify = this.notify.bind(this)
+        this.validURL = this.validURL.bind(this)
+        this.validateField = this.validateField.bind(this)
+        this.canBeSubmitted = this.canBeSubmitted.bind(this)
+        this.handleBur = this.handleBur.bind(this)
+        this.handleNameChange = this.handleNameChange.bind(this)
+        this.handleUrlVideoChange = this.handleUrlVideoChange.bind(this)
+        this.onChangeHandler = this.onChangeHandler.bind(this)
     }
 
     // O Componente está montado
@@ -60,9 +66,10 @@ class NewSeries extends Component {
             })
     }
 
-    validateName(name) {
+    validateField(name, urlVideo) {
         return {
-            name: name.length === 0
+            name: name.length === 0,
+            urlVideo: !this.validURL(urlVideo)
         }
     }
 
@@ -71,16 +78,8 @@ class NewSeries extends Component {
         return (!regex.test(str)) ? false : true;
     }
 
-    validName(name) {
-        if ((name === '') || (name === ' ')) {
-            return false
-        } else {
-            return true
-        }
-    }
-
     saveSeries = event => {
-        if(!this.canBeSubmitted()){
+        if (!this.canBeSubmitted()) {
             event.preventDefault()
             return
         }
@@ -103,15 +102,9 @@ class NewSeries extends Component {
             video: this.refs.urlVideo.value
         }
 
-        let isValidName = this.validName(newSeries.name)
         let isValidVideo = this.validURL(newSeries.video)
 
-        // Check invalid name
-        if (isValidName === false) {
-            this.isInvalidName = true
-        }
-
-        if ((isValidVideo === true) && (isValidName === true)) {
+        if (isValidVideo === true) {
 
             api.saveSeries(newSeries)
                 .then((res) => {
@@ -145,24 +138,32 @@ class NewSeries extends Component {
         })
     }
 
-    canBeSubmitted(){
-        const errors = this.validateName(this.state.name)
+    canBeSubmitted() {
+        const errors = this.validateField(this.state.name, this.state.urlVideo)
         const isDisabled = !Object.keys(errors).some(x => errors[x])
-        return !isDisabled
+        return isDisabled
     }
 
     handleNameChange = event => {
-        this.setState({name: event.target.value})
+        this.setState({
+            name: event.target.value
+        })
+    }
+
+    handleUrlVideoChange = event => {
+        this.setState({
+            urlVideo: event.target.value
+        })
     }
 
     handleBur = field => event => {
         this.setState({
-            touched: { ...this.state.touched, [field]: true}
+            touched: { ...this.state.touched, [field]: true }
         })
     }
 
     render() {
-        const errors = this.validateName(this.state.name)
+        const errors = this.validateField(this.state.name, this.state.urlVideo)
         const isDisabled = Object.keys(errors).some(x => errors[x])
 
         const shouldMarkError = field => {
@@ -190,7 +191,6 @@ class NewSeries extends Component {
                             onBlur={this.handleBur('name')}
                         /> <br />
                     </div>
-
                     <div className="intro-group">
                         Genêro *
                     <select className='form-control' ref="genre" required>
@@ -198,11 +198,21 @@ class NewSeries extends Component {
                                 this.state.genres
                                     .map(key => <option key={key} value={key}>{key}</option>)
                             }
-                        </select> <br /> 
+                        </select> <br />
                     </div>
                     Descrição <textarea ref="comment" className="form-control" placeholder="Adicione uma descrição ;)" /> <br />
                     Faça upload do pôster * <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
-                    URL do vídeo * <input type="text" ref="urlVideo" className="form-control" placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo" /> <br />
+                    <div className="intro-group">
+                        URL do vídeo *
+                        <FormControl
+                            placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo... *"
+                            ref='urlVideo'
+                            className={shouldMarkError('urlVideo') ? 'error' : ''}
+                            onChange={this.handleUrlVideoChange}
+                            value={this.state.urlVideo}
+                            onBlur={this.handleBur('urlVideo')}
+                        /> <br />
+                    </div>
                     <ToastContainer />
                     <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary">Adicionar</button> <br /> <br />
                 </form>

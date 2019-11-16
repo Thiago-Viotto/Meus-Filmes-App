@@ -71,6 +71,24 @@
       "genre": "Comédia",
       "img": "http://localhost:3000/images/pippermint-trailer-legendado-jennifer-garner-.png",
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
+    },
+    {
+      "id": 34,
+      "name": "fgfggffg",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/crianca doente.jpg",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
+    },
+    {
+      "id": 35,
+      "name": "teste123",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/pessoas doentes.png",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
     }
   ],
   "genres": [
