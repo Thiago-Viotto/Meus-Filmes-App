@@ -99,7 +99,13 @@ class NewSeries extends Component {
             .then(res => { // then print response status
             })
 
-        let valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
+        let valueURLImg = ''
+
+        if(this.state.selectedFile === null){
+            valueURLImg = null //no pôster
+        } else {
+            valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
+        }
 
         const newSeries = {
             name: this.refs.name.value.trim(),
@@ -210,7 +216,7 @@ class NewSeries extends Component {
                         </select> <br />
                     </div>
                     Descrição <textarea ref="comment" className="form-control" placeholder="Adicione uma descrição ;)" /> <br />
-                    Faça upload do pôster * <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
+                    Faça upload do pôster <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
                     <div className="intro-group">
                         URL do vídeo *
                         <FormControl
