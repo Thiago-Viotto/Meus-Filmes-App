@@ -11,7 +11,7 @@
     },
     {
       "id": 21,
-      "name": "   d",
+      "name": "cx",
       "comment": "",
       "status": "watched",
       "genre": "Comédia",
@@ -100,6 +100,15 @@
       "img": "http://localhost:3000/images/29b5deda645651f0ca6c49dd53317956.jpg",
       "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
       "id": 38
+    },
+    {
+      "name": "sddsddsdsdsdsds",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/0ea33df11c43b2bcfbaab9bd01770d9f.jpg",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
+      "id": 39
     }
   ],
   "genres": [

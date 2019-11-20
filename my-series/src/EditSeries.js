@@ -105,7 +105,7 @@ class EditSeries extends Component {
 
         const editSeries = {
             id: this.props.match.params.id,
-            name: this.refs.name.value,
+            name: this.refs.name.value.trim(),
             comment: this.refs.comment.value,
             status: this.state.series.status,
             genre: this.refs.genre.value,
