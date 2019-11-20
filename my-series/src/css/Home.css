@@ -42,3 +42,7 @@
     display: inline-block;
     text-align: center
 }
+
+.error {
+    border: 1px solid #eb516d;
+}
