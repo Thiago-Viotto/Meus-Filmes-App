@@ -79,9 +79,17 @@ class EditSeries extends Component {
 
     validateField(name, urlVideo) {
         return {
-            name: name.length === 0,
+            name: !this.validName(name),
             urlVideo: !this.validURL(urlVideo)
         }
+    }
+
+    validName(name){
+        const newName = name.replace(/\s+/g, '')
+        if((newName.length === 0) || (newName === '') || (newName === ' ')){
+            return false
+        } else
+            return true
     }
 
     validURL(str) {
@@ -105,10 +113,11 @@ class EditSeries extends Component {
             video: this.refs.urlVideo.value
         }
 
+        let isValidName = this.validName(editSeries.name)
         let isValidVideo = this.validURL(editSeries.video)
         isValidVideo = this.validURL(editSeries.img)
 
-        if (isValidVideo == true) {
+        if ((isValidName === true) && (isValidVideo === true)) {
             api.updateSeries(editSeries)
                 .then((res) => {
                     if (this._isMounted) {

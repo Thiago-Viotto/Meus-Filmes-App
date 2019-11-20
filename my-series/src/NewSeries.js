@@ -68,9 +68,17 @@ class NewSeries extends Component {
 
     validateField(name, urlVideo) {
         return {
-            name: name.length === 0,
+            name: !this.validName(name),
             urlVideo: !this.validURL(urlVideo)
         }
+    }
+
+    validName(name){
+        const newName = name.replace(/\s+/g, '')
+        if((newName.length === 0) || (newName === '') || (newName === ' ')){
+            return false
+        } else
+            return true
     }
 
     validURL(str) {
@@ -94,7 +102,7 @@ class NewSeries extends Component {
         let valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
 
         const newSeries = {
-            name: this.refs.name.value,
+            name: this.refs.name.value.trim(),
             comment: this.refs.comment.value,
             status: 'toWatch',
             genre: this.refs.genre.value,
@@ -102,9 +110,10 @@ class NewSeries extends Component {
             video: this.refs.urlVideo.value
         }
 
+        let isValidName = this.validName(newSeries.name)
         let isValidVideo = this.validURL(newSeries.video)
 
-        if (isValidVideo === true) {
+        if ((isValidName === true) && (isValidVideo === true)) {
 
             api.saveSeries(newSeries)
                 .then((res) => {

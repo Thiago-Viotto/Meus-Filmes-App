@@ -11,7 +11,7 @@
     },
     {
       "id": 21,
-      "name": "23wfffaf",
+      "name": "   d",
       "comment": "",
       "status": "watched",
       "genre": "Comédia",
@@ -28,10 +28,11 @@
     },
     {
       "id": 26,
-      "name": "teste 4",
-      "comment": "",
+      "name": "teste 5",
+      "comment": "ssaas",
       "status": "watching",
-      "genre": "Comédia",
+      "genreOld": "Ação",
+      "genre": "favorite",
       "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
       "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
     },
@@ -56,10 +57,11 @@
     },
     {
       "id": 30,
-      "name": "terra",
+      "name": "terra 123",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
+      "genreOld": "Comédia",
+      "genre": "favorite",
       "img": "http://localhost:3000/images/terra-selvagem-destaque.jpg",
       "video": "https://www.youtube.com/watch?v=7iYICSBJbso"
     },
@@ -73,22 +75,31 @@
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
     {
-      "id": 34,
-      "name": "fgfggffg",
+      "id": 36,
+      "name": "xcxccxxccxdsdsdsds",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/images/crianca doente.jpg",
+      "genre": "Ação",
+      "img": "http://localhost:3000/images/pessoas doentes.png",
       "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
     },
     {
-      "id": 35,
-      "name": "teste123",
+      "name": " vvcvcvcvc",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/images/pessoas doentes.png",
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
+      "img": "http://localhost:3000/images/239_RR_01292017cc_2863__4d5e8362ec55fde017437b255f27b877.0.jpg",
+      "video": " https://www.youtube.com/watch?v=7iYICSBJbso",
+      "id": 37
+    },
+    {
+      "name": "sdsdsds",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/29b5deda645651f0ca6c49dd53317956.jpg",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
+      "id": 38
     }
   ],
   "genres": [
