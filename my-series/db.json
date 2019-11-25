@@ -10,41 +10,12 @@
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
-      "id": 21,
-      "name": "cx",
-      "comment": "",
-      "status": "watched",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/images/13902086_1013499835438078_1685677207_o.jpg",
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
-    },
-    {
       "id": 25,
       "name": "teste 3",
       "comment": "",
       "status": "watched",
       "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
       "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
-    },
-    {
-      "id": 26,
-      "name": "teste 5",
-      "comment": "ssaas",
-      "status": "watching",
-      "genreOld": "Ação",
-      "genre": "favorite",
-      "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
-      "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
-    },
-    {
-      "id": 27,
-      "name": "The Walking Dead - T10 EP03",
-      "comment": "",
-      "status": "watching",
-      "genre": "favorite",
-      "genreOld": "Ação",
-      "img": "http://localhost:3000/images/TWD_905_GP_0618_0158_RT.0.jpg",
-      "video": "https://www.youtube.com/watch?v=ZDRQQi5qKYo"
     },
     {
       "id": 28,
@@ -102,12 +73,12 @@
       "id": 38
     },
     {
-      "name": "sddsddsdsdsdsds",
+      "name": "dsddssd",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/images/0ea33df11c43b2bcfbaab9bd01770d9f.jpg",
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
+      "img": "http://localhost:3000/images/13.png",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
       "id": 39
     }
   ],

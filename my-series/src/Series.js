@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Redirect } from 'react-router-dom'
-import { Base64 } from 'js-base64';
+import axios from 'axios'
 
 import {
     Link
@@ -32,10 +31,6 @@ class Series extends Component {
         this.loadData = this.loadData.bind(this)
         this.addFavorite = this.addFavorite.bind(this)
         this.notify = this.notify.bind(this)
-
-        //  const test = Base64.encode('images/logo.png')
-        //  console.log(test)
-        //  console.log(Base64.decode(test))
     }
 
     // O Componente está montado
@@ -63,7 +58,7 @@ class Series extends Component {
                 toast.error('O filme ' + '"' + serie.name + '"' + ' foi removido com sucesso', { autoClose: 1500 });
                 setTimeout(() => {
                     this.loadData()
-                }, 1500);  
+                }, 1500);
             })
     }
 
