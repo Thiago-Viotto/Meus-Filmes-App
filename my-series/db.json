@@ -64,31 +64,22 @@
       "id": 37
     },
     {
-      "name": "sdsdsds",
+      "name": "ddssdsd",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/images/29b5deda645651f0ca6c49dd53317956.jpg",
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
+      "img": "http://localhost:3000/images/4.png",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
       "id": 38
     },
     {
-      "name": "dsddssd",
+      "name": "dsddsds",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/images/13.png",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 39
-    },
-    {
-      "name": "ddssddssd",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": null,
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4",
-      "id": 41
+      "img": "http://localhost:3000/images/2.png",
+      "video": " https://www.youtube.com/watch?v=7iYICSBJbso",
+      "id": 40
     }
   ],
   "genres": [
