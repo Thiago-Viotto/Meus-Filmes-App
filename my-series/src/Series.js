@@ -52,7 +52,35 @@ class Series extends Component {
 
     }
 
+    deleteImage(url, id) {
+        return fetch('https://www.localhost:8000/upload/' + id, {
+            method: 'delete'
+        })
+            .then(response => response.json());
+    }
+
     deleteSeries(id, serie) {
+        const urlImage = serie.img
+        // this.deleteImage(urlImage, id)
+        axios.get('http://www.localhost:8000/upload/')
+            .then(res => {
+                console.log(res.data);
+            }) 
+
+
+        /*  let pathSerie = serie.img
+          $.ajax({
+              type: "DELETE",
+              url: pathSerie,
+              success: function(response) {
+                  console.log("successfully deleted");
+              },
+              error: function () {
+                  console.log("error");
+              }
+          })   */
+
+
         api.deleteSeries(id)
             .then((res) => {
                 toast.error('O filme ' + '"' + serie.name + '"' + ' foi removido com sucesso', { autoClose: 1500 });

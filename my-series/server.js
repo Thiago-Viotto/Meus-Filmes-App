@@ -26,6 +26,7 @@ app.post('/upload', function (req, res) {
     }
     return res.status(200).send(req.file)
   })
+
 });
 
 app.listen(8000, function () {
