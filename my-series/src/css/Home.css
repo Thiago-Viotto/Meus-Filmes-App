@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 #cape{
     background-image: url("../img/capa.jpg")
 }
