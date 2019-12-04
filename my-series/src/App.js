@@ -21,42 +21,46 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav id="menuColor" className="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div className="container">
-              <div className="navbar-header page-scroll">
-                <a className="navbar-brand page-scroll" href="#page-top">
-                  <img src="/images/logo.png" height="30" />
-                </a>
-              </div>
-              <div className="collapse navbar-collapse navbar-ex1-collapse">
-                <ul className="nav navbar-nav">
-                  <li>
-                    <Link to='/'><h4 className="titlesMenu">Home</h4></Link>
-                  </li>
-                  <li>
+          <nav id="menuColor" className="navbar navbar-expand-lg bg-dark navbar-dark" role="navigation">
+              <div className="container">
+                <div className="navbar-header page-scroll">
+                  <a className="navbar-brand page-scroll" href="#page-top">
+                    <img src="/images/logo.png" height="30" />
+                  </a>
+                </div>
+            <button className="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação" style={{backgroundColor: "#A4A4A4", marginRight: "30px"}}>
+              <span className="navbar-toggler-icon" style={{backgroundColor: "#A4A4A4"}}></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link to='/'><h4 className="titlesMenu">Home</h4></Link>
+                </li>
+                  <li className="nav-item">
                     <Link to='/new'><h4 className="titlesMenu">Nova Série</h4></Link>
                   </li>
-                  <li>
+                  <li className="nav-item">
                     <Link to='/series/favorite'><h4 className="titlesMenu">Meus favoritos</h4></Link>
                   </li>
-                  <li>
+                  <li className="nav-item">
                     <Link to='/about'><h4 className="titlesMenu">Sobre</h4></Link>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </nav>
-          <Route exact path='/' component={Home} />
-          <Route path='/series-video:id' component={VideoSeries} />
-          <Route path='/series-edit:id' component={EditSeries} />
-          <Route path='/series/:genre' component={withRouter(Series)} />
-          <Route path='/series/favorite' component={Favorite} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/new' component={NewSeries} />
+            </nav>
+            <Route exact path='/' component={Home} />
+            <Route path='/series-video:id' component={VideoSeries} />
+            <Route path='/series-edit:id' component={EditSeries} />
+            <Route path='/series/:genre' component={withRouter(Series)} />
+            <Route path='/series/favorite' component={Favorite} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/new' component={NewSeries} />
         </div>
       </Router>
-    )
-  }
-}
-
-export default App
+        )
+      }
+    }
+    
+    export default App

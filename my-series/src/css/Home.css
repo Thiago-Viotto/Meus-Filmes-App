@@ -14,7 +14,12 @@ body {
     color: aliceblue;
     text-shadow: 2px 1px black;
     font-weight: bold;
-    font-size: 17px
+    font-size: 17px;
+    margin-right: 30px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    
 }
 
 .intro-new-edit{
@@ -50,3 +55,10 @@ body {
 .error {
     border: 1px solid #eb516d;
 }
+
+#toggler {
+    background-color: darkslategray;
+    height: 20px;
+    width: 20px;
+}
+
