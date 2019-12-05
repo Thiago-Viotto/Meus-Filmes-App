@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #1C1C1C;
 }
 
 #cape{
@@ -12,14 +12,12 @@ body {
 
 .titlesMenu{
     color: aliceblue;
-    text-shadow: 2px 1px black;
-    font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
     margin-right: 30px;
     margin-left: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
-    
+    font-family: 'Bebas Neue', cursive;
 }
 
 .intro-new-edit{
@@ -62,3 +60,18 @@ body {
     width: 20px;
 }
 
+.titleGenre {
+    color: ghostwhite;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 45px;
+}
+
+.buttonSeries {
+    white-space: normal !important;
+    word-wrap: break-word;
+    width: 60px;
+    max-width: auto;
+}
