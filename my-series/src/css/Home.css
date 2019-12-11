@@ -21,7 +21,7 @@ body {
 }
 
 .intro-new-edit{
-    margin-top: 130px;
+    margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
@@ -29,7 +29,12 @@ body {
 }
 
 .h1AddEdit{
-    text-align: center
+    color:#1C1C1C;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 45px;
 }
 
 .btnSaveSeries{
@@ -75,3 +80,40 @@ body {
     width: 60px;
     max-width: auto;
 }
+
+.buttonFavorite {
+    word-wrap: break-word;
+    color: #f2f2f2;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 14px;
+    max-width: auto;
+}
+
+p {
+    font-size: 16px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 12px;
+    margin: 5px;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.inputNewEditSeries {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+

@@ -84,9 +84,9 @@ class EditSeries extends Component {
         }
     }
 
-    validName(name){
+    validName(name) {
         const newName = name.replace(/\s+/g, '')
-        if((newName.length === 0) || (newName === '') || (newName === ' ')){
+        if ((newName.length === 0) || (newName === '') || (newName === ' ')) {
             return false
         } else
             return true
@@ -185,43 +185,43 @@ class EditSeries extends Component {
                 <h1 className="h1AddEdit">Editar série</h1>
                 <form>
                     <div className="intro-group">
-                        Nome *
-                        <FormControl
+                        <p className="text-truncate">Nome *</p>
+                        <input
                             placeholder="Entre com o nome do filme... *"
                             ref='name'
-                            className={shouldMarkError('name') ? 'error' : ''}
+                            className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditSeries'}
                             onChange={this.handleNameChange}
                             defaultValue={this.state.series.name}
                             onBlur={this.handleBur('name')}
                         /> <br />
                     </div>
                     <div className="intro-group">
-                        Genêro *
-                    <select className='form-control' ref="genre" required >
+                        <p className="text-truncate">Genêro *</p>
+                        <select ref="genre" required >
                             {
                                 this.state.genres
                                     .map(key => <option defaultValue={this.state.series.genre} key={key} value={key}>{key} </option>)
                             }
                         </select> <br />
                     </div>
-                    Descrição <textarea ref="comment" defaultValue={this.state.series.comment} className="form-control" placeholder="Adicione uma descrição ;)" /> <br />
+                    <p className="text-truncate">Descrição</p> <textarea ref="comment" defaultValue={this.state.series.comment} placeholder="Adicione uma descrição ;)" /> <br />
                     <div className="statusGenres">
                         <img src={this.state.series.img} width="400" height="300"></img> <br /> <br />
                     </div>
-                    URL do pôster * <input type="text" ref="urlImage" className="form-control" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
+                    <p className="text-truncate">URL do pôster *</p> <input type="text" ref="urlImage" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
                     <div className="intro-group">
-                        URL do vídeo *
-                        <FormControl
+                        <p className="text-truncate">URL do vídeo *</p>
+                        <input
                             placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo... *"
                             ref='urlVideo'
-                            className={shouldMarkError('urlVideo') ? 'error' : ''}
+                            className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditSeries'}
                             onChange={this.handleUrlVideoChange}
                             defaultValue={this.state.series.video}
                             onBlur={this.handleBur('urlVideo')}
                         /> <br />
                     </div>
                     <ToastContainer />
-                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary">Salvar</button>
+                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Salvar</button>
                 </form>
             </section>
         )
