@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 
 import api from './api'
+import './css/Home.css'
 
 const statuses = {
     "watched": "Assistido",
@@ -85,22 +86,22 @@ class Series extends Component {
 
     renderSeries(series) {
         return (
-            <div key={series.id} className="item col-xs-4 col-lg-4">
-                <div className="thumbnail">
+            <div key={series.id} className="col-4">
+                <div className="thumbnail" style={{ borderRadius: '10px' }}>
                     <img className="group list-group-image" src={series.img} alt="thumbnail of series" />
                     <div className="caption">
-                        <h4 className="group inner list-group-item-heading">
-                            {series.name}</h4>
+                        <h2 className="group inner list-group-item-heading text-truncate" style={{ marginBottom: '20px', textAlign: 'center', fontWeight: 'bold' }}>
+                            {series.name}</h2>
                         <div className="row">
                             <div className="col-xs-12 col-md-6">
-                                <p className="lead">
+                                <p className="lead text-truncate" style={{ textAlign: 'center' }}>
                                     {series.genreOld} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
                             <ToastContainer />
-                                <Link className="btn btn-success" to={'/series-video' + series.id}>
-                                    <span onClick={() => this.changeStatus(series)}>Assistir série</span> </Link>
-                                <a className="btn btn-danger" onClick={() => this.removeFavorites(series)}>Remover dos favoritos</a>
+                                <Link className="btn btn-primary buttonSeries" role="group" style={{ marginRight: '5px'}} to={'/series-video' + series.id}>
+                                    <h4 className="btn btn-outline-primary buttonFavorite" style={{ marginRight: '5px'}} onClick={() => this.changeStatus(series)}>Assistir série</h4> </Link>
+                                <Link className="btn btn-danger buttonFavorite" style={{marginRight: '10px'}} onClick={() => this.removeFavorites(series)}><h4 className='text-truncate'>Remover dos favoritos</h4></Link>
                             </div>
                         </div>
                     </div>
@@ -111,14 +112,14 @@ class Series extends Component {
 
     render() {
         return (
-            <section id="intro" className="intro-section"><h1>Meus favoritos</h1>
+            <section id="intro"><h1 className="titleGenre">Meus favoritos</h1>
                 {this.isLoading &&
                     <p>Carregando, aguarde...</p>
                 }
                 {!this.isLoading && this.state.series.length === 0 &&
                     <div className='alert alert-info'>Nenhuma série cadastrada.</div>
                 }
-                <div id="series" className="row list-group">
+                <div id="series" className="row">
                     {!this.state.isLoading && this.state.series.map(this.renderSeries)}
 
                 </div>

@@ -196,40 +196,40 @@ class NewSeries extends Component {
                 <h1 className="h1AddEdit">Nova série</h1>
                 <form>
                     <div className="intro-group">
-                        Nome *
-                        <FormControl
+                        <p className="text-truncate">Nome *</p>
+                        <input
                             placeholder="Entre com o nome do filme... *"
                             ref='name'
-                            className={shouldMarkError('name') ? 'error' : ''}
+                            className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditSeries'}
                             onChange={this.handleNameChange}
                             value={this.state.name}
                             onBlur={this.handleBur('name')}
                         /> <br />
                     </div>
                     <div className="intro-group">
-                        Genêro *
-                    <select className='form-control' ref="genre" required>
+                        <p className="text-truncate">Genêro *</p>
+                    <select ref="genre" required>
                             {
                                 this.state.genres
                                     .map(key => <option key={key} value={key}>{key}</option>)
                             }
                         </select> <br />
                     </div>
-                    Descrição <textarea ref="comment" className="form-control" placeholder="Adicione uma descrição ;)" /> <br />
-                    Faça upload do pôster <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
+                    <p className="text-truncate">Descrição</p> <textarea ref="comment" placeholder="Adicione uma descrição ;)" /> <br />
+                    <p className="text-truncate">Faça upload do pôster</p> <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
                     <div className="intro-group">
-                        URL do vídeo *
-                        <FormControl
+                        <p className="text-truncate">URL do vídeo *</p>
+                        <input
                             placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo... *"
                             ref='urlVideo'
-                            className={shouldMarkError('urlVideo') ? 'error' : ''}
+                            className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditSeries'}
                             onChange={this.handleUrlVideoChange}
                             value={this.state.urlVideo}
                             onBlur={this.handleBur('urlVideo')}
                         /> <br />
                     </div>
                     <ToastContainer />
-                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary">Adicionar</button> <br /> <br />
+                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Adicionar</button> <br /> <br />
                 </form>
             </section>
         )
