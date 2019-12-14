@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
-import api from './api'
+import api from '../server/api'
 import {
     Link
 } from 'react-router-dom'
-import './css/Video.css'
+import '../css/Video.css'
 
 // Link da documentação https://www.npmjs.com/package/react-player
 class VideoSeries extends Component {

@@ -7,8 +7,8 @@ import {
     Link
 } from 'react-router-dom'
 
-import api from './api'
-import './css/Home.css'
+import api from '../server/api'
+import '../css/Home.css'
 
 const statuses = {
     "watched": "Assistido",

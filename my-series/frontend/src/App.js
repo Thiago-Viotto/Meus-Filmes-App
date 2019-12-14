@@ -8,11 +8,11 @@ import {
 } from 'react-router-dom'
 
 import Home from '../src/Home'
-import NewSeries from '../src/NewSeries'
-import EditSeries from '../src/EditSeries'
-import Series from '../src/Series'
-import Favorite from '../src/Favorite'
-import VideoSeries from '../src/VideoSeries'
+import NewSeries from './pages/NewSeries'
+import EditSeries from './pages/EditSeries'
+import Series from './pages/Series'
+import Favorite from './pages/Favorite'
+import VideoSeries from './pages/VideoSeries'
 
 const About = () => <p>Sobre</p>
 

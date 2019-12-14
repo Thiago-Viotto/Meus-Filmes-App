@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import api from './api'
+import api from '../server/api'
+import { Redirect } from 'react-router-dom'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 import { FormControl } from 'react-bootstrap'
 
 const status = {
@@ -11,10 +12,7 @@ const status = {
     "toWatch": "Assistir"
 }
 
-let nameUpdate = ''
-let urlVideoUpdate = ''
-
-class EditSeries extends Component {
+class NewSeries extends Component {
     _isMounted = false;
 
     constructor(props) {
@@ -22,9 +20,11 @@ class EditSeries extends Component {
 
         this.state = {
             genres: [],
+            series: [],
             isLoading: false,
             redirect: false,
-            series: {},
+            selectedFile: null,
+            persons: [],
             name: '',
             urlVideo: '',
             errors: {
@@ -45,6 +45,7 @@ class EditSeries extends Component {
         this.handleBur = this.handleBur.bind(this)
         this.handleNameChange = this.handleNameChange.bind(this)
         this.handleUrlVideoChange = this.handleUrlVideoChange.bind(this)
+        this.onChangeHandler = this.onChangeHandler.bind(this)
     }
 
     // O Componente está montado
@@ -54,26 +55,14 @@ class EditSeries extends Component {
         // define que os dados estão sendo carregados
         this.setState({ isLoading: true })
 
-        api.loadSeriesbyId(this.props.match.params.id)
-            .then((res) => {
-                { this.setState({ series: res.data }) }
-                this.refs.name.value = this.state.series.name
-                nameUpdate = this.state.series.name // name initial that will be updated
-                urlVideoUpdate = this.state.series.video // urlVideo initial that will be updated
-                if (this.state.series.genre == 'favorite') {
-                    this.refs.genre.value = this.state.series.genreOld
-                } else {
-                    this.refs.genre.value = this.state.series.genre
-                }
-                this.refs.comment.value = this.state.series.comment
-            })
-
         api.loadGenres()
             .then((res) => {
-                this.setState({
-                    isLoading: false,
-                    genres: res.data
-                })
+                if (this._isMounted) {
+                    this.setState({
+                        isLoading: false,
+                        genres: res.data
+                    })
+                }
             })
     }
 
@@ -84,9 +73,9 @@ class EditSeries extends Component {
         }
     }
 
-    validName(name) {
+    validName(name){
         const newName = name.replace(/\s+/g, '')
-        if ((newName.length === 0) || (newName === '') || (newName === ' ')) {
+        if((newName.length === 0) || (newName === '') || (newName === ' ')){
             return false
         } else
             return true
@@ -102,28 +91,45 @@ class EditSeries extends Component {
             event.preventDefault()
             return
         }
+        const data = new FormData()
+        data.append('file', this.state.selectedFile)
 
-        const editSeries = {
-            id: this.props.match.params.id,
+        axios.post("http://localhost:8000/upload", data, { // receive two parameter endpoint url ,form data 
+        })
+            .then(res => { // then print response status
+            })
+
+        let valueURLImg = ''
+
+        if(this.state.selectedFile === null){
+            valueURLImg = null //no pôster
+        } else {
+            valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
+        }
+
+        const newSeries = {
             name: this.refs.name.value.trim(),
             comment: this.refs.comment.value,
-            status: this.state.series.status,
+            status: 'toWatch',
             genre: this.refs.genre.value,
-            img: this.refs.urlImage.value,
+            img: valueURLImg,
             video: this.refs.urlVideo.value
         }
 
-        let isValidName = this.validName(editSeries.name)
-        let isValidVideo = this.validURL(editSeries.video)
-        isValidVideo = this.validURL(editSeries.img)
+        let isValidName = this.validName(newSeries.name)
+        let isValidVideo = this.validURL(newSeries.video)
 
         if ((isValidName === true) && (isValidVideo === true)) {
-            api.updateSeries(editSeries)
+
+            api.saveSeries(newSeries)
                 .then((res) => {
                     if (this._isMounted) {
-                        this.notify(editSeries)
+                        this.notify(newSeries)
                         setTimeout(() => {
-                            this.props.history.push('/series/' + editSeries.genre);
+                            this.setState({
+                                redirect: '/series/' + newSeries.genre,
+                            }
+                            )
                         }, 2000);
                     }
                 })
@@ -136,27 +142,32 @@ class EditSeries extends Component {
         this._isMounted = false;
     }
 
-    notify(editSeries) {
-        toast.success('O filme ' + '"' + editSeries.name + '"' + ' foi editado com sucesso', { autoClose: 1500 });
+    notify(newSeries) {
+        toast.success('O filme ' + '"' + newSeries.name + '"' + ' foi adicionado com sucesso', { autoClose: 1500 });
+    }
+
+    onChangeHandler = event => {
+        this.setState({
+            selectedFile: event.target.files[0],
+            loaded: 0,
+        })
     }
 
     canBeSubmitted() {
-        const errors = this.validateField(nameUpdate, urlVideoUpdate)
+        const errors = this.validateField(this.state.name, this.state.urlVideo)
         const isDisabled = !Object.keys(errors).some(x => errors[x])
         return isDisabled
     }
 
     handleNameChange = event => {
-        nameUpdate = this.refs.name.value
         this.setState({
-            name: nameUpdate
+            name: event.target.value
         })
     }
 
     handleUrlVideoChange = event => {
-        urlVideoUpdate = this.refs.urlVideo.value
         this.setState({
-            urlVideo: urlVideoUpdate
+            urlVideo: event.target.value
         })
     }
 
@@ -167,7 +178,7 @@ class EditSeries extends Component {
     }
 
     render() {
-        const errors = this.validateField(nameUpdate, urlVideoUpdate)
+        const errors = this.validateField(this.state.name, this.state.urlVideo)
         const isDisabled = Object.keys(errors).some(x => errors[x])
 
         const shouldMarkError = field => {
@@ -182,7 +193,7 @@ class EditSeries extends Component {
                 {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1 className="h1AddEdit">Editar série</h1>
+                <h1 className="h1AddEdit">Nova série</h1>
                 <form>
                     <div className="intro-group">
                         <p className="text-truncate">Nome *</p>
@@ -191,24 +202,21 @@ class EditSeries extends Component {
                             ref='name'
                             className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditSeries'}
                             onChange={this.handleNameChange}
-                            defaultValue={this.state.series.name}
+                            value={this.state.name}
                             onBlur={this.handleBur('name')}
                         /> <br />
                     </div>
                     <div className="intro-group">
                         <p className="text-truncate">Genêro *</p>
-                        <select ref="genre" required >
+                    <select ref="genre" required>
                             {
                                 this.state.genres
-                                    .map(key => <option defaultValue={this.state.series.genre} key={key} value={key}>{key} </option>)
+                                    .map(key => <option key={key} value={key}>{key}</option>)
                             }
                         </select> <br />
                     </div>
-                    <p className="text-truncate">Descrição</p> <textarea ref="comment" defaultValue={this.state.series.comment} placeholder="Adicione uma descrição ;)" /> <br />
-                    <div className="statusGenres">
-                        <img src={this.state.series.img} width="400" height="300"></img> <br /> <br />
-                    </div>
-                    <p className="text-truncate">URL do pôster *</p> <input type="text" ref="urlImage" defaultValue={this.state.series.img} placeholder="Adicione o link da URL da imagem" /> <br />
+                    <p className="text-truncate">Descrição</p> <textarea ref="comment" placeholder="Adicione uma descrição ;)" /> <br />
+                    <p className="text-truncate">Faça upload do pôster</p> <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
                     <div className="intro-group">
                         <p className="text-truncate">URL do vídeo *</p>
                         <input
@@ -216,16 +224,16 @@ class EditSeries extends Component {
                             ref='urlVideo'
                             className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditSeries'}
                             onChange={this.handleUrlVideoChange}
-                            defaultValue={this.state.series.video}
+                            value={this.state.urlVideo}
                             onBlur={this.handleBur('urlVideo')}
                         /> <br />
                     </div>
                     <ToastContainer />
-                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Salvar</button>
+                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Adicionar</button> <br /> <br />
                 </form>
             </section>
         )
     }
 }
 
-export default EditSeries
+export default NewSeries
