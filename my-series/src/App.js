@@ -24,8 +24,8 @@ class App extends Component {
           <nav id="menuColor" className="navbar navbar-expand-lg bg-dark navbar-dark" role="navigation">
               <div className="container">
                 <div className="navbar-header page-scroll">
-                  <a className="navbar-brand page-scroll" href="#page-top">
-                    <img src="/images/logo.png" height="30" />
+                  <a className="navbar-brand page-scroll" href="/">
+                    <img src="/images/logo.png" height="30" style={{marginTop: '2px'}} />
                   </a>
                 </div>
             <button className="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação" style={{backgroundColor: "#A4A4A4", marginRight: "30px"}}>
@@ -34,9 +34,6 @@ class App extends Component {
 
             <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
               <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link to='/'><h4 className="titlesMenu">Home</h4></Link>
-                </li>
                   <li className="nav-item">
                     <Link to='/new'><h4 className="titlesMenu">Nova Série</h4></Link>
                   </li>
