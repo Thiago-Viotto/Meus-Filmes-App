@@ -65,13 +65,58 @@
       "id": 38
     },
     {
-      "name": "dsddsds",
+      "name": "teste 2",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Drama",
+      "img": "http://localhost:3000/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 41
+    },
+    {
+      "name": "teste",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/images/2.png",
-      "video": " https://www.youtube.com/watch?v=7iYICSBJbso",
-      "id": 40
+      "img": "http://localhost:3000/backend/images/amarelo-queimado-372ba.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 42
+    },
+    {
+      "name": "teste 2",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 43
+    },
+    {
+      "name": "teste 3",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 44
+    },
+    {
+      "name": "teste 5",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 45
+    },
+    {
+      "name": "teste",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 46
     }
   ],
   "genres": [
