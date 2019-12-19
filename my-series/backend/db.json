@@ -1,0 +1,127 @@
+{
+  "series": [
+    {
+      "id": 4,
+      "name": "Minha vida em Marte",
+      "comment": "",
+      "status": "watched",
+      "genre": "",
+      "img": "",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
+    },
+    {
+      "id": 25,
+      "name": "teste 3",
+      "comment": "",
+      "status": "watched",
+      "img": "http://localhost:3000/images/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e-5.jpg",
+      "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
+    },
+    {
+      "id": 28,
+      "name": "O Máskara",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Ação",
+      "img": "http://localhost:3000/images/o-maskara-1024x576.jpg",
+      "video": "https://www.youtube.com/watch?v=fZpm99bgezM"
+    },
+    {
+      "id": 30,
+      "name": "terra 123",
+      "comment": "",
+      "status": "toWatch",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": "http://localhost:3000/images/terra-selvagem-destaque.jpg",
+      "video": "https://www.youtube.com/watch?v=7iYICSBJbso"
+    },
+    {
+      "id": 31,
+      "name": "A Justiceira",
+      "comment": "dsdsdsds",
+      "status": "toWatch",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": "http://localhost:3000/images/pippermint-trailer-legendado-jennifer-garner-.png",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
+    },
+    {
+      "id": 36,
+      "name": "xcxccxxccxdsdsdsds",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Ação",
+      "img": "http://localhost:3000/images/pessoas doentes.png",
+      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
+    },
+    {
+      "name": "ddssdsd",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/4.png",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 38
+    },
+    {
+      "name": "teste 2",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Drama",
+      "img": "http://localhost:3000/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 41
+    },
+    {
+      "name": "teste",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/amarelo-queimado-372ba.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 42
+    },
+    {
+      "name": "teste 2",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 43
+    },
+    {
+      "name": "teste 3",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 44
+    },
+    {
+      "name": "teste 5",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/backend/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 45
+    },
+    {
+      "name": "teste",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
+      "id": 46
+    }
+  ],
+  "genres": [
+    "Comédia",
+    "Drama",
+    "Ação"
+  ]
+}
