@@ -84,22 +84,13 @@
       "id": 49
     },
     {
-      "name": "dsds",
+      "id": 52,
+      "name": "sem postercvvcv",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": null,
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 50
-    },
-    {
-      "name": "ds",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": null,
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 51
+      "img": "",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     }
   ],
   "genres": [
