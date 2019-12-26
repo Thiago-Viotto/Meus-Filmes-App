@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios'
 import { FormControl } from 'react-bootstrap'
+
+import { Link } from 'react-router-dom'
 
 const status = {
     "watched": "Assistido",
@@ -38,7 +38,6 @@ class NewSeries extends Component {
         }
 
         this.saveSeries = this.saveSeries.bind(this)
-        this.notify = this.notify.bind(this)
         this.validURL = this.validURL.bind(this)
         this.validateField = this.validateField.bind(this)
         this.canBeSubmitted = this.canBeSubmitted.bind(this)
@@ -53,7 +52,7 @@ class NewSeries extends Component {
         this._isMounted = true
 
         // define que os dados estão sendo carregados
-        this.setState({ isLoading: true })
+        //  this.setState({ isLoading: true })
 
         api.loadGenres()
             .then((res) => {
@@ -73,9 +72,9 @@ class NewSeries extends Component {
         }
     }
 
-    validName(name){
+    validName(name) {
         const newName = name.replace(/\s+/g, '')
-        if((newName.length === 0) || (newName === '') || (newName === ' ')){
+        if ((newName.length === 0) || (newName === '') || (newName === ' ')) {
             return false
         } else
             return true
@@ -101,7 +100,7 @@ class NewSeries extends Component {
 
         let valueURLImg = ''
 
-        if(this.state.selectedFile === null){
+        if (this.state.selectedFile === null) {
             valueURLImg = null //no pôster
         } else {
             valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
@@ -123,15 +122,12 @@ class NewSeries extends Component {
 
             api.saveSeries(newSeries)
                 .then((res) => {
-                    if (this._isMounted) {
-                        this.notify(newSeries)
-                        setTimeout(() => {
-                            this.setState({
-                                redirect: '/series/' + newSeries.genre,
-                            }
-                            )
-                        }, 2000);
-                    }
+                    setTimeout(() => {
+                        this.setState({
+                            redirect: '/series/' + newSeries.genre,
+                        }
+                        )
+                    }, 3000);
                 })
         } else if (isValidVideo === false) {
             alert("Por favor, entre com uma URL válida");
@@ -140,10 +136,6 @@ class NewSeries extends Component {
 
     componentWillUnmount() {
         this._isMounted = false;
-    }
-
-    notify(newSeries) {
-        toast.success('O filme ' + '"' + newSeries.name + '"' + ' foi adicionado com sucesso', { autoClose: 1500 });
     }
 
     onChangeHandler = event => {
@@ -189,11 +181,12 @@ class NewSeries extends Component {
         }
 
         return (
-            <section className='intro-new-edit'>
-                {this.state.redirect &&
+            <section className='intro-new-edit' >
+                {
+                    this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1 className="h1AddEdit">Nova série</h1>
+                < h1 className="h1AddEdit" > Nova série</h1>
                 <form>
                     <div className="intro-group">
                         <p className="text-truncate">Nome *</p>
@@ -208,7 +201,7 @@ class NewSeries extends Component {
                     </div>
                     <div className="intro-group">
                         <p className="text-truncate">Genêro *</p>
-                    <select ref="genre" required>
+                        <select ref="genre" required>
                             {
                                 this.state.genres
                                     .map(key => <option key={key} value={key}>{key}</option>)
@@ -228,10 +221,9 @@ class NewSeries extends Component {
                             onBlur={this.handleBur('urlVideo')}
                         /> <br />
                     </div>
-                    <ToastContainer />
                     <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Adicionar</button> <br /> <br />
                 </form>
-            </section>
+            </section >
         )
     }
 }

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import api from '../server/api'
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from 'react-router-dom'
 import { FormControl } from 'react-bootstrap'
 
@@ -38,7 +36,6 @@ class EditSeries extends Component {
         }
 
         this.saveSeries = this.saveSeries.bind(this)
-        this.notify = this.notify.bind(this)
         this.validURL = this.validURL.bind(this)
         this.validateField = this.validateField.bind(this)
         this.canBeSubmitted = this.canBeSubmitted.bind(this)
@@ -51,11 +48,12 @@ class EditSeries extends Component {
     componentDidMount() {
         this._isMounted = true
 
-        // define que os dados estão sendo carregados
-        this.setState({ isLoading: true })
-
         api.loadSeriesbyId(this.props.match.params.id)
             .then((res) => {
+                if (this._isMounted) {
+                    // define que os dados estão sendo carregados
+                    this.setState({ isLoading: true })
+                }
                 { this.setState({ series: res.data }) }
                 this.refs.name.value = this.state.series.name
                 nameUpdate = this.state.series.name // name initial that will be updated
@@ -70,10 +68,12 @@ class EditSeries extends Component {
 
         api.loadGenres()
             .then((res) => {
-                this.setState({
-                    isLoading: false,
-                    genres: res.data
-                })
+                if(this._isMounted){
+                    this.setState({
+                        isLoading: false,
+                        genres: res.data
+                    })
+                }
             })
     }
 
@@ -121,10 +121,10 @@ class EditSeries extends Component {
             api.updateSeries(editSeries)
                 .then((res) => {
                     if (this._isMounted) {
-                        this.notify(editSeries)
+                        this.setState({ isLoading: true })
                         setTimeout(() => {
                             this.props.history.push('/series/' + editSeries.genre);
-                        }, 2000);
+                        }, 3000);
                     }
                 })
         } else if (isValidVideo === false) {
@@ -134,10 +134,6 @@ class EditSeries extends Component {
 
     componentWillUnmount() {
         this._isMounted = false;
-    }
-
-    notify(editSeries) {
-        toast.success('O filme ' + '"' + editSeries.name + '"' + ' foi editado com sucesso', { autoClose: 1500 });
     }
 
     canBeSubmitted() {
@@ -220,7 +216,6 @@ class EditSeries extends Component {
                             onBlur={this.handleBur('urlVideo')}
                         /> <br />
                     </div>
-                    <ToastContainer />
                     <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Salvar</button>
                 </form>
             </section>

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios'
 
 import {
@@ -17,6 +15,8 @@ const statuses = {
 }
 
 class Series extends Component {
+    is_Mounted = false
+
     constructor(props) {
         super(props)
 
@@ -31,11 +31,11 @@ class Series extends Component {
         this.renderSeries = this.renderSeries.bind(this)
         this.loadData = this.loadData.bind(this)
         this.addFavorite = this.addFavorite.bind(this)
-        this.notify = this.notify.bind(this)
     }
 
     // O Componente está montado
     componentDidMount() {
+        this._isMounted = true
         this.loadData()
     }
 
@@ -45,14 +45,19 @@ class Series extends Component {
 
         api.loadGenresbyGenrew(this.props.match.params.genre)
             .then((res) => {
-                this.setState({
-                    isLoading: false,
-                    series: res.data
-                })
+                if (this._isMounted) {
+                    this.setState({
+                        isLoading: false,
+                        series: res.data
+                    })
+                }
             })
-
     }
 
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+    
     deleteImage(url, id) {
         return fetch('https://www.localhost:8000/upload/' + id, {
             method: 'delete'
@@ -84,7 +89,6 @@ class Series extends Component {
 
         api.deleteSeries(id)
             .then((res) => {
-                toast.error('O filme ' + '"' + serie.name + '"' + ' foi removido com sucesso', { autoClose: 1500 });
                 setTimeout(() => {
                     this.loadData()
                 }, 1500);
@@ -104,15 +108,10 @@ class Series extends Component {
         }
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
-                this.notify(myFavoriteSerie)
                 setTimeout(() => {
                     this.loadData()
                 }, 2000);
             })
-    }
-
-    notify(myFavoriteSerie) {
-        toast('O filme ' + '"' + myFavoriteSerie.name + '"' + ' foi adicionado em Meus favoritos', { autoClose: 1500 });
     }
 
     renderSeries(series) {
@@ -128,10 +127,9 @@ class Series extends Component {
                                 <p className="lead text-truncate" style={{ fontSize: '16px', textAlign: 'center' }}>
                                     {series.genre} / {statuses[series.status]}</p>
                             </div>
-                            <ToastContainer />
-                            <Link className="btn btn-primary buttonSeries" role="group" style={{ marginRight: '5px'}} onClick={() => this.addFavorite(series)} ><h4 className='text-truncate'>Favoritos</h4></Link>
-                            <Link className="btn btn-outline-primary buttonSeries" style={{ marginRight: '5px'}} to={'/series-edit' + series.id} ><h4 className='text-truncate'>Editar</h4></Link>
-                            <Link className="btn btn-danger buttonSeries" style={{marginRight: '10px'}} onClick={() => this.deleteSeries(series.id, series)}><h4 className='text-truncate'>Excluir</h4></Link>
+                            <Link className="btn btn-primary buttonSeries" role="group" style={{ marginRight: '5px' }} onClick={() => this.addFavorite(series)} ><h4 className='text-truncate'>Favoritos</h4></Link>
+                            <Link className="btn btn-outline-primary buttonSeries" style={{ marginRight: '5px' }} to={'/series-edit' + series.id} ><h4 className='text-truncate'>Editar</h4></Link>
+                            <Link className="btn btn-danger buttonSeries" style={{ marginRight: '10px' }} onClick={() => this.deleteSeries(series.id, series)}><h4 className='text-truncate'>Excluir</h4></Link>
                         </div>
                     </div>
                 </div>

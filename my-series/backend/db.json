@@ -18,15 +18,6 @@
       "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
     },
     {
-      "id": 28,
-      "name": "O Máskara",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Ação",
-      "img": "http://localhost:3000/images/o-maskara-1024x576.jpg",
-      "video": "https://www.youtube.com/watch?v=fZpm99bgezM"
-    },
-    {
       "id": 30,
       "name": "terra 123",
       "comment": "",
@@ -47,76 +38,68 @@
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
     {
-      "id": 36,
-      "name": "xcxccxxccxdsdsdsds",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Ação",
-      "img": "http://localhost:3000/images/pessoas doentes.png",
-      "video": "https://www.youtube.com/watch?v=2hci_N_I4n4"
-    },
-    {
-      "name": "ddssdsd",
+      "id": 41,
+      "name": "teste 23434",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/images/4.png",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 38
+      "img": "http://localhost:3000/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
     {
-      "name": "teste 2",
+      "id": 46,
+      "name": "teste 323",
+      "comment": "",
+      "status": "toWatch",
+      "genreOld": "Comédia",
+      "genre": "favorite",
+      "img": "http://localhost:3000/images/181091938.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
+    },
+    {
+      "id": 47,
+      "name": "teste 4212sdsdxxcddsdsd22",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/0ea33df11c43b2bcfbaab9bd01770d9f.jpg",
+      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
+    },
+    {
+      "id": 48,
+      "name": "teste 7cxxcgfgf",
       "comment": "",
       "status": "toWatch",
       "genre": "Drama",
-      "img": "http://localhost:3000/images/181091938.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 41
+      "img": "http://localhost:3000/images/239_RR_01292017cc_2863__4d5e8362ec55fde017437b255f27b877.0.jpg",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
-      "name": "teste",
+      "name": "sddsd",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/backend/images/amarelo-queimado-372ba.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 42
+      "img": null,
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 49
     },
     {
-      "name": "teste 2",
+      "name": "dsds",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/backend/images/181091938.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 43
+      "img": null,
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 50
     },
     {
-      "name": "teste 3",
+      "name": "ds",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "http://localhost:3000/backend/images/181091938.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 44
-    },
-    {
-      "name": "teste 5",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/backend/images/181091938.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 45
-    },
-    {
-      "name": "teste",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/images/181091938.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O",
-      "id": 46
+      "img": null,
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 51
     }
   ],
   "genres": [
