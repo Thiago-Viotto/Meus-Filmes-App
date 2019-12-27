@@ -122,12 +122,10 @@ class NewSeries extends Component {
 
             api.saveSeries(newSeries)
                 .then((res) => {
-                    setTimeout(() => {
-                        this.setState({
-                            redirect: '/series/' + newSeries.genre,
-                        }
-                        )
-                    }, 3000);
+                    this.setState({
+                        redirect: '/series/' + newSeries.genre,
+                    }
+                    )
                 })
         } else if (isValidVideo === false) {
             alert("Por favor, entre com uma URL válida");

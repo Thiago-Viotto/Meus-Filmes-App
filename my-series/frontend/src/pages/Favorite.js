@@ -45,7 +45,7 @@ class Series extends Component {
             })
     }
 
-    removeFavorites(serieRemove){
+    removeFavorites(serieRemove) {
         const myFavoriteSerie = {
             id: serieRemove.id,
             name: serieRemove.name,
@@ -57,14 +57,12 @@ class Series extends Component {
         }
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
-                setTimeout(() => {
-                    this.loadData()
-                }, 2000); 
+                this.loadData()
             })
     }
 
     // altera o status para assistindo quando o usuário clicar em Assistir
-    changeStatus(serie){
+    changeStatus(serie) {
         const myNewSerie = {
             id: serie.id,
             name: serie.name,
@@ -96,9 +94,9 @@ class Series extends Component {
                                     {series.genreOld} / {statuses[series.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <Link className="btn btn-primary buttonSeries" role="group" style={{ marginRight: '5px'}} to={'/series-video' + series.id}>
-                                    <h4 className="btn btn-outline-primary buttonFavorite" style={{ marginRight: '5px'}} onClick={() => this.changeStatus(series)}>Assistir série</h4> </Link>
-                                <Link className="btn btn-danger buttonFavorite" style={{marginRight: '10px'}} onClick={() => this.removeFavorites(series)}><h4 className='text-truncate'>Remover dos favoritos</h4></Link>
+                                <Link className="btn btn-primary buttonSeries" role="group" style={{ marginRight: '5px' }} to={'/series-video' + series.id}>
+                                    <h4 className="btn btn-outline-primary buttonFavorite" style={{ marginRight: '5px' }} onClick={() => this.changeStatus(series)}>Assistir série</h4> </Link>
+                                <Link className="btn btn-danger buttonFavorite" style={{ marginRight: '10px' }} onClick={() => this.removeFavorites(series)}><h4 className='text-truncate'>Remover dos favoritos</h4></Link>
                             </div>
                         </div>
                     </div>

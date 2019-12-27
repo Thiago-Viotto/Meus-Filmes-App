@@ -89,9 +89,7 @@ class Series extends Component {
 
         api.deleteSeries(id)
             .then((res) => {
-                setTimeout(() => {
-                    this.loadData()
-                }, 1500);
+                this.loadData()
             })
     }
 
@@ -108,9 +106,7 @@ class Series extends Component {
         }
         api.updateSeries(myFavoriteSerie)
             .then((res) => {
-                setTimeout(() => {
-                    this.loadData()
-                }, 2000);
+                this.loadData()
             })
     }
 

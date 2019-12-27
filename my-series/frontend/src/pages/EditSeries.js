@@ -68,7 +68,7 @@ class EditSeries extends Component {
 
         api.loadGenres()
             .then((res) => {
-                if(this._isMounted){
+                if (this._isMounted) {
                     this.setState({
                         isLoading: false,
                         genres: res.data
@@ -102,6 +102,8 @@ class EditSeries extends Component {
             event.preventDefault()
             return
         }
+        const data = new FormData()
+        data.append('file', this.state.selectedFile)
 
         const editSeries = {
             id: this.props.match.params.id,
@@ -115,16 +117,13 @@ class EditSeries extends Component {
 
         let isValidName = this.validName(editSeries.name)
         let isValidVideo = this.validURL(editSeries.video)
-        isValidVideo = this.validURL(editSeries.img)
 
         if ((isValidName === true) && (isValidVideo === true)) {
             api.updateSeries(editSeries)
                 .then((res) => {
                     if (this._isMounted) {
                         this.setState({ isLoading: true })
-                        setTimeout(() => {
-                            this.props.history.push('/series/' + editSeries.genre);
-                        }, 3000);
+                        this.props.history.push('/series/' + editSeries.genre);
                     }
                 })
         } else if (isValidVideo === false) {
