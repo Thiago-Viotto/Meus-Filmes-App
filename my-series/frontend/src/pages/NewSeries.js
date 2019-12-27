@@ -52,7 +52,7 @@ class NewSeries extends Component {
         this._isMounted = true
 
         // define que os dados estão sendo carregados
-        //  this.setState({ isLoading: true })
+        this.setState({ isLoading: true })
 
         api.loadGenres()
             .then((res) => {
@@ -68,7 +68,7 @@ class NewSeries extends Component {
     validateField(name, urlVideo) {
         return {
             name: !this.validName(name),
-            urlVideo: !this.validURL(urlVideo)
+            urlVideo: !this.validURL(urlVideo) 
         }
     }
 

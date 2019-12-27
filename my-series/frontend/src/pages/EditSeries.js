@@ -56,6 +56,7 @@ class EditSeries extends Component {
                 }
                 { this.setState({ series: res.data }) }
                 this.refs.name.value = this.state.series.name
+                this.refs.urlVideo.value = this.state.series.video
                 nameUpdate = this.state.series.name // name initial that will be updated
                 urlVideoUpdate = this.state.series.video // urlVideo initial that will be updated
                 if (this.state.series.genre == 'favorite') {
@@ -84,6 +85,7 @@ class EditSeries extends Component {
         }
     }
 
+
     validName(name) {
         const newName = name.replace(/\s+/g, '')
         if ((newName.length === 0) || (newName === '') || (newName === ' ')) {
@@ -93,8 +95,12 @@ class EditSeries extends Component {
     }
 
     validURL(str) {
+        const strNew = str.replace(/\s+/g, '')
         let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-        return (!regex.test(str)) ? false : true;
+        if ((strNew.length === 0) || (strNew === '') || (strNew === ' ') || !regex.test(strNew)) {
+            return false
+        } else
+            return true
     }
 
     saveSeries = event => {
