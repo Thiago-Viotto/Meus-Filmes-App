@@ -83,7 +83,7 @@ class Home extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                <h1><img src="images/logo.png" /></h1>
+                                <img className="group list-group-image" src="images/logo.png" alt='Imagem do logo' style={{width:'100%', maxWidth:'480px'}} />
                                 <h4 className="titlesMenu">Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</h4>
                             </div>
                         </div>
