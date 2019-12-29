@@ -142,7 +142,7 @@ class Series extends Component {
                         <p>Carregando, aguarde...</p>
                     }
                     {!this.isLoading && this.state.series.length === 0 &&
-                        <div className='alert alert-info'>Nenhuma série cadastrada.</div>
+                        <div className='alert alert-info' id='noneSerie'><h4>Nenhuma série cadastrada</h4></div>
                     }
                     <div id="series" className="row">
                         {!this.state.isLoading && this.state.series.map(this.renderSeries)}
