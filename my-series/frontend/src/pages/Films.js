@@ -136,6 +136,7 @@ class Films extends Component {
     }
 
     render() {
+        console.log(this.state.films)
         if (this.props.match.params.genre !== 'favorite') {
             return (
                 <section id="intro" >
@@ -144,7 +145,11 @@ class Films extends Component {
                         <p>Carregando, aguarde...</p>
                     }
                     {!this.isLoading && this.state.films.length === 0 &&
-                        <div className='alert alert-info' id='noneFilm'><h4>Nenhum filme cadastrado</h4></div>
+                        <div className='alert alert-info' id='noneFilm'>
+                            <h3>Nenhum filme cadastrado</h3>
+                            <br />
+                            <h5>Clique <Link to={'/new'}>aqui</Link> para cadastrar um filme novo</h5>
+                        </div>
                     }
                     <div id="films" className="row">
                         {!this.state.isLoading && this.state.films.map(this.renderFilms)}

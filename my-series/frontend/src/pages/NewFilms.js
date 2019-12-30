@@ -184,7 +184,7 @@ class NewFilms extends Component {
                     this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                < h1 className="h1AddEdit" > Nova série</h1>
+                < h1 className="h1AddEdit" > Novo filme</h1>
                 <form>
                     <div className="intro-group">
                         <p className="text-truncate">Nome *</p>
