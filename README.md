@@ -1,4 +1,4 @@
-# My Series App
+# Meus Filmes App
 
 ## Install Node
 - https://nodejs.org/en/download/
