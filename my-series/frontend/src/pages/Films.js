@@ -14,7 +14,7 @@ const statuses = {
     "toWatch": "Assistir"
 }
 
-class Series extends Component {
+class Films extends Component {
     is_Mounted = false
 
     constructor(props) {
@@ -22,13 +22,13 @@ class Series extends Component {
 
         this.state = {
             isLoading: false,
-            series: [],
+            films: [],
             genres: [],
             redirect: false,
             valueBaseDecode: ''
         }
 
-        this.renderSeries = this.renderSeries.bind(this)
+        this.renderFilms = this.renderFilms.bind(this)
         this.loadData = this.loadData.bind(this)
         this.addFavorite = this.addFavorite.bind(this)
     }
@@ -48,7 +48,7 @@ class Series extends Component {
                 if (this._isMounted) {
                     this.setState({
                         isLoading: false,
-                        series: res.data
+                        films: res.data
                     })
                 }
             })
@@ -65,8 +65,8 @@ class Series extends Component {
             .then(response => response.json());
     }
 
-    deleteSeries(id, serie) {
-        const urlImage = serie.img
+    deleteFilms(id, film) {
+        const urlImage = film.img
         // this.deleteImage(urlImage, id)
         axios.get('http://www.localhost:8000/upload/')
             .then(res => {
@@ -87,45 +87,45 @@ class Series extends Component {
           })   */
 
 
-        api.deleteSeries(id)
+        api.deleteFilms(id)
             .then((res) => {
                 this.loadData()
             })
     }
 
-    addFavorite(favoriteSerie) {
-        const myFavoriteSerie = {
-            id: favoriteSerie.id,
-            name: favoriteSerie.name,
-            comment: favoriteSerie.comment,
-            status: favoriteSerie.status,
-            genreOld: favoriteSerie.genre,
+    addFavorite(favoriteFilm) {
+        const myFavoriteFilm = {
+            id: favoriteFilm.id,
+            name: favoriteFilm.name,
+            comment: favoriteFilm.comment,
+            status: favoriteFilm.status,
+            genreOld: favoriteFilm.genre,
             genre: 'favorite',
-            img: favoriteSerie.img,
-            video: favoriteSerie.video
+            img: favoriteFilm.img,
+            video: favoriteFilm.video
         }
-        api.updateSeries(myFavoriteSerie)
+        api.updateFilms(myFavoriteFilm)
             .then((res) => {
                 this.loadData()
             })
     }
 
-    renderSeries(series) {
+    renderFilms(films) {
         return (
-            <div key={series.id} className="col-4">
+            <div key={films.id} className="col-4">
                 <div className="thumbnail" style={{ borderRadius: '10px' }}>
-                    <img className="group list-group-image" src={series.img} alt="thumbnail of series" />
+                    <img className="group list-group-image" src={films.img} alt="thumbnail de filmes" />
                     <div className="caption">
                         <h2 className="group inner list-group-item-heading text-truncate" style={{ marginBottom: '20px', textAlign: 'center', fontWeight: 'bold' }}>
-                            {series.name}</h2>
+                            {films.name}</h2>
                         <div className="row">
                             <div className="col-xs-12 col-md-6">
                                 <p className="lead text-truncate" style={{ fontSize: '16px', textAlign: 'center' }}>
-                                    {series.genre} / {statuses[series.status]}</p>
+                                    {films.genre} / {statuses[films.status]}</p>
                             </div>
-                            <Link className="btn btn-primary buttonSeries" role="group" style={{ marginRight: '5px' }} onClick={() => this.addFavorite(series)} ><h4 className='text-truncate'>Favoritos</h4></Link>
-                            <Link className="btn btn-outline-primary buttonSeries" style={{ marginRight: '5px' }} to={'/series-edit' + series.id} ><h4 className='text-truncate'>Editar</h4></Link>
-                            <Link className="btn btn-danger buttonSeries" style={{ marginRight: '10px' }} onClick={() => this.deleteSeries(series.id, series)}><h4 className='text-truncate'>Excluir</h4></Link>
+                            <Link className="btn btn-primary buttonFilms" role="group" style={{ marginRight: '5px' }} onClick={() => this.addFavorite(films)} ><h4 className='text-truncate'>Favoritos</h4></Link>
+                            <Link className="btn btn-outline-primary buttonFilms" style={{ marginRight: '5px' }} to={'/films-edit' + films.id} ><h4 className='text-truncate'>Editar</h4></Link>
+                            <Link className="btn btn-danger buttonFilms" style={{ marginRight: '10px' }} onClick={() => this.deleteFilms(films.id, films)}><h4 className='text-truncate'>Excluir</h4></Link>
                         </div>
                     </div>
                 </div>
@@ -141,11 +141,11 @@ class Series extends Component {
                     {this.isLoading &&
                         <p>Carregando, aguarde...</p>
                     }
-                    {!this.isLoading && this.state.series.length === 0 &&
-                        <div className='alert alert-info' id='noneSerie'><h4>Nenhuma série cadastrada</h4></div>
+                    {!this.isLoading && this.state.films.length === 0 &&
+                        <div className='alert alert-info' id='noneFilm'><h4>Nenhum filme cadastrado</h4></div>
                     }
-                    <div id="series" className="row">
-                        {!this.state.isLoading && this.state.series.map(this.renderSeries)}
+                    <div id="films" className="row">
+                        {!this.state.isLoading && this.state.films.map(this.renderFilms)}
 
                     </div>
                 </section>
@@ -158,4 +158,4 @@ class Series extends Component {
 
 }
 
-export default Series
+export default Films

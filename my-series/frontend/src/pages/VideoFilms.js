@@ -7,14 +7,14 @@ import {
 import '../css/Video.css'
 
 // Link da documentação https://www.npmjs.com/package/react-player
-class VideoSeries extends Component {
+class VideoFilms extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             genres: [],
             isLoading: false,
-            series: {}
+            films: {}
         }
     }
 
@@ -24,9 +24,9 @@ class VideoSeries extends Component {
         // define que os dados estão sendo carregados
         this.setState({ isLoading: true })
 
-        api.loadSeriesbyId(this.props.match.params.id)
+        api.loadFilmsbyId(this.props.match.params.id)
             .then((res) => {
-                { this.setState({ series: res.data }) }
+                { this.setState({ films: res.data }) }
             })
 
         api.loadGenres()
@@ -44,24 +44,24 @@ class VideoSeries extends Component {
     }
 
     // altera o status para assistido quando o usuário clicar em Assistir
-    changeStatus(serie) {
-        const myNewSerie = {
-            id: serie.id,
-            name: serie.name,
-            comment: serie.comment,
+    changeStatus(film) {
+        const myNewFilm = {
+            id: film.id,
+            name: film.name,
+            comment: film.comment,
             status: 'watched',
-            genre: serie.genre,
-            genreOld: serie.genreOld,
-            img: serie.img,
-            video: serie.video
+            genre: film.genre,
+            genreOld: film.genreOld,
+            img: film.img,
+            video: film.video
         }
-        api.updateSeries(myNewSerie)
+        api.updateFilms(myNewFilm)
             .then((res) => {
             })
     }
 
     render() {
-        if (!this.validVideo(this.state.series.video)) {
+        if (!this.validVideo(this.state.films.video)) {
             return (
                 <section id="intro" className="intro-section">
                     <h1>Não foi possível carregar :(</h1>
@@ -69,8 +69,8 @@ class VideoSeries extends Component {
                         <p>Carregando, aguarde...</p>
                     }
                     {!this.isLoading &&
-                        <div className='alert alert-info'>URL do vídeo cadastrado inválida.
-                            <p>Mas fique tranquilo! Você pode alterar clicando aqui: <Link className="btn btn-success" to={'/series-edit' + this.state.series.id} >Editar </Link></p>
+                        <div className='alert alert-info'>URL do vídeo cadastrado inválida
+                            <p>Mas fique tranquilo! Você pode alterar clicando aqui: <Link className="btn btn-success" to={'/films-edit' + this.state.films.id} >Editar </Link></p>
                         </div>
                     }
                 </section>
@@ -81,7 +81,7 @@ class VideoSeries extends Component {
                     <div className='player-wrapper'>
                         <ReactPlayer
                             className='react-player'
-                            url={this.state.series.video}
+                            url={this.state.films.video}
                             width='95%'
                             height='95%'
                             controls={true}
@@ -91,8 +91,8 @@ class VideoSeries extends Component {
 
                     <div className='watched'>
                         <span>Já assistiu?</span>
-                        <Link className="btn btn-success" to={'/series/favorite'}>
-                            <span onClick={() => this.changeStatus(this.state.series)}>Sim</span></Link>
+                        <Link className="btn btn-success" to={'/films/favorite'}>
+                            <span onClick={() => this.changeStatus(this.state.films)}>Sim</span></Link>
                     </div>
                 </div>
             )
@@ -100,4 +100,4 @@ class VideoSeries extends Component {
     }
 }
 
-export default VideoSeries
+export default VideoFilms

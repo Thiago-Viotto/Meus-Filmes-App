@@ -5,22 +5,22 @@ const api = axios.create({
 })
 
 export const loadGenres = () => api.get('genres')
-export const saveSeries = (newSeries) => api.post('series', newSeries)
-export const loadGenresbyGenrew = (genre) => api.get('series?genre=' + genre)
-export const deleteSeries = (id) => api.delete('series/' + id)
-export const loadSeriesbyId = (id) => api.get('series/' + id)
-export const updateSeries = (series) => api.put('series/' + series.id, series)
-export const loadSeriesbyFavorite = () => api.get('series?genre=favorite')
+export const saveFilms = (newFilms) => api.post('films', newFilms)
+export const loadGenresbyGenrew = (genre) => api.get('films?genre=' + genre)
+export const deleteFilms = (id) => api.delete('films/' + id)
+export const loadFilmsbyId = (id) => api.get('films/' + id)
+export const updateFilms = (films) => api.put('films/' + films.id, films)
+export const loadFilmsbyFavorite = () => api.get('films?genre=favorite')
 
 // Interface com todas as apis
 const apis = {
     loadGenres: loadGenres,
-    saveSeries: saveSeries,
+    saveFilms: saveFilms,
     loadGenresbyGenrew: loadGenresbyGenrew,
-    deleteSeries: deleteSeries,
-    loadSeriesbyId: loadSeriesbyId,
-    updateSeries: updateSeries,
-    loadSeriesbyFavorite: loadSeriesbyFavorite
+    deleteFilms: deleteFilms,
+    loadFilmsbyId: loadFilmsbyId,
+    updateFilms: updateFilms,
+    loadFilmsbyFavorite: loadFilmsbyFavorite
 }
 
 export default apis
