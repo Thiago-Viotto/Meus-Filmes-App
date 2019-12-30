@@ -114,7 +114,9 @@ class Films extends Component {
         return (
             <div key={films.id} className="col-4">
                 <div className="thumbnail" style={{ borderRadius: '10px' }}>
-                    <img className="group list-group-image" src={films.img} alt="thumbnail de filmes" />
+                    <div className='films filmsGenre'>
+                        <img className="group list-group-image filmsGenre" src={films.img} alt="thumbnail de filmes" />
+                    </div>
                     <div className="caption">
                         <h2 className="group inner list-group-item-heading text-truncate" style={{ marginBottom: '20px', textAlign: 'center', fontWeight: 'bold' }}>
                             {films.name}</h2>
