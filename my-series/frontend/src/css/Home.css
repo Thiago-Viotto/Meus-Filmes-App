@@ -123,4 +123,11 @@ input[type=text], select, textarea {
     text-align: center;
 }
 
+.imgGenresHome {
+    border: 0;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+}
+
 

@@ -44,7 +44,7 @@ class Home extends Component {
                 return <Link key={genre} to={`/films/${genre}`}>
                 <div className="item col-xs-4 col-lg-4">
                     <div className="films">
-                        <img border="0" alt={genre} src="imgGenres/comedia.jpg" width="400" height="300" />
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/comedia.jpg" />
                     </div>
                 </div>
                         </Link>;
@@ -53,7 +53,7 @@ class Home extends Component {
                 return <Link key={genre} to={`/films/${genre}`}>
                 <div className="item col-xs-4 col-lg-4">
                     <div className="films">
-                        <img border="0" alt={genre} src="imgGenres/drama.jpg" width="400" height="300" />
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/drama.jpg" />
                     </div>
                 </div>
                         </Link>;
@@ -61,7 +61,7 @@ class Home extends Component {
                 return <Link key={genre} to={`/films/${genre}`}>
                     <div className="item col-xs-4 col-lg-4">
                         <div className="films">
-                            <img border="0" alt={genre} src="imgGenres/acao.jpg" width="400" height="300" />
+                            <img className='imgGenresHome' alt={genre} src="imgGenres/acao.jpg" />
                         </div>
                     </div>
                         </Link>;
@@ -69,7 +69,7 @@ class Home extends Component {
                 return <Link key={genre} to={`/films/${genre}`}>
                     <div className="item col-xs-4 col-lg-4">
                         <div className="thumbnail">
-                            <img border="0" alt={genre} src="imgGenres/padrao.jpg" width="400" height="300" />
+                            <img className='imgGenresHome' alt={genre} src="imgGenres/padrao.jpg" />
                         </div>
                     </div>
                         </Link>;
