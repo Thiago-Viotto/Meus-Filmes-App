@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
-import axios from 'axios'
 import { FormControl } from 'react-bootstrap'
-
-import { Link } from 'react-router-dom'
 
 const status = {
     "watched": "Assistido",
@@ -12,7 +9,10 @@ const status = {
     "toWatch": "Assistir"
 }
 
-class NewSeries extends Component {
+let nameUpdate = ''
+let urlVideoUpdate = ''
+
+class EditFilms extends Component {
     _isMounted = false;
 
     constructor(props) {
@@ -20,11 +20,9 @@ class NewSeries extends Component {
 
         this.state = {
             genres: [],
-            series: [],
             isLoading: false,
             redirect: false,
-            selectedFile: null,
-            persons: [],
+            films: {},
             name: '',
             urlVideo: '',
             errors: {
@@ -37,22 +35,37 @@ class NewSeries extends Component {
             }
         }
 
-        this.saveSeries = this.saveSeries.bind(this)
+        this.saveFilms = this.saveFilms.bind(this)
         this.validURL = this.validURL.bind(this)
         this.validateField = this.validateField.bind(this)
         this.canBeSubmitted = this.canBeSubmitted.bind(this)
         this.handleBur = this.handleBur.bind(this)
         this.handleNameChange = this.handleNameChange.bind(this)
         this.handleUrlVideoChange = this.handleUrlVideoChange.bind(this)
-        this.onChangeHandler = this.onChangeHandler.bind(this)
     }
 
     // O Componente está montado
     componentDidMount() {
         this._isMounted = true
 
-        // define que os dados estão sendo carregados
-        this.setState({ isLoading: true })
+        api.loadFilmsbyId(this.props.match.params.id)
+            .then((res) => {
+                if (this._isMounted) {
+                    // define que os dados estão sendo carregados
+                    this.setState({ isLoading: true })
+                }
+                { this.setState({ films: res.data }) }
+                this.refs.name.value = this.state.films.name
+                this.refs.urlVideo.value = this.state.films.video
+                nameUpdate = this.state.films.name // name initial that will be updated
+                urlVideoUpdate = this.state.films.video // urlVideo initial that will be updated
+                if (this.state.films.genre == 'favorite') {
+                    this.refs.genre.value = this.state.films.genreOld
+                } else {
+                    this.refs.genre.value = this.state.films.genre
+                }
+                this.refs.comment.value = this.state.films.comment
+            })
 
         api.loadGenres()
             .then((res) => {
@@ -68,9 +81,10 @@ class NewSeries extends Component {
     validateField(name, urlVideo) {
         return {
             name: !this.validName(name),
-            urlVideo: !this.validURL(urlVideo) 
+            urlVideo: !this.validURL(urlVideo)
         }
     }
+
 
     validName(name) {
         const newName = name.replace(/\s+/g, '')
@@ -81,11 +95,15 @@ class NewSeries extends Component {
     }
 
     validURL(str) {
+        const strNew = str.replace(/\s+/g, '')
         let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-        return (!regex.test(str)) ? false : true;
+        if ((strNew.length === 0) || (strNew === '') || (strNew === ' ') || !regex.test(strNew)) {
+            return false
+        } else
+            return true
     }
 
-    saveSeries = event => {
+    saveFilms = event => {
         if (!this.canBeSubmitted()) {
             event.preventDefault()
             return
@@ -93,39 +111,26 @@ class NewSeries extends Component {
         const data = new FormData()
         data.append('file', this.state.selectedFile)
 
-        axios.post("http://localhost:8000/upload", data, { // receive two parameter endpoint url ,form data 
-        })
-            .then(res => { // then print response status
-            })
-
-        let valueURLImg = ''
-
-        if (this.state.selectedFile === null) {
-            valueURLImg = null //no pôster
-        } else {
-            valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
-        }
-
-        const newSeries = {
+        const editFilms = {
+            id: this.props.match.params.id,
             name: this.refs.name.value.trim(),
             comment: this.refs.comment.value,
-            status: 'toWatch',
+            status: this.state.films.status,
             genre: this.refs.genre.value,
-            img: valueURLImg,
+            img: this.refs.urlImage.value,
             video: this.refs.urlVideo.value
         }
 
-        let isValidName = this.validName(newSeries.name)
-        let isValidVideo = this.validURL(newSeries.video)
+        let isValidName = this.validName(editFilms.name)
+        let isValidVideo = this.validURL(editFilms.video)
 
         if ((isValidName === true) && (isValidVideo === true)) {
-
-            api.saveSeries(newSeries)
+            api.updateFilms(editFilms)
                 .then((res) => {
-                    this.setState({
-                        redirect: '/series/' + newSeries.genre,
+                    if (this._isMounted) {
+                        this.setState({ isLoading: true })
+                        this.props.history.push('/films/' + editFilms.genre);
                     }
-                    )
                 })
         } else if (isValidVideo === false) {
             alert("Por favor, entre com uma URL válida");
@@ -136,28 +141,23 @@ class NewSeries extends Component {
         this._isMounted = false;
     }
 
-    onChangeHandler = event => {
-        this.setState({
-            selectedFile: event.target.files[0],
-            loaded: 0,
-        })
-    }
-
     canBeSubmitted() {
-        const errors = this.validateField(this.state.name, this.state.urlVideo)
+        const errors = this.validateField(nameUpdate, urlVideoUpdate)
         const isDisabled = !Object.keys(errors).some(x => errors[x])
         return isDisabled
     }
 
     handleNameChange = event => {
+        nameUpdate = this.refs.name.value
         this.setState({
-            name: event.target.value
+            name: nameUpdate
         })
     }
 
     handleUrlVideoChange = event => {
+        urlVideoUpdate = this.refs.urlVideo.value
         this.setState({
-            urlVideo: event.target.value
+            urlVideo: urlVideoUpdate
         })
     }
 
@@ -168,7 +168,7 @@ class NewSeries extends Component {
     }
 
     render() {
-        const errors = this.validateField(this.state.name, this.state.urlVideo)
+        const errors = this.validateField(nameUpdate, urlVideoUpdate)
         const isDisabled = Object.keys(errors).some(x => errors[x])
 
         const shouldMarkError = field => {
@@ -179,51 +179,53 @@ class NewSeries extends Component {
         }
 
         return (
-            <section className='intro-new-edit' >
-                {
-                    this.state.redirect &&
+            <section className='intro-new-edit'>
+                {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                < h1 className="h1AddEdit" > Nova série</h1>
+                <h1 className="h1AddEdit">Editar filme</h1>
                 <form>
                     <div className="intro-group">
                         <p className="text-truncate">Nome *</p>
                         <input
                             placeholder="Entre com o nome do filme... *"
                             ref='name'
-                            className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditSeries'}
+                            className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditFilms'}
                             onChange={this.handleNameChange}
-                            value={this.state.name}
+                            defaultValue={this.state.films.name}
                             onBlur={this.handleBur('name')}
                         /> <br />
                     </div>
                     <div className="intro-group">
                         <p className="text-truncate">Genêro *</p>
-                        <select ref="genre" required>
+                        <select ref="genre" required >
                             {
                                 this.state.genres
-                                    .map(key => <option key={key} value={key}>{key}</option>)
+                                    .map(key => <option defaultValue={this.state.films.genre} key={key} value={key}>{key} </option>)
                             }
                         </select> <br />
                     </div>
-                    <p className="text-truncate">Descrição</p> <textarea ref="comment" placeholder="Adicione uma descrição ;)" /> <br />
-                    <p className="text-truncate">Faça upload do pôster</p> <input type="file" name="file" onChange={this.onChangeHandler} /> <br />
+                    <p className="text-truncate">Descrição</p> <textarea ref="comment" defaultValue={this.state.films.comment} placeholder="Adicione uma descrição ;)" /> <br />
+                    <div className="statusGenres">
+                        <img src={this.state.films.img} width="400" height="300"></img> <br /> <br />
+                    </div>
+                    <p className="text-truncate">URL do pôster *</p> <input type="text" ref="urlImage" defaultValue={this.state.films.img} placeholder="Adicione o link da URL da imagem" /> <br />
                     <div className="intro-group">
                         <p className="text-truncate">URL do vídeo *</p>
                         <input
                             placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo... *"
                             ref='urlVideo'
-                            className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditSeries'}
+                            className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditFilms'}
                             onChange={this.handleUrlVideoChange}
-                            value={this.state.urlVideo}
+                            defaultValue={this.state.films.video}
                             onBlur={this.handleBur('urlVideo')}
                         /> <br />
                     </div>
-                    <button disabled={isDisabled} type="button" onClick={this.saveSeries} className="btn btn-primary btn-lg">Adicionar</button> <br /> <br />
+                    <button disabled={isDisabled} type="button" onClick={this.saveFilms} className="btn btn-primary btn-lg">Salvar</button>
                 </form>
-            </section >
+            </section>
         )
     }
 }
 
-export default NewSeries
+export default EditFilms

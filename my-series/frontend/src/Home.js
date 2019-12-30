@@ -41,32 +41,32 @@ class Home extends Component {
         //  <Link to={`/series/${genre}`}><span key={genre}>&nbsp;&nbsp;{genre}</span></Link>
         switch (genre) {
             case "Comédia": 
-                return <Link key={genre} to={`/series/${genre}`}>
+                return <Link key={genre} to={`/films/${genre}`}>
                 <div className="item col-xs-4 col-lg-4">
-                    <div className="series">
+                    <div className="films">
                         <img border="0" alt={genre} src="imgGenres/comedia.jpg" width="400" height="300" />
                     </div>
                 </div>
                         </Link>;
   
             case "Drama": 
-                return <Link key={genre} to={`/series/${genre}`}>
+                return <Link key={genre} to={`/films/${genre}`}>
                 <div className="item col-xs-4 col-lg-4">
-                    <div className="series">
+                    <div className="films">
                         <img border="0" alt={genre} src="imgGenres/drama.jpg" width="400" height="300" />
                     </div>
                 </div>
                         </Link>;
             case "Ação": 
-                return <Link key={genre} to={`/series/${genre}`}>
+                return <Link key={genre} to={`/films/${genre}`}>
                     <div className="item col-xs-4 col-lg-4">
-                        <div className="series">
+                        <div className="films">
                             <img border="0" alt={genre} src="imgGenres/acao.jpg" width="400" height="300" />
                         </div>
                     </div>
                         </Link>;
             default: 
-                return <Link key={genre} to={`/series/${genre}`}>
+                return <Link key={genre} to={`/films/${genre}`}>
                     <div className="item col-xs-4 col-lg-4">
                         <div className="thumbnail">
                             <img border="0" alt={genre} src="imgGenres/padrao.jpg" width="400" height="300" />
@@ -84,7 +84,7 @@ class Home extends Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <img className="group list-group-image" src="images/logo.png" alt='Imagem do logo' style={{width:'100%', maxWidth:'480px'}} />
-                                <h4 className="titlesMenu">Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</h4>
+                                <h4 className="titlesMenu">Nunca mais esqueça um filme que você assistiu ou que alguém lhe indicou.</h4>
                             </div>
                         </div>
                     </div>

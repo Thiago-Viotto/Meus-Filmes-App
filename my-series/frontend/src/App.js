@@ -8,11 +8,11 @@ import {
 } from 'react-router-dom'
 
 import Home from '../src/Home'
-import NewSeries from './pages/NewSeries'
-import EditSeries from './pages/EditSeries'
-import Series from './pages/Series'
+import NewFilms from './pages/NewFilms'
+import EditFilms from './pages/EditFilms'
+import Films from './pages/Films'
 import Favorite from './pages/Favorite'
-import VideoSeries from './pages/VideoSeries'
+import VideoFilms from './pages/VideoFilms'
 
 const About = () => <p>Sobre</p>
 
@@ -35,10 +35,10 @@ class App extends Component {
             <div className="collapse navbar-collapse" id="conteudoNavbarSuportado">
               <ul className="navbar-nav">
                   <li className="nav-item">
-                    <Link to='/new'><h4 className="titlesMenu">Nova Série</h4></Link>
+                    <Link to='/new'><h4 className="titlesMenu">Novo Filme</h4></Link>
                   </li>
                   <li className="nav-item">
-                    <Link to='/series/favorite'><h4 className="titlesMenu">Meus favoritos</h4></Link>
+                    <Link to='/films/favorite'><h4 className="titlesMenu">Meus favoritos</h4></Link>
                   </li>
                   <li className="nav-item">
                     <Link to='/about'><h4 className="titlesMenu">Sobre</h4></Link>
@@ -48,12 +48,12 @@ class App extends Component {
               </div>
             </nav>
             <Route exact path='/' component={Home} />
-            <Route path='/series-video:id' component={VideoSeries} />
-            <Route path='/series-edit:id' component={EditSeries} />
-            <Route path='/series/:genre' component={withRouter(Series)} />
-            <Route path='/series/favorite' component={Favorite} />
+            <Route path='/films-video:id' component={VideoFilms} />
+            <Route path='/films-edit:id' component={EditFilms} />
+            <Route path='/films/:genre' component={withRouter(Films)} />
+            <Route path='/films/favorite' component={Favorite} />
             <Route exact path='/about' component={About} />
-            <Route exact path='/new' component={NewSeries} />
+            <Route exact path='/new' component={NewFilms} />
         </div>
       </Router>
         )
