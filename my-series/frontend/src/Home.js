@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import api from './server/api'
 
 import {
-    BrowserRouter as Router,
-    Route,
     Link
 } from 'react-router-dom'
 

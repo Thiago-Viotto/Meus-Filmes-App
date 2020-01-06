@@ -66,12 +66,10 @@ class Films extends Component {
     }
 
     deleteFilms(id, film) {
-        const urlImage = film.img
+        // const urlImage = film.img
         // this.deleteImage(urlImage, id)
         axios.get('http://www.localhost:8000/upload/')
-            .then(res => {
-                console.log(res.data);
-            })
+            .then(res => {})
 
 
         /*  let pathSerie = serie.img
@@ -136,7 +134,6 @@ class Films extends Component {
     }
 
     render() {
-        console.log(this.state.films)
         if (this.props.match.params.genre !== 'favorite') {
             return (
                 <section>

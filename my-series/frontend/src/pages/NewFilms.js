@@ -2,15 +2,6 @@ import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { FormControl } from 'react-bootstrap'
-
-import { Link } from 'react-router-dom'
-
-const status = {
-    "watched": "Assistido",
-    "watching": "Assistindo",
-    "toWatch": "Assistir"
-}
 
 class NewFilms extends Component {
     _isMounted = false;
@@ -81,7 +72,7 @@ class NewFilms extends Component {
     }
 
     validURL(str) {
-        let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+        let regex = /(http|https):(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(|([\w#!:.?+=&%!]))?/;
         return (!regex.test(str)) ? false : true;
     }
 
@@ -179,19 +170,19 @@ class NewFilms extends Component {
         }
 
         return (
-            <section className='intro-new-edit' >
+            <section className='intro-new-add-edit'>
                 {
                     this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                < h1 className="h1AddEdit" > Novo filme</h1>
+                < h1 className="h1AddAddEdit" > Novo filme</h1>
                 <form>
                     <div className="intro-group">
                         <p className="text-truncate">Nome *</p>
                         <input
                             placeholder="Entre com o nome do filme... *"
                             ref='name'
-                            className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditFilms'}
+                            className={shouldMarkError('name') ? 'error' : 'inputNewEditFilms'}
                             onChange={this.handleNameChange}
                             value={this.state.name}
                             onBlur={this.handleBur('name')}
@@ -213,7 +204,7 @@ class NewFilms extends Component {
                         <input
                             placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo... *"
                             ref='urlVideo'
-                            className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditFilms'}
+                            className={shouldMarkError('urlVideo') ? 'error' : 'inputNewEditFilms'}
                             onChange={this.handleUrlVideoChange}
                             value={this.state.urlVideo}
                             onBlur={this.handleBur('urlVideo')}

@@ -26,7 +26,7 @@ class VideoFilms extends Component {
 
         api.loadFilmsbyId(this.props.match.params.id)
             .then((res) => {
-                { this.setState({ films: res.data }) }
+                 this.setState({ films: res.data }) 
             })
 
         api.loadGenres()

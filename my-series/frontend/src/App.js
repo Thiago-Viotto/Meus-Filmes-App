@@ -25,7 +25,7 @@ class App extends Component {
               <div className="container">
                 <div className="navbar-header page-scroll">
                   <Link className="navbar-brand page-scroll" to="/">
-                    <img src="/images/logo.png" height="30" style={{marginTop: '2px'}} />
+                    <img src="/images/logo.png" height="30" style={{marginTop: '2px'}} alt='logo escrito Meus Filmes' />
                   </Link>
                 </div>
             <button className="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação" style={{backgroundColor: "#A4A4A4", marginRight: "30px"}}>
