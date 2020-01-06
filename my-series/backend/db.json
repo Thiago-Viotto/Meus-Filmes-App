@@ -40,9 +40,9 @@
       "id": 41,
       "name": "ol",
       "comment": "",
-      "status": "toWatch",
-      "genreOld": "Comédia",
+      "status": "watching",
       "genre": "favorite",
+      "genreOld": "Comédia",
       "img": "http://localhost:3000/images/181091938.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
@@ -50,9 +50,9 @@
       "id": 46,
       "name": "teste 323",
       "comment": "",
-      "status": "toWatch",
-      "genreOld": "Comédia",
+      "status": "watching",
       "genre": "favorite",
+      "genreOld": "Comédia",
       "img": "http://localhost:3000/images/181091938.jpg",
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
