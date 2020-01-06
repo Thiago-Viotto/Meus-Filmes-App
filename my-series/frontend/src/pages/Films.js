@@ -139,7 +139,7 @@ class Films extends Component {
         console.log(this.state.films)
         if (this.props.match.params.genre !== 'favorite') {
             return (
-                <section id="intro" >
+                <section>
                     <h1 className='titleGenre'>Filmes de {this.props.match.params.genre}</h1>
                     {this.isLoading &&
                         <p>Carregando, aguarde...</p>

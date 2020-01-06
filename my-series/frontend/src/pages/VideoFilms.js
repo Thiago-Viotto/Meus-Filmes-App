@@ -63,14 +63,14 @@ class VideoFilms extends Component {
     render() {
         if (!this.validVideo(this.state.films.video)) {
             return (
-                <section id="intro" className="intro-section">
-                    <h1>Não foi possível carregar :(</h1>
+                <section id="intro" className="intro-section alert alert-info introVideo">
+                    <h1 style={{marginBottom:'20px'}}>Não foi possível carregar :(</h1>
                     {this.isLoading &&
                         <p>Carregando, aguarde...</p>
                     }
                     {!this.isLoading &&
-                        <div className='alert alert-info'>URL do vídeo cadastrado inválida
-                            <p>Mas fique tranquilo! Você pode alterar clicando aqui: <Link className="btn btn-success" to={'/films-edit' + this.state.films.id} >Editar </Link></p>
+                        <div id='noneFilm'><h5>URL do vídeo cadastrado inválida</h5>
+                            <p style={{marginTop:'5px'}}>Mas fique tranquilo! Você pode alterar clicando aqui: <Link style={{marginTop:'10px'}} className="btn btn-success" to={'/films-edit' + this.state.films.id}><h4>Editar</h4></Link></p>
                         </div>
                     }
                 </section>
