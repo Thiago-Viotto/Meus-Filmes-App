@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import "./css/Home.css"
-
+import './css/Films.css'
 
 class Home extends Component {
     constructor(props) {
@@ -33,7 +33,6 @@ class Home extends Component {
             })
     }
 
-    // Retorna o link do gênero
     renderGenrerLink(genre) {
         // <h2 key={genre}>&nbsp;&nbsp;<Link to={`/series/${genre}`}>{genre}</Link></h2>
         //  <Link to={`/series/${genre}`}><span key={genre}>&nbsp;&nbsp;{genre}</span></Link>
@@ -63,6 +62,54 @@ class Home extends Component {
                         </div>
                     </div>
                         </Link>;
+            case "Terror": 
+            return <Link key={genre} to={`/films/${genre}`}>
+                <div className="item col-xs-4 col-lg-4">
+                    <div className="films">
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/terror.jpg" />
+                    </div>
+                </div>
+                    </Link>;
+            case "Aventura": 
+            return <Link key={genre} to={`/films/${genre}`}>
+                <div className="item col-xs-4 col-lg-4">
+                    <div className="films">
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/aventura.jpg" />
+                    </div>
+                </div>
+                    </Link>;
+            case "Suspense": 
+            return <Link key={genre} to={`/films/${genre}`}>
+                <div className="item col-xs-4 col-lg-4">
+                    <div className="films">
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/suspense.jpg" />
+                    </div>
+                </div>
+                    </Link>;
+            case "FicçãoCientífica": 
+            return <Link key={genre} to={`/films/${genre}`}>
+                <div className="item col-xs-4 col-lg-4">
+                    <div className="films">
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/ficçaoCientifica.jpg" />
+                    </div>
+                </div>
+                    </Link>;
+            case "Romance": 
+            return <Link key={genre} to={`/films/${genre}`}>
+                <div className="item col-xs-4 col-lg-4">
+                    <div className="films">
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/romance.jpeg" />
+                    </div>
+                </div>
+                    </Link>;
+            case "Animação": 
+            return <Link key={genre} to={`/films/${genre}`}>
+                <div className="item col-xs-4 col-lg-4">
+                    <div className="films">
+                        <img className='imgGenresHome' alt={genre} src="imgGenres/animaçao.jpg" />
+                    </div>
+                </div>
+                    </Link>;
             default: 
                 return <Link key={genre} to={`/films/${genre}`}>
                     <div className="item col-xs-4 col-lg-4">

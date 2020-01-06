@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
+import '../css/Films.css'
 
 let nameUpdate = ''
 let urlVideoUpdate = ''
