@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
-import { FormControl } from 'react-bootstrap'
-
-const status = {
-    "watched": "Assistido",
-    "watching": "Assistindo",
-    "toWatch": "Assistir"
-}
 
 let nameUpdate = ''
 let urlVideoUpdate = ''
@@ -54,12 +47,12 @@ class EditFilms extends Component {
                     // define que os dados estão sendo carregados
                     this.setState({ isLoading: true })
                 }
-                { this.setState({ films: res.data }) }
+                this.setState({ films: res.data }) 
                 this.refs.name.value = this.state.films.name
                 this.refs.urlVideo.value = this.state.films.video
                 nameUpdate = this.state.films.name // name initial that will be updated
                 urlVideoUpdate = this.state.films.video // urlVideo initial that will be updated
-                if (this.state.films.genre == 'favorite') {
+                if (this.state.films.genre === 'favorite') {
                     this.refs.genre.value = this.state.films.genreOld
                 } else {
                     this.refs.genre.value = this.state.films.genre
@@ -96,7 +89,7 @@ class EditFilms extends Component {
 
     validURL(str) {
         const strNew = str.replace(/\s+/g, '')
-        let regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+        let regex = /(http|https):(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(|([\w#!:.?+=&%!]))?/;
         if ((strNew.length === 0) || (strNew === '') || (strNew === ' ') || !regex.test(strNew)) {
             return false
         } else
@@ -179,18 +172,18 @@ class EditFilms extends Component {
         }
 
         return (
-            <section className='intro-new-edit'>
+            <section className='intro-new-add-edit'>
                 {this.state.redirect &&
                     <Redirect to={this.state.redirect} ></Redirect>
                 }
-                <h1 className="h1AddEdit">Editar filme</h1>
+                <h1 className="h1AddAddEdit">Editar filme</h1>
                 <form>
                     <div className="intro-group">
                         <p className="text-truncate">Nome *</p>
                         <input
                             placeholder="Entre com o nome do filme... *"
                             ref='name'
-                            className={shouldMarkError('name') ? 'error' : '' + 'inputNewEditFilms'}
+                            className={shouldMarkError('name') ? 'error' : 'inputNewEditFilms'}
                             onChange={this.handleNameChange}
                             defaultValue={this.state.films.name}
                             onBlur={this.handleBur('name')}
@@ -207,7 +200,7 @@ class EditFilms extends Component {
                     </div>
                     <p className="text-truncate">Descrição</p> <textarea ref="comment" defaultValue={this.state.films.comment} placeholder="Adicione uma descrição ;)" /> <br />
                     <div className="statusGenres">
-                        <img src={this.state.films.img} width="400" height="300"></img> <br /> <br />
+                        <img src={this.state.films.img} width="400" height="300" alt='Imagem do gênero do filme'></img> <br /> <br />
                     </div>
                     <p className="text-truncate">URL do pôster *</p> <input type="text" ref="urlImage" defaultValue={this.state.films.img} placeholder="Adicione o link da URL da imagem" /> <br />
                     <div className="intro-group">
@@ -215,7 +208,7 @@ class EditFilms extends Component {
                         <input
                             placeholder="Adicione um link do youtube, daylomotion, facebook ou vimeo... *"
                             ref='urlVideo'
-                            className={shouldMarkError('urlVideo') ? 'error' : '' + 'inputNewEditFilms'}
+                            className={shouldMarkError('urlVideo') ? 'error' : 'inputNewEditFilms'}
                             onChange={this.handleUrlVideoChange}
                             defaultValue={this.state.films.video}
                             onBlur={this.handleBur('urlVideo')}
