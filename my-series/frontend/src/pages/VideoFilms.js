@@ -5,6 +5,7 @@ import {
     Link
 } from 'react-router-dom'
 import '../css/Video.css'
+import '../css/Films.css'
 
 // Link da documentação https://www.npmjs.com/package/react-player
 class VideoFilms extends Component {

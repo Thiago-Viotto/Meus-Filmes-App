@@ -7,6 +7,7 @@ import {
 
 import api from '../server/api'
 import '../css/Home.css'
+import '../css/Films.css'
 
 const statuses = {
     "watched": "Assistido",

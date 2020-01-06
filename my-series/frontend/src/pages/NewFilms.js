@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import '../css/Films.css'
 
 class NewFilms extends Component {
     _isMounted = false;

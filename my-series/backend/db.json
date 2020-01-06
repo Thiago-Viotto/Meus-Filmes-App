@@ -91,11 +91,27 @@
       "genre": "Comédia",
       "img": "",
       "video": "https://youtu.be/DiLbV-X_-Q0"
+    },
+    {
+      "id": 53,
+      "name": "teste aventura",
+      "comment": "dds",
+      "status": "watching",
+      "genre": "favorite",
+      "genreOld": "Aventura",
+      "img": null,
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     }
   ],
   "genres": [
     "Comédia",
     "Drama",
-    "Ação"
+    "Ação",
+    "Terror",
+    "Aventura",
+    "Suspense",
+    "FicçãoCientífica",
+    "Romance",
+    "Animação"
   ]
 }
