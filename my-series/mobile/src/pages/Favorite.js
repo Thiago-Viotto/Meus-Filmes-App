@@ -1,6 +1,18 @@
-import React from 'react'
-import {View, Text} from 'react-native'
+import React, {Component} from 'react'
+import { View, Text } from 'react-native'
 
-export default function Favorite(){
-    return <View><Text>Favorite</Text></View>
+class Favorite extends Component {
+
+    static navigationOptions = {
+        header : null
+    }
+
+    render(){
+        return (
+            <View><Text>Favorite</Text></View>
+        )
+    }
+
 }
+
+export default Favorite

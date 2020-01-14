@@ -1,6 +1,18 @@
-import React from 'react'
-import {View, Text} from 'react-native'
+import React, {Component} from 'react'
+import { View, Text } from 'react-native'
 
-export default function NewFilms(){
-    return <View><Text>NewFilms</Text></View>
+class NewFilms extends Component {
+
+    static navigationOptions = {
+        header : null
+    }
+
+    render(){
+        return (
+            <View><Text>New Films</Text></View>
+        )
+    }
+
 }
+
+export default NewFilms

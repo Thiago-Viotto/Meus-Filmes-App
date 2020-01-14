@@ -1,6 +1,18 @@
-import React from 'react'
-import {View, Text} from 'react-native'
+import React, {Component} from 'react'
+import { View, Text } from 'react-native'
 
-export default function VideoFilms(){
-    return <View><Text>VideoFilms</Text></View>
+class VideoFilms extends Component {
+
+    static navigationOptions = {
+        header : null
+    }
+
+    render(){
+        return (
+            <View><Text>Video Films</Text></View>
+        )
+    }
+
 }
+
+export default VideoFilms
