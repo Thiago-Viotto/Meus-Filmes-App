@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 class NewFilms extends Component {
 
     static navigationOptions = {
-        header : null
+        drawerLabel : "Nova série"
     }
 
     render(){

@@ -1,10 +1,18 @@
 import React, {Component} from 'react'
-import { View, Text } from 'react-native'
+import { View, StyleSheet, Text, Image } from 'react-native'
 
 class Home extends Component {
 
     static navigationOptions = {
-        header : null
+        drawerLabel : "Home",
+
+        drawerIcon: ({ focused, tintColor }) => (
+            <Image  
+                style={styles.logo}
+                style={{ width: 400, height: 40}}
+                source={require('../../assets/logo.png')}
+            />
+        )
     }
 
     render(){
@@ -14,5 +22,13 @@ class Home extends Component {
     }
 
 }
+
+const styles = StyleSheet.create({
+    logo: {
+        width: 400,
+        height: 100,
+        borderRadius: 100
+    }
+})
 
 export default Home

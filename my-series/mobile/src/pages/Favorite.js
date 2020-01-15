@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 class Favorite extends Component {
 
     static navigationOptions = {
-        header : null
+        drawerLabel : "Meus Favoritos"
     }
 
     render(){
