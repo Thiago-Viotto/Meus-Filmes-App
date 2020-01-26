@@ -1,41 +1,58 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { View, Text, SafeAreaView, ScrollView, Dimensions, Image, StyleSheet } from 'react-native'
-import { Header, Left, Right, Icon} from 'native-base'
+import { Header, Left, Right, Icon, Body, Button } from 'native-base'
 
 class Home extends Component {
 
     static navigationOptions = {
-        drawerLabel : "Home",
-        /*
-        drawerIcon: ({tintColor}) => (
-            <Icon name='home' style={{fontSize:24, color:tintColor}} />
-        )    */
-    }   
+        drawerLabel: "Home",
+        drawerBackgroundColor: '#FFFFFF',
+    }
 
-    render(){
+    render() {
         return (
+            <ScrollView style={styles.container}>
             <View>
-                <Header>
+                <Header style={styles.header} noShadow>
+                    <Body>
+                        <Image style={styles.logo} source={require('../../assets/logo.png')} />
+                    </Body>
                     <Right>
-                        <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} style={{ marginTop: 25}}/>
+                        <Button transparent >
+                            <Icon style={styles.icon} name='menu' onPress={() => this.props.navigation.openDrawer()} />
+                        </Button>
                     </Right>
                 </Header>
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <Text>Home</Text>
                 </View>
             </View>
+            </ScrollView>
         )
     }
 }
 
-
-
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#1C1C1C'
+    },
     logo: {
-        width: 100,
+        width: 150,
         height: 50,
         borderRadius: 100,
-        marginLeft: 200
+        resizeMode: "center",
+        marginTop: 20
+    },
+    header: {
+        backgroundColor: '#343A40',
+        height: 70
+    },
+    icon: {
+        marginTop: 20
+    },
+    iconMovie: {
+        width: 24,
+        height: 24
     }
 })
 

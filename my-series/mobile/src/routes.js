@@ -11,13 +11,22 @@ import EditFilms from './pages/EditFilms'
 import Favorite from './pages/Favorite'
 import VideoFilms from './pages/VideoFilms'
 
-const Routes = createDrawerNavigator({
-    Home,
-    NewFilms,
-    Favorite
-}, {
-    initialRouteName: 'Home',
-    contentComponent: CustomDrawer
-})
+const Routes = createAppContainer(
+    createDrawerNavigator({
+        Home,
+        NewFilms,
+        Favorite,
+    }, {
+        initialRouteName: 'Home',
+        contentComponent: CustomDrawer,
+        drawerBackgroundColor: '#1C1C1C',
+        contentOptions: {
+            labelStyle: {
+                color: '#FFFFFF',
+            },
+            headerStyle: {height:1000}
+        },
+    })
+);
 
-export default createAppContainer(Routes)
+export default Routes

@@ -5,7 +5,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation'
 
 export default function App() {
   return (
-    <Routes />
+      <Routes />
   )
 }
 

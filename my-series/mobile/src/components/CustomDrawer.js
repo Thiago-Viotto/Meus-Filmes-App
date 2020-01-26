@@ -6,10 +6,8 @@ import { DrawerNavigatorItems } from 'react-navigation-drawer'
 function CustomDrawer({ ...props }) {
     return (
         <View>
-            <View style={styles.logo}>
-                <Image source={require('../../assets/logo.png')} />
-            <Text>Nova série</Text>
-            <Text>Meus Favoritos</Text>
+            <View style={styles.drawer}>
+                <Image style={styles.logo} source={require('../../assets/logo.png')} />
         </View>
 
         <DrawerNavigatorItems {...props} />
@@ -20,11 +18,15 @@ function CustomDrawer({ ...props }) {
 
 
 const styles = StyleSheet.create({
+    drawer: {
+        backgroundColor: '#343A40'
+    },
     logo: {
-        width: 100,
-        height: 50,
+        width: 200,
+        height: 30,
         borderRadius: 100,
-        marginLeft: 200
+        marginTop: 15,
+        marginBottom: 10
     }
 })
 
