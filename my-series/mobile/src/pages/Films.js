@@ -3,13 +3,18 @@ import { View, Text } from 'react-native'
 
 class Films extends Component {
 
+    constructor(props){
+        super(props)
+    }
+
     static navigationOptions = {
         header : null
     }
 
     render(){
+        const {navigation} = this.props
         return (
-            <View><Text>Films</Text></View>
+            <Home navigation={navigation} />
         )
     }
 

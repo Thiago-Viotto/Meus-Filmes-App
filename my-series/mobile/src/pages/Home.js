@@ -3,7 +3,11 @@ import { View, Text, SafeAreaView, ScrollView, Dimensions, Image, StyleSheet } f
 import { Header, Left, Right, Icon, Body, Button } from 'native-base'
 
 class Home extends Component {
-
+    
+    constructor(props){
+        super(props)
+    }
+    
     static navigationOptions = {
         drawerLabel: "Home",
         drawerBackgroundColor: '#FFFFFF',
