@@ -1,10 +1,19 @@
 import React, {Component} from 'react'
 import { View, Text } from 'react-native'
+import { Header, Left, Right, Icon, Body, Button } from 'native-base'
 
-class NewFilms extends Component {
+import Home from './Home'
+
+class NewFilms extends Component {    
+    constructor(props){
+        super(props)
+    }
+
     render(){
+        const {navigation} = this.props
+
         return (
-            <View><Text>New Films</Text></View>
+            <Home navigation={navigation} />
         )
     }
 
