@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { View, Text } from 'react-native'
 import { Header, Left, Right, Icon, Body, Button } from 'native-base'
 
-import Home from './Home'
+import HeaderDrawer from './HeaderDrawer'
 
 class NewFilms extends Component {    
     constructor(props){
@@ -13,7 +13,7 @@ class NewFilms extends Component {
         const {navigation} = this.props
 
         return (
-            <Home navigation={navigation} />
+            <HeaderDrawer navigation={navigation} />
         )
     }
 
