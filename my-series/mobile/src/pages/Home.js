@@ -18,6 +18,9 @@ class Home extends Component {
             <ScrollView style={styles.container}>
             <View>
                 <Header style={styles.header} noShadow>
+                    <Button transparent>
+                        <Icon name='arrow-back' style={styles.iconBack} onPress={() => this.props.navigation.goBack(null)} />
+                    </Button>
                     <Body>
                         <Image style={styles.logo} source={require('../../assets/logo.png')} />
                     </Body>
@@ -57,6 +60,10 @@ const styles = StyleSheet.create({
     iconMovie: {
         width: 24,
         height: 24
+    },
+    iconBack: {
+        marginTop: 20,
+        marginLeft: 5
     }
 })
 
