@@ -1,5 +1,6 @@
-import { createAppContainer } from 'react-navigation'
-import { createDrawerNavigator } from 'react-navigation-drawer'
+import * as React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import { DrawerItems } from 'react-navigation'
 import { View, Text, SafeAreaView, ScrollView, Dimensions, Image, StyleSheet } from 'react-native'
 import CustomDrawer from './components/CustomDrawer'
@@ -11,22 +12,16 @@ import EditFilms from './pages/EditFilms'
 import Favorite from './pages/Favorite'
 import VideoFilms from './pages/VideoFilms'
 
-const Routes = createAppContainer(
-    createDrawerNavigator({
-        Home,
-        NewFilms,
-        Favorite,
-    }, {
-        initialRouteName: 'Home',
-        contentComponent: CustomDrawer,
-        drawerBackgroundColor: '#1C1C1C',
-        contentOptions: {
-            labelStyle: {
-                color: '#FFFFFF',
-            },
-            headerStyle: {height:1000}
-        },
-    })
-);
+const Drawer = createDrawerNavigator();
 
-export default Routes
+export default function Routes(){
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator initialRouteName='Home'>
+                <Drawer.Screen name='Home' component={Home} />
+                <Drawer.Screen name='NewFilms' component={NewFilms} options={{drawerLabel: 'Novo Filme'}} />
+                <Drawer.Screen name='Favorite' component={Favorite} options={{drawerLabel: 'Meus Favoritos'}}  />
+            </Drawer.Navigator>
+        </NavigationContainer>
+    )
+}
