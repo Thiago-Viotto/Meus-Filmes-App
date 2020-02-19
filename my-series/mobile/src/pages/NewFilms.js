@@ -12,19 +12,19 @@ class NewFilms extends Component {
         const { navigation } = this.props
 
         return (
-            <Container>
-                <Header>
+            <Container style={styles.container}>
+                <Header style={styles.header}>
                     <Left>
                         <Button transparent>
-                            <Icon name='arrow-back' onPress={() => navigation.goBack(null)} />
+                            <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.goBack(null)} />
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Header</Title>
+                        <Title style={styles.icon}>Novos Filmes</Title>
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Icon name='menu' />
+                            <Icon name='menu' style={styles.icon} onPress={() => this.props.navigation.openDrawer()} />
                         </Button>
                     </Right>
                 </Header>
@@ -34,4 +34,16 @@ class NewFilms extends Component {
 
 }
 
+const styles = StyleSheet.create({
+    header: {
+        height: 70,
+        backgroundColor: '#343A40'
+    },
+    container: {
+        backgroundColor: '#1C1C1C'
+    },
+    icon: {
+        marginTop: 20
+    },
+})
 export default NewFilms
