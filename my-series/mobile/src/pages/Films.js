@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { View, Text } from 'react-native'
 
+import HeaderDrawer from './HeaderDrawer'
+
 class Films extends Component {
 
     constructor(props){
@@ -14,7 +16,7 @@ class Films extends Component {
     render(){
         const {navigation} = this.props
         return (
-            <Home navigation={navigation} />
+            <HeaderDrawer navigation={navigation} />
         )
     }
 

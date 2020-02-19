@@ -1,63 +1,58 @@
-import React, { Component } from 'react'
-import { View, Text, SafeAreaView, ScrollView, Dimensions, Image, StyleSheet } from 'react-native'
+import React, {Component} from 'react'
+import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native'
 import { Header, Left, Right, Icon, Body, Button } from 'native-base'
 
-class Home extends Component {
-    
+import HeaderDrawer from './HeaderDrawer'
+
+class Home extends Component {    
     constructor(props){
         super(props)
     }
-    
-    static navigationOptions = {
-        drawerLabel: "Home",
-        drawerBackgroundColor: '#FFFFFF',
-    }
 
-    render() {
+    render(){
+        const {navigation} = this.props
+
         return (
-            <ScrollView style={styles.container}>
-            <View>
-                <Header style={styles.header} noShadow>
+            <View style={styles.container}>
+                <HeaderDrawer navigation={navigation} />
+                <ImageBackground style={styles.capa} source={require('../../assets/capa.jpg')}>
                     <Body>
                         <Image style={styles.logo} source={require('../../assets/logo.png')} />
+                        <Text style={styles.slogan}>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</Text>
                     </Body>
-                    <Right>
-                        <Button transparent >
-                            <Icon style={styles.icon} name='menu' onPress={() => this.props.navigation.openDrawer()} />
-                        </Button>
-                    </Right>
-                </Header>
-                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text>Home</Text>
-                </View>
+                </ImageBackground>
             </View>
-            </ScrollView>
         )
     }
+
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#1C1C1C'
+    },
+    capa: {
+        width: '100%',
+        height: 115,
+        marginTop: -16
     },
     logo: {
-        width: 150,
+        width: 300,
         height: 50,
-        borderRadius: 100,
         resizeMode: "center",
-        marginTop: 20
-    },
-    header: {
-        backgroundColor: '#343A40',
-        height: 70
-    },
-    icon: {
-        marginTop: 20
+        marginTop: 25
     },
     iconMovie: {
         width: 24,
         height: 24
     },
+    slogan:{
+        textAlign: 'center',
+        color: '#FFFFFF',
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -3, height: 1},
+        textShadowRadius: 10,
+        fontWeight: 'bold',
+    }
 })
 
 export default Home

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { View, Text } from 'react-native'
 
-import Home from './Home'
+import HeaderDrawer from './HeaderDrawer'
 
 class VideoFilms extends Component {
     
@@ -16,7 +16,7 @@ class VideoFilms extends Component {
     render(){
         const {navigation} = this.props
         return (
-            <Home navigation={navigation} />
+            <HeaderDrawer navigation={navigation} />
         )
     }
 
