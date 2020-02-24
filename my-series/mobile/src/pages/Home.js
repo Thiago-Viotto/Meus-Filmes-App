@@ -1,30 +1,78 @@
-import React, {Component} from 'react'
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native'
-import { Header, Left, Right, Icon, Body, Button } from 'native-base'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList } from 'react-native'
+import { Body, Container } from 'native-base'
 
 import HeaderDrawer from './HeaderDrawer'
 
-class Home extends Component {    
-    constructor(props){
-        super(props)
-    }
+const { width } = Dimensions.get('window');
 
-    render(){
-        const {navigation} = this.props
+renderItem = ({ item }) => {
+    return (<View>
+        <Image source={item.avatar} style={styles.imgGenre} />
+    </View>)
+}
 
-        return (
-            <View style={styles.container}>
-                <HeaderDrawer navigation={navigation} />
-                <ImageBackground style={styles.capa} source={require('../../assets/capa.jpg')}>
-                    <Body>
-                        <Image style={styles.logo} source={require('../../assets/logo.png')} />
-                        <Text style={styles.slogan}>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</Text>
-                    </Body>
-                </ImageBackground>
-            </View>
-        )
-    }
+export default function Home({ navigation }) {
+    const [imageGenres, setImageGenres] = useState([
+        {
+            id: 0,  // key
+            avatar: require('../../assets/imgGenres/comedia.jpg'),
+        },
+        {
+            id: 1,  // key
+            avatar: require('../../assets/imgGenres/drama.jpg')
+        },
+        {
+            id: 2,  // key
+            avatar: require('../../assets/imgGenres/acao.jpg')
+        },
+        {
+            id: 3,  // key
+            avatar: require('../../assets/imgGenres/animaçao.jpg')
+        },
+        {
+            id: 4,  // key
+            avatar: require('../../assets/imgGenres/aventura.jpg')
+        },
+        {
+            id: 5,  // key
+            avatar: require('../../assets/imgGenres/ficçaoCientifica.jpg')
+        },
+        {
+            id: 6,  // key
+            avatar: require('../../assets/imgGenres/romance.jpeg')
+        },
+        {
+            id: 7,  // key
+            avatar: require('../../assets/imgGenres/suspense.jpg')
+        },
+        {
+            id: 8,  // key
+            avatar: require('../../assets/imgGenres/terror.jpg')
+        },
+    ]);
 
+    return (
+        <View style={styles.container}>
+            <HeaderDrawer navigation={navigation} />
+            <ImageBackground style={styles.capa} source={require('../../assets/capa.jpg')}>
+                <Body>
+                    <Image style={styles.logo} source={require('../../assets/logo.png')} />
+                    <Text style={styles.slogan}>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</Text>
+                </Body>
+            </ImageBackground>
+
+            <FlatList
+                keyExtractor={(item) => item.id}
+                data={imageGenres}
+                renderItem={({ item }) => (
+                    <View style={styles.imgGenreView}>
+                        <Image source={item.avatar} style={styles.imgGenre} />
+                    </View>
+                )}
+            />
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -45,14 +93,25 @@ const styles = StyleSheet.create({
         width: 24,
         height: 24
     },
-    slogan:{
+    slogan: {
         textAlign: 'center',
         color: '#FFFFFF',
         textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: {width: -3, height: 1},
+        textShadowOffset: { width: -3, height: 1 },
         textShadowRadius: 10,
         fontWeight: 'bold',
+    },
+    imgGenre: {
+        width: '100%',
+        maxWidth: 330,
+        height: 200,
+        marginTop: 8,
+        borderRadius: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 8
+    },
+    imgGenreView: {
+        alignItems: 'center',
     }
 })
-
-export default Home
