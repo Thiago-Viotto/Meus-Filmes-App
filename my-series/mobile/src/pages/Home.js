@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList } from 'react-native'
-import { Body, Container } from 'native-base'
+import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList, TouchableOpacity } from 'react-native'
+import { Body } from 'native-base'
+import { NativeRouter, Route, Link } from "react-router-native";
 
 import HeaderDrawer from './HeaderDrawer'
 
@@ -66,9 +67,12 @@ export default function Home({ navigation }) {
                 keyExtractor={(item) => item.id}
                 data={imageGenres}
                 renderItem={({ item }) => (
-                    <View style={styles.imgGenreView}>
-                        <Image source={item.avatar} style={styles.imgGenre} />
-                    </View>
+                    <Link to={'/new'}>
+                        <TouchableOpacity style={styles.imgGenreView}>
+                            <Image source={item.avatar} style={styles.imgGenre} />
+                        </TouchableOpacity>
+                    </Link>
+
                 )}
             />
         </View>
