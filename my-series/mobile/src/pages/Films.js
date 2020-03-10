@@ -10,14 +10,11 @@ class Films extends Component {
     }
 
     static navigationOptions = {
-        header : null
+        headerShown: false
     }
 
     render(){
-        const {navigation} = this.props
-        return (
-            <HeaderDrawer navigation={navigation} />
-        )
+        return null
     }
 
 }

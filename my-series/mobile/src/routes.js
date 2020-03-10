@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeRouter, Route, Link } from "react-router-native";
@@ -11,25 +12,23 @@ import Favorite from './pages/Favorite'
 import VideoFilms from './pages/VideoFilms'
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
-export default function Routes() {
+export default function DrawerRoutes() {
     return (
-        <>
-        <NavigationContainer>
-            <Drawer.Navigator initialRouteName='Home'>
-                <Drawer.Screen name='Home' component={Home} />
-                <Drawer.Screen name='NewFilms' component={NewFilms} options={{ drawerLabel: 'Novo Filme' }} />
-                <Drawer.Screen name='Favorite' component={Favorite} options={{ drawerLabel: 'Meus Favoritos' }} />
-            </Drawer.Navigator>
-        </NavigationContainer>
-        <NativeRouter>
-            <Route exact path='/' component={Home} />
-            <Route path='/films-video:id' component={VideoFilms} />
-            <Route path='/films-edit:id' component={EditFilms} />
-            <Route path='/films/:genre' component={Films} />
-            <Route path='/films/favorite' component={Favorite} />
-            <Route exact path='/new' component={NewFilms} />
-        </NativeRouter>
-        </>
+        <Drawer.Navigator initialRouteName='Home'>
+            <Drawer.Screen name='Root' component={Root} options={{ drawerLabel: 'Home' }} />
+            <Drawer.Screen name='NewFilms' component={NewFilms} options={{ drawerLabel: 'Novo Filme' }} />
+            <Drawer.Screen name='Favorite' component={Favorite} options={{ drawerLabel: 'Meus Favoritos' }} />
+        </Drawer.Navigator>
+    )
+}
+
+function Root() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Home' component={Home} options={{headerShown: false}} />
+            <Stack.Screen name='Films' component={Films} options={{headerShown: false}}/>
+        </Stack.Navigator>
     )
 }

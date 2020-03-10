@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList, TouchableOpacity } from 'react-native'
 import { Body } from 'native-base'
-import { NativeRouter, Route, Link } from "react-router-native";
+import { App } from '../routes'
 
 import HeaderDrawer from './HeaderDrawer'
+import Films from './Films'
 
 const { width } = Dimensions.get('window');
 
 renderItem = ({ item }) => {
-    return (<View>
-        <Image source={item.avatar} style={styles.imgGenre} />
-    </View>)
+    return (
+        <View>
+            <Image source={item.avatar} style={styles.imgGenre} />
+        </View>
+    )
 }
 
 export default function Home({ navigation }) {
@@ -62,21 +65,21 @@ export default function Home({ navigation }) {
                     <Text style={styles.slogan}>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</Text>
                 </Body>
             </ImageBackground>
-
             <FlatList
                 keyExtractor={(item) => item.id}
                 data={imageGenres}
                 renderItem={({ item }) => (
-                    <Link to={'/new'}>
-                        <TouchableOpacity style={styles.imgGenreView}>
-                            <Image source={item.avatar} style={styles.imgGenre} />
-                        </TouchableOpacity>
-                    </Link>
-
+                    <TouchableOpacity onPress={() => navigation.navigate('Root', { screen: 'Films' })} style={styles.imgGenreView}>
+                        <Image source={item.avatar} style={styles.imgGenre} />
+                    </TouchableOpacity>
                 )}
             />
         </View>
     )
+}
+
+Home.navigationOptions = {
+    headerShown: false
 }
 
 const styles = StyleSheet.create({
