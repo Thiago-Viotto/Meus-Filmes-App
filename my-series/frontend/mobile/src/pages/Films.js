@@ -22,7 +22,9 @@ function Films({ route, navigation }) {
             {films.map(film => (
                 <TouchableOpacity key={film.id} style={styles.imgGenreView}>
                     <Text>{film.img}</Text>
-                    <Image source={require('../../../frontend/public/images/logo.png')} style={styles.imgGenre} />
+                    <Image source={
+                        require('../../assets/logo.png')
+                    } style={styles.imgGenre} />
                 </TouchableOpacity>
             ))}
         </>
