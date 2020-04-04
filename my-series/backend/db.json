@@ -48,15 +48,6 @@
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
     {
-      "id": 47,
-      "name": "teste 4212sdsdxxcddsdsd22",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/images/0ea33df11c43b2bcfbaab9bd01770d9f.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
-    },
-    {
       "id": 48,
       "name": "teste 7cxxcgfgf",
       "comment": "",
@@ -76,13 +67,14 @@
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
-      "name": "Teste",
+      "id": 54,
+      "name": "teste sddsd",
       "comment": "",
       "status": "toWatch",
       "genre": "Comédia",
-      "img": "../mobile/assets/IMG_20190518_213250.jpg",
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 54
+      "img": "http://localhost:3000/images/IMG_791822.JPG",
+      "nameImage": "IMG_791822.JPG",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     }
   ],
   "genres": [

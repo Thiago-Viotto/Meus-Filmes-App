@@ -91,10 +91,13 @@ class NewFilms extends Component {
             })
 
         let valueURLImg = ''
+        let nameImage = ''
 
         if (this.state.selectedFile === null) {
             valueURLImg = null //no pôster
+            nameImage = null // no image
         } else {
+            nameImage = this.state.selectedFile.name;
             valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
         }
 
@@ -104,6 +107,7 @@ class NewFilms extends Component {
             status: 'toWatch',
             genre: this.refs.genre.value,
             img: valueURLImg,
+            nameImage: nameImage,
             video: this.refs.urlVideo.value
         }
 
