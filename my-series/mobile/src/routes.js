@@ -28,7 +28,7 @@ function Root() {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Home' component={Home} options={{headerShown: false}} />
-            <Stack.Screen name='Films' component={Films} options={{headerShown: false}}/>
+            <Stack.Screen name='Films' component={Films} options={{headerShown: false, cardStyle: { backgroundColor: '#000000' }}}/>
         </Stack.Navigator>
     )
 }
