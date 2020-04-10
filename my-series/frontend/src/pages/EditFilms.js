@@ -5,6 +5,7 @@ import '../css/Films.css'
 
 let nameUpdate = ''
 let urlVideoUpdate = ''
+let nameImage = ''
 
 class EditFilms extends Component {
     _isMounted = false;
@@ -49,6 +50,7 @@ class EditFilms extends Component {
                     this.setState({ isLoading: true })
                 }
                 this.setState({ films: res.data }) 
+                nameImage = this.state.films.nameImage
                 this.refs.name.value = this.state.films.name
                 this.refs.urlVideo.value = this.state.films.video
                 nameUpdate = this.state.films.name // name initial that will be updated
@@ -112,6 +114,7 @@ class EditFilms extends Component {
             status: this.state.films.status,
             genre: this.refs.genre.value,
             img: this.refs.urlImage.value,
+            nameImage: nameImage,
             video: this.refs.urlVideo.value
         }
 

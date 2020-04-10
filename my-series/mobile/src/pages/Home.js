@@ -1,78 +1,94 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList } from 'react-native'
-import { Body, Container } from 'native-base'
+import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList, TouchableOpacity } from 'react-native'
+import { Body } from 'native-base'
+import { App } from '../routes'
 
 import HeaderDrawer from './HeaderDrawer'
+import Films from './Films'
 
 const { width } = Dimensions.get('window');
 
 renderItem = ({ item }) => {
-    return (<View>
-        <Image source={item.avatar} style={styles.imgGenre} />
-    </View>)
+    return (
+        <View>
+            <Image source={item.avatar} style={styles.imgGenre} />
+        </View>
+    )
 }
 
 export default function Home({ navigation }) {
     const [imageGenres, setImageGenres] = useState([
         {
             id: 0,  // key
-            avatar: require('../../assets/imgGenres/comedia.jpg'),
+            avatar: require('../assets/imgGenres/comedia.jpg'),
+            genre: 'Comédia'
         },
         {
             id: 1,  // key
-            avatar: require('../../assets/imgGenres/drama.jpg')
+            avatar: require('../assets/imgGenres/drama.jpg'),
+            genre: 'Drama'
         },
         {
             id: 2,  // key
-            avatar: require('../../assets/imgGenres/acao.jpg')
+            avatar: require('../assets/imgGenres/acao.jpg'),
+            genre: 'Ação'
         },
         {
             id: 3,  // key
-            avatar: require('../../assets/imgGenres/animaçao.jpg')
+            avatar: require('../assets/imgGenres/animaçao.jpg'),
+            genre: 'Animação'
         },
         {
             id: 4,  // key
-            avatar: require('../../assets/imgGenres/aventura.jpg')
+            avatar: require('../assets/imgGenres/aventura.jpg'),
+            genre: 'Aventura'
         },
         {
             id: 5,  // key
-            avatar: require('../../assets/imgGenres/ficçaoCientifica.jpg')
+            avatar: require('../assets/imgGenres/ficçaoCientifica.jpg'),
+            genre: 'FicçãoCientífica'
         },
         {
             id: 6,  // key
-            avatar: require('../../assets/imgGenres/romance.jpeg')
+            avatar: require('../assets/imgGenres/romance.jpeg'),
+            genre: 'Romance'
         },
         {
             id: 7,  // key
-            avatar: require('../../assets/imgGenres/suspense.jpg')
+            avatar: require('../assets/imgGenres/suspense.jpg'),
+            genre: 'Suspense'
         },
         {
             id: 8,  // key
-            avatar: require('../../assets/imgGenres/terror.jpg')
+            avatar: require('../assets/imgGenres/terror.jpg'),
+            genre: 'Terror'
         },
     ]);
 
     return (
         <View style={styles.container}>
             <HeaderDrawer navigation={navigation} />
-            <ImageBackground style={styles.capa} source={require('../../assets/capa.jpg')}>
+            <ImageBackground style={styles.capa} source={require('../assets/capa.jpg')}>
                 <Body>
-                    <Image style={styles.logo} source={require('../../assets/logo.png')} />
+                    <Image style={styles.logo} source={require('../assets/logo.png')} />
                     <Text style={styles.slogan}>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</Text>
                 </Body>
             </ImageBackground>
-
             <FlatList
                 keyExtractor={(item) => item.id}
                 data={imageGenres}
                 renderItem={({ item }) => (
-                    <View style={styles.imgGenreView}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Root', { screen: 'Films', params: {item}})} style={styles.imgGenreView}>
                         <Image source={item.avatar} style={styles.imgGenre} />
-                    </View>
+                    </TouchableOpacity>
                 )}
             />
         </View>
     )
+}
+
+Home.navigationOptions = {
+    headerShown: false
 }
 
 const styles = StyleSheet.create({

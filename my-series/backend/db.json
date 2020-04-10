@@ -18,15 +18,6 @@
       "video": "https://www.youtube.com/watch?v=oHP2yaQ2XYI"
     },
     {
-      "id": 30,
-      "name": "terra 123",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/images/terra-selvagem-destaque.jpg",
-      "video": "https://www.youtube.com/watch?v=7iYICSBJbso"
-    },
-    {
       "id": 31,
       "name": "A Justiceira",
       "comment": "dsdsdsds",
@@ -57,39 +48,12 @@
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
     {
-      "id": 47,
-      "name": "teste 4212sdsdxxcddsdsd22",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": "http://localhost:3000/images/0ea33df11c43b2bcfbaab9bd01770d9f.jpg",
-      "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
-    },
-    {
       "id": 48,
       "name": "teste 7cxxcgfgf",
       "comment": "",
       "status": "toWatch",
       "genre": "Drama",
       "img": "http://localhost:3000/images/239_RR_01292017cc_2863__4d5e8362ec55fde017437b255f27b877.0.jpg",
-      "video": "https://youtu.be/DiLbV-X_-Q0"
-    },
-    {
-      "name": "sddsd",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": null,
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 49
-    },
-    {
-      "id": 52,
-      "name": "sem postercvvcv",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "img": "",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
@@ -101,6 +65,16 @@
       "genreOld": "Aventura",
       "img": null,
       "video": "https://youtu.be/DiLbV-X_-Q0"
+    },
+    {
+      "name": "teste",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
+      "nameImage": "IMG_20190518_213250.jpg",
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 54
     }
   ],
   "genres": [

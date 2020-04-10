@@ -1,8 +1,9 @@
 import React from 'react';
-import Routes from './src/routes'
+import DrawerRoutes from './src/routes'
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,9 @@ export default class App extends React.Component {
     }
 
     return (
-      <Routes />
+      <NavigationContainer>
+        <DrawerRoutes />
+      </NavigationContainer>
     );
   }
 }
