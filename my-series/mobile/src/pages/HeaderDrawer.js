@@ -19,7 +19,7 @@ class HeaderDrawer extends Component {
             <View>
                 <Header style={styles.header} noShadow>
                     <Body>
-                        <Image style={styles.logo} source={require('../../assets/logo.png')} />
+                        <Image style={styles.logo} source={require('../assets/logo.png')} />
                     </Body>
                     <Right>
                         <Button transparent >

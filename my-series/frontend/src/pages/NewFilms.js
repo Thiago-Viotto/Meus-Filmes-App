@@ -97,7 +97,7 @@ class NewFilms extends Component {
             valueURLImg = null //no pôster
             nameImage = null // no image
         } else {
-            nameImage = this.state.selectedFile.name;
+            nameImage = this.state.selectedFile.name
             valueURLImg = 'http://localhost:3000/images/' + this.state.selectedFile.name
         }
 

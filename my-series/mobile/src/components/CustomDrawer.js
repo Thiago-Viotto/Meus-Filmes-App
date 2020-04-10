@@ -7,7 +7,7 @@ function CustomDrawer({ ...props }) {
     return (
         <View>
             <View style={styles.drawer}>
-                <Image style={styles.logo} source={require('../../assets/logo.png')} />
+                <Image style={styles.logo} source={require('../assets/logo.png')} />
         </View>
 
         <DrawerNavigatorItems {...props} />

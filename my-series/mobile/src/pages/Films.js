@@ -20,13 +20,12 @@ function Films({ route, navigation }) {
     return (
         <>
             {films.map(film => (
-                <TouchableOpacity key={film.id} style={styles.imgGenreView}>
+                < TouchableOpacity key={film.id} style={styles.imgGenreView} >
                     <Text>{film.img}</Text>
-                    <Image source={
-                        require('../../assets/logo.png')
-                    } style={styles.imgGenre} />
+                    <Image source={{uri: `http://10.0.3.2:3000/images/${film.nameImage}`}} style={styles.imgGenre} />
                 </TouchableOpacity>
-            ))}
+            ))
+            }
         </>
     )
 }
