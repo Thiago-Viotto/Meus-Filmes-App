@@ -5,6 +5,7 @@ import { App } from '../routes'
 
 import HeaderDrawer from './HeaderDrawer'
 import Films from './Films'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const { width } = Dimensions.get('window');
 
@@ -65,6 +66,8 @@ export default function Home({ navigation }) {
         },
     ]);
 
+    console.log(imageGenres)
+
     return (
         <View style={styles.container}>
             <HeaderDrawer navigation={navigation} />
@@ -78,7 +81,7 @@ export default function Home({ navigation }) {
                 keyExtractor={(item) => item.id}
                 data={imageGenres}
                 renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('Root', { screen: 'Films', params: {item}})} style={styles.imgGenreView}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Root', { screen: 'Films', params: { item } })} style={styles.imgGenreView} >
                         <Image source={item.avatar} style={styles.imgGenre} />
                     </TouchableOpacity>
                 )}
@@ -93,6 +96,7 @@ Home.navigationOptions = {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1
     },
     capa: {
         width: '100%',
@@ -125,9 +129,10 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 8
+        marginLeft: 8,
     },
     imgGenreView: {
         alignItems: 'center',
+        marginBottom: 7
     }
 })
