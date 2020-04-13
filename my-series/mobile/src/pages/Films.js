@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
         color: '#000000',
         marginBottom: 3
     }
-
 })
 
 export default Films
