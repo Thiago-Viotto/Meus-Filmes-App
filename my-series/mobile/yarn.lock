@@ -4509,6 +4509,11 @@ react-native-screens@2.0.0-alpha.12:
   dependencies:
     debounce "^1.2.0"
 
+react-native-simple-toast@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-simple-toast/-/react-native-simple-toast-1.1.1.tgz#f00151ac56df1d5c5e78bd39addad0ed936a80cd"
+  integrity sha512-XASGDBvEi5I4KhjbbruxuW8Bo2iZEDFGsQpv55cT92tkrzuFZeVk9p7ocjV548uwVp4i9utdwjOGUVDI+NatgA==
+
 react-native-vector-icons@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.6.0.tgz#66cf004918eb05d90778d64bd42077c1800d481b"

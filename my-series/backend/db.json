@@ -23,7 +23,6 @@
       "comment": "dsdsdsds",
       "status": "watching",
       "genre": "favorite",
-      "genreOld": "Comédia",
       "img": "http://localhost:3000/images/pippermint-trailer-legendado-jennifer-garner-.png",
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
@@ -32,8 +31,7 @@
       "name": "ol",
       "comment": "",
       "status": "watching",
-      "genre": "favorite",
-      "genreOld": "Comédia",
+      "genre": "Comédia",
       "img": "http://localhost:3000/images/181091938.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
@@ -43,7 +41,6 @@
       "comment": "",
       "status": "watching",
       "genre": "favorite",
-      "genreOld": "Comédia",
       "img": "http://localhost:3000/images/181091938.jpg",
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
@@ -52,7 +49,7 @@
       "name": "teste 7cxxcgfgf",
       "comment": "",
       "status": "toWatch",
-      "genre": "Drama",
+      "genre": "favorite",
       "img": "http://localhost:3000/images/239_RR_01292017cc_2863__4d5e8362ec55fde017437b255f27b877.0.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
@@ -69,6 +66,14 @@
     {
       "id": 54,
       "name": "teste",
+      "comment": "",
+      "status": "toWatch",
+      "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
+      "video": "https://youtu.be/DiLbV-X_-Q0"
+    },
+    {
+      "id": 55,
+      "name": "rrrr",
       "comment": "",
       "status": "toWatch",
       "genre": "favorite",
