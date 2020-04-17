@@ -15,14 +15,15 @@ function Favorite({ route, navigation }) {
     const [films, setFilms] = useState([])
 
     useEffect(() => {
-        async function loadFilms() {
-            const response = await api.get('films?genre=favorite')
-
-            console.log(response.data)
-            setFilms(response.data)
-        }
         loadFilms()
     }, [])
+
+    async function loadFilms() {
+        const response = await api.get('films?genre=favorite')
+
+        console.log(response.data)
+        setFilms(response.data)
+    }
 
     return (
         <Container style={styles.container}>
