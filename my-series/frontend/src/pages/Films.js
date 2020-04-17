@@ -100,6 +100,7 @@ class Films extends Component {
             status: favoriteFilm.status,
             genreOld: favoriteFilm.genre,
             genre: 'favorite',
+            nameImage: favoriteFilm.nameImage,
             img: favoriteFilm.img,
             video: favoriteFilm.video
         }

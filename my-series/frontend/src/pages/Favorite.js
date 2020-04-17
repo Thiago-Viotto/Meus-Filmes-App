@@ -14,6 +14,8 @@ const statuses = {
     "toWatch": "Assistir"
 }
 
+let nameImage = ''
+
 class Films extends Component {
     constructor(props) {
         super(props)
@@ -54,6 +56,7 @@ class Films extends Component {
             status: filmRemove.status,
             genre: filmRemove.genreOld,
             img: filmRemove.img,
+            nameImage: filmRemove.nameImage,
             video: filmRemove.video
         }
         api.updateFilms(myFavoriteFilm)
@@ -71,6 +74,7 @@ class Films extends Component {
             status: 'watching',
             genre: film.genre,
             genreOld: film.genreOld,
+            nameImage: film.nameImage,
             img: film.img,
             video: film.video
         }

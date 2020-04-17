@@ -73,12 +73,13 @@
     },
     {
       "id": 55,
-      "name": "rrrr",
+      "name": "teste",
       "comment": "",
       "status": "toWatch",
+      "genreOld": "Comédia",
       "genre": "favorite",
-      "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
       "nameImage": "IMG_20190518_213250.jpg",
+      "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     }
   ],
