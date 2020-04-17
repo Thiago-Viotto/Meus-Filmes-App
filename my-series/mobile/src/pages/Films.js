@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Title } from 'native-base';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { NavigationEvents } from 'react-navigation';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native'
 import api from '../services/api'
 import Toast from 'react-native-simple-toast';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -12,18 +13,20 @@ const statuses = {
 }
 
 function Films({ route, navigation }) {
-    const item = route.params.item.genre
+    const genre = route.params
+    const genreOld = route.params.item.genreOld
     const [films, setFilms] = useState([])
 
     useEffect(() => {
-        async function loadFilms() {
-            const response = await api.get(`films?genre=${item}`)
-
-            console.log(response.data)
-            setFilms(response.data)
-        }
         loadFilms()
     }, [])
+
+    async function loadFilms() {
+        const response = await api.get(`films?genre=${genreOld}`)
+
+        console.log(response.data)
+        setFilms(response.data)
+    }
 
     handleFavorite = (item) => {
         addFavorite(item)
@@ -36,13 +39,14 @@ function Films({ route, navigation }) {
             comment: item.comment,
             status: item.status,
             genre: 'favorite',
+            genreOld: item.genre,
             img: item.img,
             nameImage: item.nameImage,
             video: item.video
         }
         await api.put('films/' + editFilm.id, editFilm)
         Toast.showWithGravity('Adicionado aos favoritos', Toast.SHORT, Toast.BOTTOM);
-        await navigation.navigate('Favorite', { params: { item } })
+        await navigation.navigate('Favorite', { params: route })
     }
 
     return (

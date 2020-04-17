@@ -106,6 +106,7 @@ class NewFilms extends Component {
             comment: this.refs.comment.value,
             status: 'toWatch',
             genre: this.refs.genre.value,
+            genreOld: this.refs.genre.value,
             img: valueURLImg,
             nameImage: nameImage,
             video: this.refs.urlVideo.value

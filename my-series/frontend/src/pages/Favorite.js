@@ -55,6 +55,7 @@ class Films extends Component {
             comment: filmRemove.comment,
             status: filmRemove.status,
             genre: filmRemove.genreOld,
+            genreOld: filmRemove.genreOld,
             img: filmRemove.img,
             nameImage: filmRemove.nameImage,
             video: filmRemove.video

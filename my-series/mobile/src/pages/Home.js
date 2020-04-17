@@ -22,51 +22,59 @@ export default function Home({ navigation }) {
         {
             id: 0,  // key
             avatar: require('../assets/imgGenres/comedia.jpg'),
-            genre: 'Comédia'
+            genre: 'Comédia',
+            genreOld: 'Comédia'
         },
         {
             id: 1,  // key
             avatar: require('../assets/imgGenres/drama.jpg'),
-            genre: 'Drama'
+            genre: 'Drama',
+            genreOld: 'Drama'
         },
         {
             id: 2,  // key
             avatar: require('../assets/imgGenres/acao.jpg'),
-            genre: 'Ação'
+            genre: 'Ação',
+            genreOld: 'Ação'
         },
         {
             id: 3,  // key
             avatar: require('../assets/imgGenres/animaçao.jpg'),
-            genre: 'Animação'
+            genre: 'Animação',
+            genreOld: 'Animação'
         },
         {
             id: 4,  // key
             avatar: require('../assets/imgGenres/aventura.jpg'),
-            genre: 'Aventura'
+            genre: 'Aventura',
+            genreOld: 'Aventura'
         },
         {
             id: 5,  // key
             avatar: require('../assets/imgGenres/ficçaoCientifica.jpg'),
-            genre: 'FicçãoCientífica'
+            genre: 'FicçãoCientífica',
+            genreOld: 'FicçãoCientífica'
         },
         {
             id: 6,  // key
             avatar: require('../assets/imgGenres/romance.jpeg'),
-            genre: 'Romance'
+            genre: 'Romance',
+            genreOld: 'Romance'
         },
         {
             id: 7,  // key
             avatar: require('../assets/imgGenres/suspense.jpg'),
-            genre: 'Suspense'
+            genre: 'Suspense',
+            genreOld: 'Suspense'
+
         },
         {
             id: 8,  // key
             avatar: require('../assets/imgGenres/terror.jpg'),
-            genre: 'Terror'
+            genre: 'Terror',
+            genreOld: 'Terror',
         },
     ]);
-
-    console.log(imageGenres)
 
     return (
         <View style={styles.container}>
