@@ -54,8 +54,8 @@ function Films({ route, navigation }) {
 
     return (
         <>
-            {films.map(film => (
-                <ScrollView>
+            <ScrollView>
+                {films.map(film => (
                     <View style={styles.content}>
                         <TouchableOpacity key={film.id} style={styles.imgGenreView} >
                             <Image source={{ uri: `http://10.0.3.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
@@ -68,9 +68,9 @@ function Films({ route, navigation }) {
                             </View>
                         </TouchableOpacity>
                     </View>
-                </ScrollView>
-            ))
-            }
+                ))
+                }
+            </ScrollView>
         </>
     )
 }

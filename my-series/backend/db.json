@@ -57,7 +57,7 @@
       "name": "teste aventura",
       "comment": "dds",
       "status": "watching",
-      "genre": "favorite",
+      "genre": "Aventura",
       "genreOld": "Aventura",
       "img": null,
       "video": "https://youtu.be/DiLbV-X_-Q0"
@@ -75,11 +75,44 @@
       "name": "teste",
       "comment": "",
       "status": "toWatch",
-      "genre": "favorite",
+      "genre": "Comédia",
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
       "nameImage": "IMG_20190518_213250.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
+    },
+    {
+      "name": "teste 2",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "genreOld": "Comédia",
+      "img": "http://localhost:3000/images/2.png",
+      "nameImage": "2.png",
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 56
+    },
+    {
+      "name": "teste 3",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "genreOld": "Comédia",
+      "img": "http://localhost:3000/images/Sem título.png",
+      "nameImage": "Sem título.png",
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 57
+    },
+    {
+      "name": "teste 5",
+      "comment": "",
+      "status": "toWatch",
+      "genre": "Comédia",
+      "genreOld": "Comédia",
+      "img": "http://localhost:3000/images/2.png",
+      "nameImage": "2.png",
+      "video": "https://youtu.be/DiLbV-X_-Q0",
+      "id": 58
     }
   ],
   "genres": [
