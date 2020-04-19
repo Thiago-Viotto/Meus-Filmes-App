@@ -13,7 +13,6 @@ const statuses = {
 }
 
 function Films({ route, navigation }) {
-    const genre = route.params
     const genreOld = route.params.item.genreOld
     const [films, setFilms] = useState([])
 
@@ -44,7 +43,11 @@ function Films({ route, navigation }) {
             nameImage: item.nameImage,
             video: item.video
         }
+
         await api.put('films/' + editFilm.id, editFilm)
+            .then((res) => {
+                loadFilms()
+            })
         Toast.showWithGravity('Adicionado aos favoritos', Toast.SHORT, Toast.BOTTOM);
         await navigation.navigate('Favorite', { params: route })
     }

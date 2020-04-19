@@ -12,8 +12,6 @@ const statuses = {
 }
 
 function Favorite({ route, navigation }) {
-    const genreOld = route.params.item.genreOld
-    console.log(genreOld)
     const [films, setFilms] = useState([])
 
     useEffect(() => {
@@ -32,7 +30,7 @@ function Favorite({ route, navigation }) {
             <Header style={styles.header}>
                 <Left>
                     <Button transparent>
-                        <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.navigate('Root', { screen: 'Films', params: { genreOld } })} />
+                        <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.navigate('Root', { screen: 'Films' })} />
                     </Button>
                 </Left>
                 <Body>
