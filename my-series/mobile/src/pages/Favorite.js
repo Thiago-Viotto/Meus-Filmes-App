@@ -38,7 +38,7 @@ function Favorite({ route, navigation }) {
                 </Body>
                 <Right>
                     <Button transparent>
-                        <Icon name='menu' style={styles.icon} onPress={() => this.props.navigation.openDrawer()} />
+                        <Icon name='menu' style={styles.icon} onPress={() => navigation.openDrawer()} />
                     </Button>
                 </Right>
             </Header>
