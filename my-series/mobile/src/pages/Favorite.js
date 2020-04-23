@@ -30,7 +30,7 @@ function Favorite({ route, navigation }) {
             <Header style={styles.header}>
                 <Left>
                     <Button transparent>
-                        <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.navigate('Root', { screen: 'Films' })} />
+                        <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.goBack()} />
                     </Button>
                 </Left>
                 <Body>

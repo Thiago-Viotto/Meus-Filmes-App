@@ -93,6 +93,7 @@
       "id": 56
     },
     {
+      "id": 57,
       "name": "teste 3",
       "comment": "",
       "status": "toWatch",
@@ -100,8 +101,7 @@
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/Sem título.png",
       "nameImage": "Sem título.png",
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 57
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
       "name": "teste 5",
