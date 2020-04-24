@@ -30,7 +30,6 @@
       "name": "ol",
       "comment": "",
       "status": "watching",
-      "genre": "favorite",
       "img": "http://localhost:3000/images/181091938.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
@@ -39,7 +38,6 @@
       "name": "teste 323",
       "comment": "",
       "status": "watching",
-      "genre": "favorite",
       "img": "http://localhost:3000/images/181091938.jpg",
       "video": "https://www.youtube.com/watch?v=SVibxQOt_O"
     },
@@ -48,7 +46,6 @@
       "name": "teste 7cxxcgfgf",
       "comment": "",
       "status": "toWatch",
-      "genre": "favorite",
       "img": "http://localhost:3000/images/239_RR_01292017cc_2863__4d5e8362ec55fde017437b255f27b877.0.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
@@ -75,13 +72,14 @@
       "name": "teste",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
+      "genre": "favorite",
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
       "nameImage": "IMG_20190518_213250.jpg",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
+      "id": 56,
       "name": "teste 2",
       "comment": "",
       "status": "toWatch",
@@ -89,8 +87,7 @@
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/2.png",
       "nameImage": "2.png",
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 56
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
       "id": 57,

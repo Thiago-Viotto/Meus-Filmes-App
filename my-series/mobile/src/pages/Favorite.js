@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { HeaderBackButton } from 'react-navigation-stack';
 import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'native-base'
 import api from '../services/api'
+import Toast from 'react-native-simple-toast';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const statuses = {
@@ -23,6 +24,26 @@ function Favorite({ route, navigation }) {
 
         console.log(response.data)
         setFilms(response.data)
+    }
+
+    async function removeFavorite(film) {
+        const updateFilm = {
+            id: film.id,
+            name: film.name,
+            comment: film.comment,
+            status: film.status,
+            genre: film.genreOld,
+            genreOld: film.genreOld,
+            img: film.img,
+            nameImage: film.nameImage,
+            video: film.video
+        }
+
+        await api.put('films/' + updateFilm.id, updateFilm)
+            .then((res) => {
+                loadFilms()
+            })
+        Toast.showWithGravity('Removido dos favoritos', Toast.SHORT, Toast.BOTTOM);
     }
 
     return (
@@ -47,13 +68,13 @@ function Favorite({ route, navigation }) {
                     {films.map(film => (
                         <View style={styles.content}>
                             < TouchableOpacity key={film.id} style={styles.imgGenreView} >
-                                <Image source={{ uri: `http://10.0.3.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
+                                <Image source={{ uri: `http://10.0.2.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
                                 <Title style={styles.name}>{film.name}</Title>
                                 <Text style={styles.status}>{film.genre} / {statuses[film.status]}</Text>
                                 <View style={styles.containerButton}>
                                     <Button rounded info style={styles.button}><Text style={{ paddingHorizontal: 17, fontWeight: 'bold', color: '#FFFFFF', textShadowRadius: 5, fontSize: 15, textShadowColor: '#000000' }}>Favoritos</Text></Button>
                                     <Button rounded bordered style={styles.button}><Text style={{ paddingHorizontal: 28, fontWeight: 'bold', color: '#007bff', fontSize: 15 }}>Editar</Text></Button>
-                                    <Button rounded danger style={styles.button}><Text style={{ paddingHorizontal: 27, fontWeight: 'bold', color: '#FFFFFF', fontSize: 15, textShadowRadius: 5, textShadowColor: '#000000' }}>Excluir</Text></Button>
+                                    <Button rounded danger style={styles.button} onPress={() => removeFavorite(film)}><Text style={{ paddingHorizontal: 27, fontWeight: 'bold', color: '#FFFFFF', fontSize: 15, textShadowRadius: 5, textShadowColor: '#000000' }}>Excluir</Text></Button>
                                 </View>
                             </TouchableOpacity>
                         </View>
