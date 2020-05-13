@@ -108,8 +108,7 @@ const styles = StyleSheet.create({
     },
     capa: {
         width: '100%',
-        height: 115,
-        marginTop: -16
+        height: 115
     },
     logo: {
         width: 300,
