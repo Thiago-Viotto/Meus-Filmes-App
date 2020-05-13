@@ -23,7 +23,6 @@ function Films({ route, navigation }) {
     async function loadFilms() {
         const response = await api.get(`films?genre=${genreOld}`)
 
-        console.log(response.data)
         setFilms(response.data)
     }
 

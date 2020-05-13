@@ -5,6 +5,7 @@ import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'nativ
 import api from '../services/api'
 import Toast from 'react-native-simple-toast';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useFocusEffect } from '@react-navigation/native';
 
 const statuses = {
     "watched": "Assistido",
@@ -15,15 +16,15 @@ const statuses = {
 function Favorite({ route, navigation }) {
     const [films, setFilms] = useState([])
 
-    useEffect(() => {
+    useFocusEffect(() => {
         loadFilms()
     }, [])
 
     async function loadFilms() {
         const response = await api.get('films?genre=favorite')
 
-        console.log(response.data)
         setFilms(response.data)
+        console.log(films)
     }
 
     async function removeFavorite(film) {
@@ -66,8 +67,8 @@ function Favorite({ route, navigation }) {
             <ScrollView>
                 <>
                     {films.map(film => (
-                        <View style={styles.content}>
-                            < TouchableOpacity key={film.id} style={styles.imgGenreView} >
+                        <View key={film.id} style={styles.content}>
+                            < TouchableOpacity style={styles.imgGenreView} >
                                 <Image source={{ uri: `http://10.0.2.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
                                 <Title style={styles.name}>{film.name}</Title>
                                 <Text style={styles.status}>{film.genre} / {statuses[film.status]}</Text>

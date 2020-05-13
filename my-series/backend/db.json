@@ -72,7 +72,7 @@
       "name": "teste",
       "comment": "",
       "status": "toWatch",
-      "genre": "favorite",
+      "genre": "Comédia",
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
       "nameImage": "IMG_20190518_213250.jpg",
@@ -83,7 +83,7 @@
       "name": "teste 2",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
+      "genre": "favorite",
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/2.png",
       "nameImage": "2.png",
@@ -94,22 +94,22 @@
       "name": "teste 3",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
+      "genre": "favorite",
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/Sem título.png",
       "nameImage": "Sem título.png",
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
+      "id": 58,
       "name": "teste 5",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
+      "genre": "favorite",
       "genreOld": "Comédia",
       "img": "http://localhost:3000/images/2.png",
       "nameImage": "2.png",
-      "video": "https://youtu.be/DiLbV-X_-Q0",
-      "id": 58
+      "video": "https://youtu.be/DiLbV-X_-Q0"
     }
   ],
   "genres": [
