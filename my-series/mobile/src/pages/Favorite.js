@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { HeaderBackButton } from 'react-navigation-stack';
 import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'native-base'
 import api from '../services/api'
 import Toast from 'react-native-simple-toast';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useFocusEffect } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native'
 
 const statuses = {
     "watched": "Assistido",
@@ -15,10 +14,11 @@ const statuses = {
 
 function Favorite({ route, navigation }) {
     const [films, setFilms] = useState([])
+    const isFocused = useIsFocused()
 
-    useFocusEffect(() => {
+    useEffect(() => {
         loadFilms()
-    }, [])
+    }, [isFocused])
 
     async function loadFilms() {
         const response = await api.get('films?genre=favorite')
