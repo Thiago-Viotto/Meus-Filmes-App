@@ -68,6 +68,11 @@ function Films({ route, navigation }) {
                     </Button>
                 </Right>
             </Header>
+            {films.length === 0 &&
+                <View>
+                    <Text style={styles.textEmptyFilm}>Nenhum filme cadastrado</Text>
+                </View>
+            }
             <ScrollView>
                 <>
                     {films.map(film => (
@@ -137,6 +142,11 @@ const styles = StyleSheet.create({
     name: {
         color: '#000000',
         marginBottom: 3
+    },
+    textEmptyFilm: {
+        color: '#FFFFFF',
+        textAlign: 'center',
+        marginTop: 10
     }
 })
 
