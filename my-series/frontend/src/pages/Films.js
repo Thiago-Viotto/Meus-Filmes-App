@@ -122,12 +122,12 @@ class Films extends Component {
                             {films.name}</h2>
                         <div className="row">
                             <div className="col-xs-12 col-md-6">
-                                <p className="lead text-truncate" style={{ fontSize: '16px', textAlign: 'center' }}>
+                                <p className="lead text-truncate" style={{ marginRight: '20px', fontSize: '16px', textAlign: 'center' }}>
                                     {films.genre} / {statuses[films.status]}</p>
                             </div>
-                            <Link className="btn btn-primary buttonFilms" role="group" style={{ marginRight: '5px' }} onClick={() => this.addFavorite(films)} ><h4 className='text-truncate'>Favoritos</h4></Link>
-                            <Link className="btn btn-outline-primary buttonFilms" style={{ marginRight: '5px' }} to={'/films-edit' + films.id} ><h4 className='text-truncate'>Editar</h4></Link>
-                            <Link className="btn btn-danger buttonFilms" style={{ marginRight: '10px' }} onClick={() => this.deleteFilms(films.id, films)}><h4 className='text-truncate'>Excluir</h4></Link>
+                            <Link className="btn btn-primary buttonFilms" role="group" onClick={() => this.addFavorite(films)} ><h4 className='text-truncate'>Favoritos</h4></Link>
+                            <Link className="btn btn-outline-primary buttonFilms"  to={'/films-edit' + films.id} ><h4 className='text-truncate'>Editar</h4></Link>
+                            <Link className="btn btn-danger buttonFilms" style={{marginRight: '15px'}} onClick={() => this.deleteFilms(films.id, films)}><h4 className='text-truncate'>Excluir</h4></Link>
                         </div>
                     </div>
                 </div>

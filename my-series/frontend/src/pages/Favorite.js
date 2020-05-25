@@ -100,9 +100,9 @@ class Films extends Component {
                                     {films.genreOld} / {statuses[films.status]}</p>
                             </div>
                             <div className="col-xs-12 col-md-6">
-                                <Link className="btn btn-primary buttonFilms" role="group" style={{ marginRight: '5px' }} to={'/films-video' + films.id}>
+                                <Link className="btn btn-primary buttonFilms" role="group" style={{ marginRight: '25px', marginBottom: '20px'}} to={'/films-video' + films.id}>
                                     <h4 className="btn btn-outline-primary buttonFavorite" style={{ marginRight: '5px' }} onClick={() => this.changeStatus(films)}>Assistir filme</h4> </Link>
-                                <Link className="btn btn-danger buttonFavorite" style={{ marginRight: '10px' }} onClick={() => this.removeFavorites(films)}><h4 className='text-truncate'>Remover dos favoritos</h4></Link>
+                                <Link className="btn btn-danger buttonFavorite" style={{ marginRight: '10px' }} onClick={() => this.removeFavorites(films)}><h4 style={{ marginTop: '5px' }} className='text-truncate'>Remover dos favoritos</h4></Link>
                             </div>
                         </div>
                     </div>
