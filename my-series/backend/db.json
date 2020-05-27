@@ -69,16 +69,6 @@
       "video": "https://www.youtube.com/watch?v=TWjGBO5dmYA"
     },
     {
-      "id": 56,
-      "name": "O Avatar",
-      "comment": "",
-      "status": "toWatch",
-      "genre": "Ação",
-      "img": "http://localhost:3000/images/posterAvatar.jpg",
-      "nameImage": "posterAvatar.jpg",
-      "video": "https://www.youtube.com/watch?v=1rziSlOiIPk"
-    },
-    {
       "name": "O apocalipse",
       "comment": "",
       "status": "toWatch",
@@ -105,11 +95,33 @@
       "name": "Turma da Monica",
       "comment": "",
       "status": "watching",
-      "genre": "favorite",
+      "genre": "Aventura",
       "genreOld": "Aventura",
-      "nameImage": "posterTurma.jpg",
       "img": "http://localhost:3000/images/posterTurma.jpg",
+      "nameImage": "posterTurma.jpg",
       "video": "https://www.youtube.com/watch?v=sr-bGd9tofc"
+    },
+    {
+      "id": 60,
+      "name": "Coringa edit",
+      "comment": "",
+      "status": "watching",
+      "genre": "Ação",
+      "genreOld": "Ação",
+      "img": "http://localhost:3000/images/posterCoringa.jpg",
+      "nameImage": "posterCoringa.jpg",
+      "video": "https://www.youtube.com/watch?v=9ie5Mqzrg3c"
+    },
+    {
+      "id": 61,
+      "name": "Coringa",
+      "comment": "",
+      "status": "watching",
+      "genre": "favorite",
+      "genreOld": "Comédia",
+      "nameImage": "posterCoringa.jpg",
+      "img": "http://localhost:3000/images/posterCoringa.jpg",
+      "video": "https://www.youtube.com/watch?v=9ie5Mqzrg3c"
     }
   ],
   "genres": [
