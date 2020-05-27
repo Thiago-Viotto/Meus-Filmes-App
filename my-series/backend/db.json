@@ -50,16 +50,6 @@
       "video": "https://youtu.be/DiLbV-X_-Q0"
     },
     {
-      "id": 53,
-      "name": "teste aventura",
-      "comment": "dds",
-      "status": "watching",
-      "genre": "Aventura",
-      "genreOld": "Aventura",
-      "img": null,
-      "video": "https://youtu.be/DiLbV-X_-Q0"
-    },
-    {
       "id": 54,
       "name": "teste",
       "comment": "",
@@ -69,47 +59,69 @@
     },
     {
       "id": 55,
-      "name": "teste",
+      "name": "Resposta Armada",
       "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
-      "genreOld": "Comédia",
-      "img": "http://localhost:3000/images/IMG_20190518_213250.jpg",
-      "nameImage": "IMG_20190518_213250.jpg",
-      "video": "https://youtu.be/DiLbV-X_-Q0"
+      "status": "watching",
+      "genre": "favorite",
+      "genreOld": "Ação",
+      "nameImage": "posterFilmeRespostaArmada.jpg",
+      "img": "http://localhost:3000/images/posterFilmeRespostaArmada.jpg",
+      "video": "https://www.youtube.com/watch?v=TWjGBO5dmYA"
     },
     {
-      "id": 56,
-      "name": "teste 2",
+      "name": "O apocalipse",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
-      "genreOld": "Comédia",
-      "img": "http://localhost:3000/images/2.png",
-      "nameImage": "2.png",
-      "video": "https://youtu.be/DiLbV-X_-Q0"
+      "genre": "Drama",
+      "genreOld": "Drama",
+      "img": "http://localhost:3000/images/posterApocalipse.jpg",
+      "nameImage": "posterApocalipse.jpg",
+      "video": "https://www.youtube.com/watch?v=WLqQdFpozBo",
+      "id": 57
     },
     {
-      "id": 57,
-      "name": "teste 3",
+      "name": "Anaconda 2",
       "comment": "",
       "status": "toWatch",
-      "genre": "Comédia",
-      "genreOld": "Comédia",
-      "img": "http://localhost:3000/images/Sem título.png",
-      "nameImage": "Sem título.png",
-      "video": "https://youtu.be/DiLbV-X_-Q0"
+      "genre": "Terror",
+      "genreOld": "Terror",
+      "img": "http://localhost:3000/images/posterAnaconda2.jpg",
+      "nameImage": "posterAnaconda2.jpg",
+      "video": "https://www.youtube.com/watch?v=vzabDtXvsUI",
+      "id": 58
     },
     {
-      "id": 58,
-      "name": "teste 5",
+      "id": 59,
+      "name": "Turma da Monica",
       "comment": "",
-      "status": "toWatch",
-      "genre": "Comédia",
+      "status": "watching",
+      "genre": "Aventura",
+      "genreOld": "Aventura",
+      "img": "http://localhost:3000/images/posterTurma.jpg",
+      "nameImage": "posterTurma.jpg",
+      "video": "https://www.youtube.com/watch?v=sr-bGd9tofc"
+    },
+    {
+      "id": 60,
+      "name": "Coringa edit",
+      "comment": "",
+      "status": "watching",
+      "genre": "Ação",
+      "genreOld": "Ação",
+      "img": "http://localhost:3000/images/posterCoringa.jpg",
+      "nameImage": "posterCoringa.jpg",
+      "video": "https://www.youtube.com/watch?v=9ie5Mqzrg3c"
+    },
+    {
+      "id": 61,
+      "name": "Coringa",
+      "comment": "",
+      "status": "watching",
+      "genre": "favorite",
       "genreOld": "Comédia",
-      "img": "http://localhost:3000/images/2.png",
-      "nameImage": "2.png",
-      "video": "https://youtu.be/DiLbV-X_-Q0"
+      "nameImage": "posterCoringa.jpg",
+      "img": "http://localhost:3000/images/posterCoringa.jpg",
+      "video": "https://www.youtube.com/watch?v=9ie5Mqzrg3c"
     }
   ],
   "genres": [
