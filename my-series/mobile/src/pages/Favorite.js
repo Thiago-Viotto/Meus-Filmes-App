@@ -4,6 +4,7 @@ import { HeaderBackButton } from 'react-navigation-stack';
 import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'native-base'
 import api from '../services/api'
 import { ScrollView } from 'react-native-gesture-handler';
+import Loading from '../components/Loading'
 
 const statuses = {
     "watched": "Assistido",
@@ -13,6 +14,7 @@ const statuses = {
 
 function Favorite({ route, navigation }) {
     const [films, setFilms] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         loadFilms()
@@ -21,47 +23,54 @@ function Favorite({ route, navigation }) {
     async function loadFilms() {
         const response = await api.get('films?genre=favorite')
 
-        console.log(response.data)
+        setLoading(false)
         setFilms(response.data)
     }
 
     return (
-        <Container style={styles.container}>
-            <Header style={styles.header}>
-                <Left>
-                    <Button transparent>
-                        <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.navigate('Root', { screen: 'Films' })} />
-                    </Button>
-                </Left>
-                <Body>
-                    <Title style={styles.icon}>Meus Favoritos</Title>
-                </Body>
-                <Right>
-                    <Button transparent>
-                        <Icon name='menu' style={styles.icon} onPress={() => navigation.openDrawer()} />
-                    </Button>
-                </Right>
-            </Header>
-            <ScrollView>
-                <>
-                    {films.map(film => (
-                        <View style={styles.content}>
-                            < TouchableOpacity key={film.id} style={styles.imgGenreView} >
-                                <Image source={{ uri: `http://10.0.3.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
-                                <Title style={styles.name}>{film.name}</Title>
-                                <Text style={styles.status}>{film.genre} / {statuses[film.status]}</Text>
-                                <View style={styles.containerButton}>
-                                    <Button rounded info style={styles.button}><Text style={{ paddingHorizontal: 17, fontWeight: 'bold', color: '#FFFFFF', textShadowRadius: 5, fontSize: 15, textShadowColor: '#000000' }}>Favoritos</Text></Button>
-                                    <Button rounded bordered style={styles.button}><Text style={{ paddingHorizontal: 28, fontWeight: 'bold', color: '#007bff', fontSize: 15 }}>Editar</Text></Button>
-                                    <Button rounded danger style={styles.button}><Text style={{ paddingHorizontal: 27, fontWeight: 'bold', color: '#FFFFFF', fontSize: 15, textShadowRadius: 5, textShadowColor: '#000000' }}>Excluir</Text></Button>
+        <>
+            {loading &&
+                <Loading />
+            }
+            {!loading &&
+                <Container style={styles.container}>
+                    <Header style={styles.header}>
+                        <Left>
+                            <Button transparent>
+                                <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.navigate('Root', { screen: 'Films' })} />
+                            </Button>
+                        </Left>
+                        <Body>
+                            <Title style={styles.icon}>Meus Favoritos</Title>
+                        </Body>
+                        <Right>
+                            <Button transparent>
+                                <Icon name='menu' style={styles.icon} onPress={() => navigation.openDrawer()} />
+                            </Button>
+                        </Right>
+                    </Header>
+                    <ScrollView>
+                        <>
+                            {films.map(film => (
+                                <View style={styles.content}>
+                                    < TouchableOpacity key={film.id} style={styles.imgGenreView} >
+                                        <Image source={{ uri: `http://10.0.3.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
+                                        <Title style={styles.name}>{film.name}</Title>
+                                        <Text style={styles.status}>{film.genre} / {statuses[film.status]}</Text>
+                                        <View style={styles.containerButton}>
+                                            <Button rounded info style={styles.button}><Text style={{ paddingHorizontal: 17, fontWeight: 'bold', color: '#FFFFFF', textShadowRadius: 5, fontSize: 15, textShadowColor: '#000000' }}>Favoritos</Text></Button>
+                                            <Button rounded bordered style={styles.button}><Text style={{ paddingHorizontal: 28, fontWeight: 'bold', color: '#007bff', fontSize: 15 }}>Editar</Text></Button>
+                                            <Button rounded danger style={styles.button}><Text style={{ paddingHorizontal: 27, fontWeight: 'bold', color: '#FFFFFF', fontSize: 15, textShadowRadius: 5, textShadowColor: '#000000' }}>Excluir</Text></Button>
+                                        </View>
+                                    </TouchableOpacity>
                                 </View>
-                            </TouchableOpacity>
-                        </View>
-                    ))
-                    }
-                </>
-            </ScrollView>
-        </Container>
+                            ))
+                            }
+                        </>
+                    </ScrollView>
+                </Container>
+            }
+        </>
     )
 }
 
