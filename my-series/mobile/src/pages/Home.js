@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, ImageBackground, Dimensions, FlatList, TouchableOpacity } from 'react-native'
 import { Body } from 'native-base'
-import { App } from '../routes'
 
 import HeaderDrawer from './HeaderDrawer'
-import Films from './Films'
-import { ScrollView } from 'react-native-gesture-handler'
-
-const { width } = Dimensions.get('window');
 
 renderItem = ({ item }) => {
     return (

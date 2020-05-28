@@ -82,7 +82,7 @@ function Favorite({ route, navigation }) {
                             {films.map(film => (
                                 <View key={film.id} style={styles.content}>
                                     < TouchableOpacity style={styles.imgGenreView} >
-                                        <Image source={{ uri: `http://10.0.2.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
+                                        <Image source={{ uri: `http://10.0.3.2:3000/images/${film.nameImage}` }} style={styles.imgGenre} />
                                         <Title style={styles.name}>{film.name}</Title>
                                         <Text style={styles.status}>{film.genre} / {statuses[film.status]}</Text>
                                         <View style={styles.containerButton}>
