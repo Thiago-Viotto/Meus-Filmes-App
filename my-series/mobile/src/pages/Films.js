@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { NavigationEvents } from 'react-navigation';
 import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'native-base'
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native'
 import api from '../services/api'

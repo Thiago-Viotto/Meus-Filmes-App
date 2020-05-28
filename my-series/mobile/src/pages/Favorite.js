@@ -27,7 +27,6 @@ function Favorite({ route, navigation }) {
 
         setLoading(false)
         setFilms(response.data)
-        console.log(films)
     }
 
     async function removeFavorite(film) {
@@ -86,8 +85,7 @@ function Favorite({ route, navigation }) {
                                         <Title style={styles.name}>{film.name}</Title>
                                         <Text style={styles.status}>{film.genre} / {statuses[film.status]}</Text>
                                         <View style={styles.containerButton}>
-                                            <Button rounded info style={styles.button}><Text style={{ paddingHorizontal: 17, fontWeight: 'bold', color: '#FFFFFF', textShadowRadius: 5, fontSize: 15, textShadowColor: '#000000' }}>Favoritos</Text></Button>
-                                            <Button rounded bordered style={styles.button}><Text style={{ paddingHorizontal: 28, fontWeight: 'bold', color: '#007bff', fontSize: 15 }}>Editar</Text></Button>
+                                            <Button rounded info style={styles.button} onPress={() => navigation.navigate('VideoFilms', { screen: 'VideoFilms', params: { film } })}><Text style={{ paddingHorizontal: 17, fontWeight: 'bold', color: '#FFFFFF', textShadowRadius: 5, fontSize: 15, textShadowColor: '#000000' }}>Assistir</Text></Button>
                                             <Button rounded danger style={styles.button} onPress={() => removeFavorite(film)}><Text style={{ paddingHorizontal: 27, fontWeight: 'bold', color: '#FFFFFF', fontSize: 15, textShadowRadius: 5, textShadowColor: '#000000' }}>Excluir</Text></Button>
                                         </View>
                                     </TouchableOpacity>
