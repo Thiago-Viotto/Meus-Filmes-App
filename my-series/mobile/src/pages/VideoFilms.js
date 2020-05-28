@@ -1,25 +1,15 @@
-import React, {Component} from 'react'
-import { View, Text } from 'react-native'
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 
-import HeaderDrawer from './HeaderDrawer'
-
-class VideoFilms extends Component {
-    
-    constructor(props){
-        super(props)
-    }
-
-    static navigationOptions = {
-        header : null
-    }
-
-    render(){
-        const {navigation} = this.props
-        return (
-            <HeaderDrawer navigation={navigation} />
-        )
-    }
-
+export default function VideoFilms() {
+    return(
+        <View><Text>oi</Text></View>
+    )
 }
 
-export default VideoFilms
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+})
+
