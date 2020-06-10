@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'native-base'
+import { Container, Button, Title } from 'native-base'
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native'
 import api from '../services/api'
 import Toast from 'react-native-simple-toast';
 import { ScrollView } from 'react-native-gesture-handler';
 import Loading from '../components/Loading'
+import HeaderComponent from '../components/HeaderComponent'
 
 const statuses = {
     "watched": "Assistido",
@@ -60,21 +61,7 @@ function Films({ route, navigation }) {
             }
             {!loading &&
                 <Container style={styles.container}>
-                    <Header style={styles.header}>
-                        <Left>
-                            <Button transparent>
-                                <Icon name='arrow-back' style={styles.icon} onPress={() => navigation.goBack()} />
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Title style={styles.icon}>Filmes</Title>
-                        </Body>
-                        <Right>
-                            <Button transparent>
-                                <Icon name='menu' style={styles.icon} onPress={() => navigation.openDrawer()} />
-                            </Button>
-                        </Right>
-                    </Header>
+                    <HeaderComponent text='Filmes' />
                     {films.length === 0 &&
                         <View>
                             <Text style={styles.textEmptyFilm}>Nenhum filme cadastrado</Text>
@@ -106,15 +93,8 @@ function Films({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-    header: {
-        height: 70,
-        backgroundColor: '#343A40'
-    },
     container: {
         backgroundColor: '#1C1C1C'
-    },
-    icon: {
-        marginTop: 20
     },
     content: {
         borderColor: '#000000',
