@@ -122,6 +122,17 @@
       "nameImage": "posterCoringa.jpg",
       "img": "http://localhost:3000/images/posterCoringa.jpg",
       "video": "https://www.youtube.com/watch?v=9ie5Mqzrg3c"
+    },
+    {
+      "id": 62,
+      "name": "Filme",
+      "comment": "",
+      "status": "watching",
+      "genre": "favorite",
+      "genreOld": "Comédia",
+      "nameImage": "IMG_20200428_151003214_BURST000_COVER_TOP.jpg",
+      "img": "http://localhost:3000/images/IMG_20200428_151003214_BURST000_COVER_TOP.jpg",
+      "video": "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
     }
   ],
   "genres": [

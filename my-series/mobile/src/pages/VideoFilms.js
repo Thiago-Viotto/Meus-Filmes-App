@@ -1,30 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Video } from 'expo-av'
 import { Container } from 'native-base'
-import { MaterialIcons, Octicons } from '@expo/vector-icons';
+import { MaterialIcons, Octicons } from '@expo/vector-icons'
 import HeaderComponent from '../components/HeaderComponent'
 
 export default function VideoFilms({ route, navigation }) {
-    const [shouldPlay, setPlayAndPause] = useState(true)
     const [mute, setVolume] = useState(false)
     const filmName = route.params.params.film.name
     const url = route.params.params.film.video
 
     function setError(error) {
-        alert('Erro ao carregar o vídeo' + error)
+        alert('Erro ao carregar o vídeo ' + error)
     }
 
     function handleVolume() {
-        setVolume((prevState) => {
-            !prevState.mute
-        })
-    }
-
-    function handlePlayAndPause() {
-        setPlayAndPause((prevState) => {
-            !prevState.shouldPlay
-        })
+        setVolume(!mute)
     }
 
     return (
@@ -32,10 +23,10 @@ export default function VideoFilms({ route, navigation }) {
             <HeaderComponent text={filmName} />
             <View style={styles.videoContainer}>
                 <Video
-                    source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+                    source={{ uri: url }}
                     isMuted={false}
                     resizeMode='cover'
-                    shouldPlay={shouldPlay}
+                    useNativeControls={true}
                     onError={(error) => setError(error)}
                     isMuted={mute}
                     style={styles.backgroundVideo}
@@ -47,20 +38,19 @@ export default function VideoFilms({ route, navigation }) {
                         color='white'
                         onPress={handleVolume}
                     />
-                    <MaterialIcons
-                        name={shouldPlay ? 'pause' : 'play-arrow'}
-                        size={45}
-                        color='white'
-                        onPress={handlePlayAndPause}
-                    />
                 </View>
             </View>
-        </Container>
-
+        </Container >
     )
 }
 
 const styles = StyleSheet.create({
+    Container: {
+        flex: 1
+    },
+    WebViewStyle: {
+        margin: 20
+    },
     container: {
         backgroundColor: '#1C1C1C'
     },
