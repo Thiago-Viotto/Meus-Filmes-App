@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import api from '../server/api'
 import { Redirect } from 'react-router-dom'
+import { notify } from 'react-notify-toast'
 import axios from 'axios'
 import '../css/Films.css'
 
@@ -60,7 +61,7 @@ class NewFilms extends Component {
     validateField(name, urlVideo) {
         return {
             name: !this.validName(name),
-            urlVideo: !this.validURL(urlVideo) 
+            urlVideo: !this.validURL(urlVideo)
         }
     }
 
@@ -119,6 +120,8 @@ class NewFilms extends Component {
 
             api.saveFilms(newFilms)
                 .then((res) => {
+                    if(res.status === 200)
+                        notify.show('Filme cadastrado com sucesso','success', 3000)
                     this.setState({
                         redirect: '/films/' + newFilms.genre,
                     }

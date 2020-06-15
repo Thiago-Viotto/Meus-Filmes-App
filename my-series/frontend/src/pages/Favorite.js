@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 
 import api from '../server/api'
+import { notify } from 'react-notify-toast'
 import '../css/Home.css'
 import '../css/Films.css'
 
@@ -62,6 +63,8 @@ class Films extends Component {
         }
         api.updateFilms(myFavoriteFilm)
             .then((res) => {
+                if(res.status === 200)
+                    notify.show('Filme removido dos favoritos com sucesso','error', 3000)
                 this.loadData()
             })
     }

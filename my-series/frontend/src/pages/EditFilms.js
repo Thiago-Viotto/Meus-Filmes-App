@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import api from '../server/api'
+import { notify } from 'react-notify-toast'
 import { Redirect } from 'react-router-dom'
 import '../css/Films.css'
 
 let nameUpdate = ''
 let urlVideoUpdate = ''
 let nameImage = ''
+let myColor = { background: '#FFFFFF', text: "#0E1717" }
 
 class EditFilms extends Component {
-    _isMounted = false;
+    _isMounted = false
 
     constructor(props) {
         super(props)
@@ -125,6 +127,8 @@ class EditFilms extends Component {
             api.updateFilms(editFilms)
                 .then((res) => {
                     if (this._isMounted) {
+                        if(res.status === 200)
+                            notify.show('Filme editado com sucesso','custom', 3000, myColor)
                         this.setState({ isLoading: true })
                         this.props.history.push('/films/' + editFilms.genre);
                     }

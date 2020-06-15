@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { notify } from 'react-notify-toast'
 
 import {
     Link
@@ -14,6 +15,8 @@ const statuses = {
     "watching": "Assistindo",
     "toWatch": "Assistir"
 }
+
+let myColor = {background: '#045FB4', text: '#FFFFFF'}
 
 class Films extends Component {
     is_Mounted = false
@@ -88,6 +91,8 @@ class Films extends Component {
 
         api.deleteFilms(id)
             .then((res) => {
+                if(res.status === 200)
+                    notify.show('Filme removido com sucesso','error', 3000)
                 this.loadData()
             })
     }
@@ -106,6 +111,8 @@ class Films extends Component {
         }
         api.updateFilms(myFavoriteFilm)
             .then((res) => {
+                if(res.status === 200)
+                    notify.show('Filme adicionado nos favoritos com sucesso','custom', 3000, myColor)
                 this.loadData()
             })
     }

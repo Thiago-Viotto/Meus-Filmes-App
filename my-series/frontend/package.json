@@ -16,9 +16,11 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.8.6",
     "react-images-upload": "^1.2.7",
+    "react-notify-toast": "^0.5.1",
     "react-player": "^1.11.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-toast-notifications": "^2.4.0",
     "serialize-javascript": "^2.1.2"
   },
   "scripts": {
