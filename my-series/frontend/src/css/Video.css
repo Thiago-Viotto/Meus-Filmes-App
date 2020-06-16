@@ -11,15 +11,21 @@
   margin-top: 30px;
 }
 
-.watched span  {
-  margin:auto; 
-  display:block; 
+.watched {
+  width: -webkit-fill-available;
   text-align: center;
+  display: table;
+}
+
+.watched span  {
+  text-align: center;
+  display: inline-block;
+  font-size: '16px';
 }
 
 .btn {
-  margin:auto; 
-  display: table; 
+  margin-left: 10; 
+  display: inline-block; 
   text-align: center;
 }
 

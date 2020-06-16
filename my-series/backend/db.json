@@ -61,10 +61,9 @@
       "id": 55,
       "name": "Resposta Armada",
       "comment": "",
-      "status": "watching",
+      "status": "watched",
       "genre": "favorite",
       "genreOld": "Ação",
-      "nameImage": "posterFilmeRespostaArmada.jpg",
       "img": "http://localhost:3000/images/posterFilmeRespostaArmada.jpg",
       "video": "https://www.youtube.com/watch?v=TWjGBO5dmYA"
     },

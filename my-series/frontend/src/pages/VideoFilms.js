@@ -91,7 +91,7 @@ class VideoFilms extends Component {
                     </div>
 
                     <div className='watched'>
-                        <span>Já assistiu?</span>
+                        <span style={{color:'#FFFFFF', marginRight: '10px', fontSize: '12px'}}>Já assistiu?</span>
                         <Link className="btn btn-success" to={'/films/favorite'}>
                             <span onClick={() => this.changeStatus(this.state.films)}>Sim</span></Link>
                     </div>
