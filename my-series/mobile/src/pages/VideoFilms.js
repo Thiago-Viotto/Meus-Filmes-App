@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Video } from 'expo-av'
+import { Slider } from 'react-native'
+import YoutubePlayer from "react-native-yt-player"
 import { Container } from 'native-base'
 import { MaterialIcons, Octicons } from '@expo/vector-icons'
 import HeaderComponent from '../components/HeaderComponent'
@@ -22,14 +24,14 @@ export default function VideoFilms({ route, navigation }) {
         <Container style={styles.container}>
             <HeaderComponent text={filmName} />
             <View style={styles.videoContainer}>
-                <Video
-                    source={{ uri: url }}
-                    isMuted={false}
-                    resizeMode='cover'
-                    useNativeControls={true}
-                    onError={(error) => setError(error)}
-                    isMuted={mute}
-                    style={styles.backgroundVideo}
+                <YoutubePlayer
+                    loop
+                    topBar={TopBar}
+                    videoId="Z1LmpiIGYNs"
+                    autoPlay
+                    onFullScreen={() => console.log("Full Screen")}
+                    onStart={() => console.log("onStart")}
+                    onEnd={() => alert("on End")}
                 />
                 <View style={styles.controlBar}>
                     <MaterialIcons
@@ -43,6 +45,18 @@ export default function VideoFilms({ route, navigation }) {
         </Container >
     )
 }
+
+const TopBar = ({ play, fullScreen }) => (
+    <View
+      style={{
+        alignSelf: "center",
+        position: "absolute",
+        top: 0
+      }}
+    >
+      <Text style={{ color: "#FFF" }}> Custom Top bar</Text>
+    </View>
+  );
 
 const styles = StyleSheet.create({
     Container: {
