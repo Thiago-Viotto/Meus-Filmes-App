@@ -27,7 +27,10 @@ class VideoFilms extends Component {
 
         api.loadFilmsbyId(this.props.match.params.id)
             .then((res) => {
-                 this.setState({ films: res.data }) 
+                 this.setState({ 
+                    isLoading: false,
+                    films: res.data 
+                }) 
             })
 
         api.loadGenres()
@@ -62,7 +65,7 @@ class VideoFilms extends Component {
     }
 
     render() {
-        if (!this.validVideo(this.state.films.video)) {
+        if (!this.validVideo(this.state.films.video) && (this.state.isLoading === false)) {
             return (
                 <section id="intro" className="intro-section alert alert-info introVideo">
                     <h1 style={{marginBottom:'20px'}}>Não foi possível carregar :(</h1>
