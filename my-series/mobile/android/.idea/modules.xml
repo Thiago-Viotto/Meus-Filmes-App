@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MeusFilmes.iml" filepath="$PROJECT_DIR$/.idea/modules/MeusFilmes.iml" group="MeusFilmes" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="MeusFilmes/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1829344040/expo-app-loader-provider.iml" filepath="$PROJECT_DIR$/.idea/modules/-1829344040/expo-app-loader-provider.iml" group="MeusFilmes/expo-app-loader-provider" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-543507524/expo-av.iml" filepath="$PROJECT_DIR$/.idea/modules/-543507524/expo-av.iml" group="MeusFilmes/expo-av" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2134394200/expo-constants.iml" filepath="$PROJECT_DIR$/.idea/modules/-2134394200/expo-constants.iml" group="MeusFilmes/expo-constants" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/583061953/expo-error-recovery.iml" filepath="$PROJECT_DIR$/.idea/modules/583061953/expo-error-recovery.iml" group="MeusFilmes/expo-error-recovery" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1254617529/expo-file-system.iml" filepath="$PROJECT_DIR$/.idea/modules/1254617529/expo-file-system.iml" group="MeusFilmes/expo-file-system" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1622299670/expo-font.iml" filepath="$PROJECT_DIR$/.idea/modules/1622299670/expo-font.iml" group="MeusFilmes/expo-font" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-386903612/expo-keep-awake.iml" filepath="$PROJECT_DIR$/.idea/modules/-386903612/expo-keep-awake.iml" group="MeusFilmes/expo-keep-awake" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-583051663/expo-linear-gradient.iml" filepath="$PROJECT_DIR$/.idea/modules/-583051663/expo-linear-gradient.iml" group="MeusFilmes/expo-linear-gradient" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1493363204/expo-location.iml" filepath="$PROJECT_DIR$/.idea/modules/-1493363204/expo-location.iml" group="MeusFilmes/expo-location" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2066432355/expo-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/-2066432355/expo-permissions.iml" group="MeusFilmes/expo-permissions" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-808035053/expo-sqlite.iml" filepath="$PROJECT_DIR$/.idea/modules/-808035053/expo-sqlite.iml" group="MeusFilmes/expo-sqlite" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/955167944/expo-web-browser.iml" filepath="$PROJECT_DIR$/.idea/modules/955167944/expo-web-browser.iml" group="MeusFilmes/expo-web-browser" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/233004261/react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/233004261/react-native-community_masked-view.iml" group="MeusFilmes/react-native-community_masked-view" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1479621283/react-native-community_slider.iml" filepath="$PROJECT_DIR$/.idea/modules/1479621283/react-native-community_slider.iml" group="MeusFilmes/react-native-community_slider" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/175435666/react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/175435666/react-native-gesture-handler.iml" group="MeusFilmes/react-native-gesture-handler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1566403940/react-native-orientation.iml" filepath="$PROJECT_DIR$/.idea/modules/-1566403940/react-native-orientation.iml" group="MeusFilmes/react-native-orientation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1365722294/react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-1365722294/react-native-reanimated.iml" group="MeusFilmes/react-native-reanimated" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1741319035/react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/1741319035/react-native-safe-area-context.iml" group="MeusFilmes/react-native-safe-area-context" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/970185043/react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/970185043/react-native-screens.iml" group="MeusFilmes/react-native-screens" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/198156676/react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/198156676/react-native-vector-icons.iml" group="MeusFilmes/react-native-vector-icons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2089865993/react-native-video.iml" filepath="$PROJECT_DIR$/.idea/modules/-2089865993/react-native-video.iml" group="MeusFilmes/react-native-video" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/229127621/react-native-webview.iml" filepath="$PROJECT_DIR$/.idea/modules/229127621/react-native-webview.iml" group="MeusFilmes/react-native-webview" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-378840337/react-native-youtube.iml" filepath="$PROJECT_DIR$/.idea/modules/-378840337/react-native-youtube.iml" group="MeusFilmes/react-native-youtube" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2117647397/unimodules-barcode-scanner-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-2117647397/unimodules-barcode-scanner-interface.iml" group="MeusFilmes/unimodules-barcode-scanner-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/227673043/unimodules-camera-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/227673043/unimodules-camera-interface.iml" group="MeusFilmes/unimodules-camera-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1018165639/unimodules-constants-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-1018165639/unimodules-constants-interface.iml" group="MeusFilmes/unimodules-constants-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/218928459/unimodules-core.iml" filepath="$PROJECT_DIR$/.idea/modules/218928459/unimodules-core.iml" group="MeusFilmes/unimodules-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1334142880/unimodules-face-detector-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/1334142880/unimodules-face-detector-interface.iml" group="MeusFilmes/unimodules-face-detector-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-734566646/unimodules-file-system-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-734566646/unimodules-file-system-interface.iml" group="MeusFilmes/unimodules-file-system-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/516744957/unimodules-font-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/516744957/unimodules-font-interface.iml" group="MeusFilmes/unimodules-font-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1718561779/unimodules-image-loader-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/1718561779/unimodules-image-loader-interface.iml" group="MeusFilmes/unimodules-image-loader-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-916166930/unimodules-permissions-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-916166930/unimodules-permissions-interface.iml" group="MeusFilmes/unimodules-permissions-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/319609683/unimodules-react-native-adapter.iml" filepath="$PROJECT_DIR$/.idea/modules/319609683/unimodules-react-native-adapter.iml" group="MeusFilmes/unimodules-react-native-adapter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1908498979/unimodules-sensors-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/1908498979/unimodules-sensors-interface.iml" group="MeusFilmes/unimodules-sensors-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-31206765/unimodules-task-manager-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-31206765/unimodules-task-manager-interface.iml" group="MeusFilmes/unimodules-task-manager-interface" />
+    </modules>
+  </component>
+</project>

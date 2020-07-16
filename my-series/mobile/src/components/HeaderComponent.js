@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, Button, Left, Body, Right, Header, Icon, Title } from 'native-base'
+import { Button, Left, Body, Right, Header, Icon, Title } from 'native-base'
 import { StyleSheet } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
 
 export default function HeaderComponent(props){
     const navigation = useNavigation()

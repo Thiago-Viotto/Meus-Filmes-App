@@ -69,15 +69,15 @@
       "video": "https://www.youtube.com/watch?v=TWjGBO5dmYA"
     },
     {
+      "id": 57,
       "name": "O apocalipse",
       "comment": "",
       "status": "toWatch",
-      "genre": "Drama",
+      "genre": "favorite",
       "genreOld": "Drama",
       "img": "http://localhost:3000/images/posterApocalipse.jpg",
       "nameImage": "posterApocalipse.jpg",
-      "video": "https://www.youtube.com/watch?v=WLqQdFpozBo",
-      "id": 57
+      "video": "https://www.youtube.com/watch?v=WLqQdFpozBo"
     },
     {
       "name": "Anaconda 2",

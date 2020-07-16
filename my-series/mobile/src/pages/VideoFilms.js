@@ -1,46 +1,71 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { Button, Body, Right, Header, Icon, Title } from 'native-base'
 import { Video } from 'expo-av'
-import { Slider } from 'react-native'
-import YoutubePlayer from "react-native-yt-player"
+import YoutubePlayer from 'react-native-youtube-iframe'
 import { Container } from 'native-base'
-import { MaterialIcons, Octicons } from '@expo/vector-icons'
-import HeaderComponent from '../components/HeaderComponent'
 
 export default function VideoFilms({ route, navigation }) {
+    const playerRef = useRef(null)
+    const [playing, setPlaying] = useState(true)
     const [mute, setVolume] = useState(false)
+    const [isYoutube, setIsYoutube] = useState(false)
     const filmName = route.params.params.film.name
     const url = route.params.params.film.video
 
-    function setError(error) {
-        alert('Erro ao carregar o vídeo ' + error)
-    }
-
-    function handleVolume() {
-        setVolume(!mute)
-    }
+    useEffect(() => {
+        if (url.substring(0, 24) === 'https://www.youtube.com/') {
+            setIsYoutube(true)
+        }
+    })
 
     return (
         <Container style={styles.container}>
-            <HeaderComponent text={filmName} />
+
+            <Header style={{backgroundColor: '#343A40', height: 70}}>
+                <Body>
+                    <Title style={{marginTop: 20, marginLeft: 3}}>{filmName}</Title>
+                </Body>
+                <Right>
+                    <Button transparent>
+                        <Icon name='menu' style={{marginTop: 20}} onPress={() => navigation.openDrawer()} />
+                    </Button>
+                </Right>
+            </Header>
+
+
             <View style={styles.videoContainer}>
-                <YoutubePlayer
-                    loop
-                    topBar={TopBar}
-                    videoId="Z1LmpiIGYNs"
-                    autoPlay
-                    onFullScreen={() => console.log("Full Screen")}
-                    onStart={() => console.log("onStart")}
-                    onEnd={() => alert("on End")}
-                />
-                <View style={styles.controlBar}>
-                    <MaterialIcons
-                        name={mute ? 'volume-mute' : 'volume-up'}
-                        size={45}
-                        color='white'
-                        onPress={handleVolume}
+                {isYoutube &&
+                    <YoutubePlayer
+                        ref={playerRef}
+                        height={300}
+                        width={400}
+                        videoId={url}
+                        play={false}
+                        onChangeState={event => console.log(event)}
+                        onReady={() => console.log("ready")}
+                        onError={e => console.log(e)}
+                        onPlaybackQualityChange={q => console.log(q)}
+                        volume={50}
+                        playbackRate={1}
+                        playerParams={{
+                            cc_lang_pref: "us",
+                            showClosedCaptions: true
+                        }}
                     />
-                </View>
+                }
+                {!isYoutube &&
+                    <Video
+                        source={{ uri: url }}
+                        rate={1.0}
+                        volume={1.0}
+                        isMuted={false}
+                        resizeMode="cover"
+                        shouldPlay
+                        useNativeControls
+                        style={{ width: 400, height: 300 }}
+                    />
+                }
             </View>
         </Container >
     )
@@ -48,15 +73,15 @@ export default function VideoFilms({ route, navigation }) {
 
 const TopBar = ({ play, fullScreen }) => (
     <View
-      style={{
-        alignSelf: "center",
-        position: "absolute",
-        top: 0
-      }}
+        style={{
+            alignSelf: "center",
+            position: "absolute",
+            top: 0
+        }}
     >
-      <Text style={{ color: "#FFF" }}> Custom Top bar</Text>
+        <Text style={{ color: "#FFF" }}> Custom Top bar</Text>
     </View>
-  );
+);
 
 const styles = StyleSheet.create({
     Container: {
@@ -72,7 +97,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-
     },
     controlBar: {
         position: 'absolute',
